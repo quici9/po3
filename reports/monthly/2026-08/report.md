@@ -1,6 +1,6 @@
 # PO3 H1 — Báo cáo tháng 2026-08
 
-Định nghĩa phiên bản 1.0. Sinh lúc 2026-09-17 07:42 UTC. Nền = toàn bộ lịch sử trừ tháng này. Cửa sổ trượt = 3 tháng gần nhất (kể cả tháng này).
+Định nghĩa phiên bản 1.0. Sinh lúc 2026-09-17 07:50 UTC. Nền = toàn bộ lịch sử trừ tháng này. Cửa sổ trượt = 3 tháng gần nhất (kể cả tháng này).
 
 ## EURUSD
 
