@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+data/raw/
+data/raw_h1/
+data/m1/
+data/histdata/
+data/logs/
+data/*.py
+*.docx
+.DS_Store
+data/h1/*_H1_UTC.csv

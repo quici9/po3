@@ -1,0 +1,41 @@
+# Frozen operational definitions for PO3 H1 statistics.
+# Change only in the annual review and bump `version`; every report records the version used.
+version = "1.0"
+pairs = ["EURUSD", "GBPUSD", "USDJPY"]
+timezone = "America/New_York"
+
+[candle]
+min_m1_per_hour = 30       # hours with fewer M1 bars are dropped (illiquid / gaps)
+directional_body_ratio = 0.5   # |close-open| / (high-low) >= this => directional candle
+manipulation_wick_min = 0.05   # open-side wick / range >= this => manipulation wick present
+manipulation_wick_strict = 0.15
+atr_window = 24
+
+[bins]
+minute_bins = [[0, 10], [11, 25], [26, 40], [41, 59]]
+cdf_minutes = [5, 10, 15, 20, 25, 30, 40, 50]
+
+[sessions]
+# New York local hours (inclusive) -> session label
+Asia = [19, 20, 21, 22, 23]
+London = [2, 3, 4]
+NY_AM = [8, 9, 10]
+NY_PM = [13, 14, 15]
+
+[profile]
+news_range_atr = 2.5
+runaway_body = 0.75
+runaway_wick_open_max = 0.05
+classic_range_atr_min = 0.8
+classic_body_min = 0.65
+classic_wick_open = [0.05, 0.30]
+classic_wick_close_max = 0.15
+consol_body_max = 0.4
+consol_wick_min = 0.5
+sd_body_max = 0.3
+sd_wick_min = 0.25
+
+[monitor]
+z_alert = 3.0              # |z| >= this vs baseline => alert flag
+rolling_months = 3         # window for per-session / per-hour tables in the monthly report
+min_coverage = 0.95        # weekday-hour coverage below this => data-quality flag
