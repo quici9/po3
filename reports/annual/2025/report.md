@@ -1,6 +1,6 @@
 # PO3 H1 — Báo cáo năm 2025
 
-Định nghĩa phiên bản 1.0. Sinh lúc 2026-09-17 07:43 UTC. Mỗi bảng có hai phần: năm 2025 và tích lũy toàn bộ lịch sử. Ngày trong tuần chỉ dùng số tích lũy.
+Định nghĩa phiên bản 1.0. Sinh lúc 2026-09-17 07:49 UTC. Mỗi bảng có hai phần: năm 2025 và tích lũy toàn bộ lịch sử. Ngày trong tuần chỉ dùng số tích lũy.
 
 ## EURUSD
 
