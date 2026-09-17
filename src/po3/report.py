@@ -41,8 +41,9 @@ def monthly(year: int, month: int, pairs: list[str] | None = None, fetch_sources
     md = [f"# PO3 H1 — Báo cáo tháng {tag}", "",
           f"Định nghĩa phiên bản {cfg['version']}. Sinh lúc {dt.datetime.now(dt.timezone.utc):%Y-%m-%d %H:%M} UTC. "
           f"Nền = toàn bộ lịch sử trừ tháng này. Cửa sổ trượt = {win} tháng gần nhất (kể cả tháng này).", ""]
-    tg = [f"<b>PO3 tháng {tag}</b> · định nghĩa v{cfg['version']}"]
+    tg = [f"📊 <b>PO3 — Tháng {month:02d}/{year}</b>", f"{len(pairs)} cặp FX · định nghĩa v{cfg['version']}", ""]
     any_alert = False
+    alert_pairs = []
     for pair in pairs:
         facts = features.load_facts(pair)
         d = features.derive(facts)
@@ -77,14 +78,31 @@ def monthly(year: int, month: int, pairs: list[str] | None = None, fetch_sources
         md += [f"### Profile theo phiên (cửa sổ {win} tháng)", "",
                md_table(["Phiên", "n"] + [c for c in prof.columns if c != "n"],
                         [[VN_SESSION.get(i, i), str(int(r["n"]))] + [pc(r[c]) for c in prof.columns if c != "n"] for i, r in prof.iterrows()]), ""]
-        # --- telegram line
+        # --- telegram block
         m = cmp_["metrics"]
-        flag = " ⚠" if cmp_["any_alert"] else ""
-        covflag = " ⚠dữ liệu" if cov["flag"] else ""
-        tg.append(f"<b>{pair}</b> n={cmp_['n_month']}{flag}{covflag}\n"
-                  f"  00–10: {pc(m['00-10']['month'], 0)} (nền {pc(m['00-10']['base'], 0)}) · ≤25: {pc(m['le25']['month'], 0)} (nền {pc(m['le25']['base'], 0)}) · phút0: {pc(m['min0']['month'], 0)}\n"
-                  f"  giờ mạnh ({win}th): " + ", ".join(f"{h:02d}:00" for h in top.index[:3]) + " NY")
-    tg.append(("Có cảnh báo: xem báo cáo đính kèm." if any_alert else "Không có bất thường.") + " Định nghĩa: 00–10 = tỷ lệ cực trị thao túng trong 10 phút đầu; ≤25 = trong 25 phút đầu; phút0 = ngay phút mở cửa.")
+        if cmp_["any_alert"] or cov["flag"]:
+            alert_pairs.append(pair)
+        if cov["flag"]:
+            status = f"⚠ thiếu dữ liệu (độ phủ {pc(cov['coverage'], 0)})"
+        elif cmp_["any_alert"]:
+            bad = [k for k, v in m.items() if v["alert"]]
+            status = "⚠ lệch so với nền: " + ", ".join(bad)
+        else:
+            status = "✅ bình thường"
+        hours = ", ".join(f"{h:02d}:00" for h in top.index[:3])
+        tg += [f"<b>{pair}</b> — {status}",
+               f"• Thao túng hình thành trong 10 phút đầu: {pc(m['00-10']['month'], 0)} (nền {pc(m['00-10']['base'], 0)})",
+               f"• Trong 25 phút đầu: {pc(m['le25']['month'], 0)} (nền {pc(m['le25']['base'], 0)})",
+               f"• Ngay phút mở cửa: {pc(m['min0']['month'], 0)} (nền {pc(m['min0']['base'], 0)})",
+               f"• Giờ mạnh nhất {win} tháng qua: {hours} (giờ New York)",
+               f"• Mẫu: {cmp_['n_month']} nến định hướng, độ phủ dữ liệu {pc(cov['coverage'], 0)}",
+               ""]
+    if alert_pairs:
+        tg.append(f"<b>Kết luận:</b> có bất thường ở {', '.join(alert_pairs)}. Xem báo cáo chi tiết đính kèm.")
+    else:
+        tg.append(f"<b>Kết luận:</b> không có bất thường ở cả {len(pairs)} cặp. Báo cáo chi tiết ở file đính kèm.")
+    tg.append("")
+    tg.append("<i>Thao túng = đáy của nến tăng hoặc đỉnh của nến giảm trong mỗi giờ. Nền = toàn bộ lịch sử trước tháng này.</i>")
     return "\n".join(md), "\n".join(tg)
 
 
@@ -97,7 +115,8 @@ def annual(year: int, pairs: list[str] | None = None) -> tuple[str, str]:
           "Mỗi bảng có hai phần: năm {year} và tích lũy toàn bộ lịch sử. Ngày trong tuần chỉ dùng số tích lũy.".replace("{year}", str(year)), ""]
     rw = stats.random_walk_minutes()
     rw_w = stats.random_walk_weekdays()
-    tg = [f"<b>PO3 báo cáo năm {year}</b> · định nghĩa v{cfg['version']}"]
+    tg = [f"📅 <b>PO3 — Báo cáo năm {year}</b>", f"{len(pairs)} cặp FX · định nghĩa v{cfg['version']}", ""]
+    vn_wd = {"Mon": "Thứ Hai", "Tue": "Thứ Ba", "Wed": "Thứ Tư", "Thu": "Thứ Năm", "Fri": "Thứ Sáu"}
     for pair in pairs:
         d = features.derive(features.load_facts(pair))
         dy = d[d.index.year == year]
@@ -141,13 +160,18 @@ def annual(year: int, pairs: list[str] | None = None) -> tuple[str, str]:
         ty = stats.minute_summary(stats.manip_set(dy)["min_manip"])
         top_h = stats.hour_table(d).sort_values("body_atr", ascending=False).head(3)
         best_wd = wt["dist"].idxmax()
-        tg.append(f"<b>{pair}</b> năm n={ty['n']} · 00–10: {pc(ty['00-10'], 0)} (tích lũy {pc(tall['00-10'], 0)}) · ≤25: {pc(ty['le25'], 0)} (tích lũy {pc(tall['le25'], 0)})\n"
-                  f"  giờ mạnh: " + ", ".join(f"{h:02d}:00" for h in top_h.index) + f" NY · ngày phân phối chính: {best_wd} {pc(wt.loc[best_wd, 'dist'], 0)} ({nweeks} tuần)")
+        tg += [f"<b>{pair}</b>",
+               f"• Thao túng hình thành trong 10 phút đầu: năm {pc(ty['00-10'], 0)}, tích lũy {pc(tall['00-10'], 0)}",
+               f"• Trong 25 phút đầu: năm {pc(ty['le25'], 0)}, tích lũy {pc(tall['le25'], 0)}",
+               f"• Giờ mạnh nhất: " + ", ".join(f"{h:02d}:00" for h in top_h.index) + " (giờ New York)",
+               f"• Ngày phân phối chính trong tuần: {vn_wd.get(best_wd, best_wd)} {pc(wt.loc[best_wd, 'dist'], 0)} (tích lũy {nweeks} tuần, mức ngẫu nhiên 20%)",
+               f"• Mẫu năm: {ty['n']:,} nến định hướng".replace(",", "."),
+               ""]
     md += ["## Ghi chú phương pháp", "",
            "Nến định hướng: thân ≥ 50% biên độ. Cực trị thao túng: đáy của nến tăng / đỉnh của nến giảm; phút = nến M1 đầu tiên chạm mức đó. "
            "Bước ngẫu nhiên: 200.000 nến giả lập 60 bước Gaussian với cùng bộ lọc; tuần giả lập 5 ngày × 24 bước. Khoảng tin cậy Wilson 95%. "
            "Ngưỡng và giờ phiên: `config/definitions.toml`. Đây là kỳ duy nhất được phép rà soát và đổi phiên bản định nghĩa.", ""]
-    tg.append("Báo cáo chi tiết đính kèm. Đây là kỳ rà soát định nghĩa: đổi ngưỡng chỉ tại đây, kèm tăng version.")
+    tg.append("<b>Lưu ý:</b> đây là kỳ duy nhất được rà soát và đổi định nghĩa (kèm tăng version). Báo cáo chi tiết ở file đính kèm.")
     return "\n".join(md), "\n".join(tg)
 
 
