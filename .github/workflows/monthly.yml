@@ -1,0 +1,63 @@
+name: monthly
+
+on:
+  schedule:
+    - cron: "0 3 3-8 * *"        # daily 03:00 UTC on the 3rd..8th; exits early once the month is done
+  workflow_dispatch:
+    inputs:
+      month:
+        description: "Month to process (YYYY-MM). Default: previous month"
+        required: false
+      force:
+        description: "Refetch even if data for the month exists"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: po3-monthly
+  cancel-in-progress: false
+
+jobs:
+  monthly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Resolve month
+        id: m
+        run: |
+          if [ -n "${{ inputs.month }}" ]; then M="${{ inputs.month }}"; else M=$(date -u -d "$(date -u +%Y-%m-01) -1 month" +%Y-%m); fi
+          echo "month=$M" >> "$GITHUB_OUTPUT"
+          if [ -f "reports/monthly/$M/report.md" ] && [ "${{ inputs.force }}" != "true" ]; then echo "done=true" >> "$GITHUB_OUTPUT"; else echo "done=false" >> "$GITHUB_OUTPUT"; fi
+      - name: Update data
+        if: steps.m.outputs.done == 'false'
+        env:
+          PYTHONPATH: src
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m po3 update --month "${{ steps.m.outputs.month }}" --notify ${{ inputs.force == true && '--force' || '' }}
+      - name: Monthly report + Telegram
+        if: steps.m.outputs.done == 'false'
+        env:
+          PYTHONPATH: src
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m po3 monthly --month "${{ steps.m.outputs.month }}" --notify
+      - name: Commit data and report
+        if: steps.m.outputs.done == 'false'
+        run: |
+          git config user.name "po3-bot"
+          git config user.email "po3-bot@users.noreply.github.com"
+          git add data/h1 data/last_update.json reports/monthly
+          git diff --cached --quiet || git commit -m "monthly: ${{ steps.m.outputs.month }}"
+          git push
