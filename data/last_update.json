@@ -1,0 +1,9 @@
+{
+ "month": "2026-08",
+ "sources": {
+  "EURUSD": "histdata",
+  "GBPUSD": "histdata",
+  "USDJPY": "histdata"
+ },
+ "failures": []
+}
