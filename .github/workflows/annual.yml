@@ -43,4 +43,5 @@ jobs:
           git config user.email "po3-bot@users.noreply.github.com"
           git add reports/annual
           git diff --cached --quiet || git commit -m "annual: ${{ steps.y.outputs.year }}"
+          git pull --rebase --autostash origin main
           git push
