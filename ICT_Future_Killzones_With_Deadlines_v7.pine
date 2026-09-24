@@ -38,6 +38,21 @@ show_prev_hl  = input.bool(true, "Vẽ đỉnh/đáy giờ trước (từ nến 
 col_prev_hl   = input.color(color.gray, "Màu đỉnh/đáy giờ trước", group = grp_sg)
 alert_cisd    = input.bool(true, "Alert ngay khi phát hiện CISD (kể cả khi bị bỏ vì quét sâu / không FVG)", group = grp_sg)
 
+grp_hl = "Mức High/Low: Killzone, ngày trước, tuần trước"
+show_kz_hl   = input.bool(true, "Vẽ High/Low killzone (Asia, London, New York)", group = grp_hl)
+sess_asia    = input.session("2000-0000", "Asia (giờ NY)", group = grp_hl)
+sess_london  = input.session("0200-0500", "London (giờ NY)", group = grp_hl)
+sess_ny      = input.session("0700-1100", "New York (giờ NY)", group = grp_hl)
+col_asia_hl  = input.color(color.purple, "Màu Asia", group = grp_hl)
+col_ldn_hl   = input.color(color.blue, "Màu London", group = grp_hl)
+col_ny_hl    = input.color(color.orange, "Màu New York", group = grp_hl)
+show_pd_hl   = input.bool(true, "Vẽ High/Low ngày trước (PDH/PDL)", group = grp_hl)
+col_pd_hl    = input.color(color.yellow, "Màu PDH/PDL", group = grp_hl)
+show_pw_hl   = input.bool(true, "Vẽ High/Low tuần trước (PWH/PWL)", group = grp_hl)
+col_pw_hl    = input.color(color.white, "Màu PWH/PWL", group = grp_hl)
+hl_days_back = input.int(1, "Số ngày hiển thị (1 = chỉ hôm nay; tuần: 1 = chỉ tuần này)", minval = 1, maxval = 30, group = grp_hl)
+hl_width     = input.int(1, "Độ dày đường", minval = 1, maxval = 3, group = grp_hl)
+
 grp_dbg = "Debug / kiểm chứng"
 show_debug    = input.bool(false, "Bật lớp debug (biên giờ trước, lý do bỏ, bảng đối chiếu, Pine Logs)", group = grp_dbg)
 debug_rows    = input.int(20, "Số dòng bảng đối chiếu", minval = 5, maxval = 60, group = grp_dbg)
@@ -491,6 +506,111 @@ if barstate.isconfirmed and enable_sig and is_m1
 
         if m == 55
             cur_state := "phút 55: đóng lệnh còn mở"
+
+// =============================================================================
+// HIGH/LOW KILLZONE, NGÀY TRƯỚC, TUẦN TRƯỚC
+// Killzone: đường bắt đầu tại nến tạo đỉnh/đáy, kéo đến 24:00 NY của ngày sau phiên; bị quét thì dừng tại nến quét.
+// PDH/PDL: ngày 00:00–24:00 NY, kéo đến hết ngày hiện tại. PWH/PWL: kéo đến hết thứ Sáu tuần hiện tại.
+// Nhãn đi theo nến hiện tại khi đường còn hiệu lực; khi bị quét, nhãn đứng lại tại điểm quét và thêm ✗.
+// =============================================================================
+type HL
+    line  ln
+    label lb
+    float lvl
+    bool  is_high
+    int   end_t
+    bool  sweepable
+    bool  active
+
+var array<HL> hl_arr = array.new<HL>()
+
+f_hl_new(int x1_t, float lvl, int end_t, bool is_high, bool sweepable, string txt, color c) =>
+    line  ln = line.new(x1_t, lvl, end_t, lvl, xloc = xloc.bar_time, color = c, style = line.style_solid, width = hl_width)
+    label lb = label.new(bar_index + 1, lvl, txt, xloc = xloc.bar_index, style = label.style_label_left, color = color.new(c, 100), textcolor = c, size = size.tiny)
+    array.push(hl_arr, HL.new(ln, lb, lvl, is_high, end_t, sweepable, true))
+    true
+
+// cập nhật các đường còn hiệu lực trên mỗi nến
+if array.size(hl_arr) > 0
+    for i = 0 to array.size(hl_arr) - 1
+        HL h = array.get(hl_arr, i)
+        if h.active
+            bool swept = h.sweepable and (h.is_high ? high > h.lvl : low < h.lvl)
+            if swept
+                line.set_x2(h.ln, time)
+                label.set_x(h.lb, bar_index)
+                label.set_text(h.lb, label.get_text(h.lb) + " ✗")
+                h.active := false
+            else if time >= h.end_t
+                label.set_x(h.lb, bar_index)
+                h.active := false
+            else
+                label.set_x(h.lb, bar_index + 1)
+
+// ---- killzone ----
+f_kz_track(string sess, string name, color c, bool enabled) =>
+    var float kh = na
+    var float kl = na
+    var int   kh_t = na
+    var int   kl_t = na
+    bool in_s = not na(time(timeframe.period, sess, TZ))
+    if in_s
+        if not in_s[1]
+            kh := high
+            kl := low
+            kh_t := time
+            kl_t := time
+        else
+            if high > kh
+                kh := high
+                kh_t := time
+            if low < kl
+                kl := low
+                kl_t := time
+    else if in_s[1] and enabled and not na(kh)
+        // nến đầu tiên sau phiên: ngày của nến này quyết định mốc 24:00
+        int day_end = timestamp(TZ, year(time, TZ), month(time, TZ), dayofmonth(time, TZ) + 1, 0, 0, 0)
+        if time >= timenow - hl_days_back * DAY_MS
+            f_hl_new(kh_t, kh, day_end, true, true, name + " H", c)
+            f_hl_new(kl_t, kl, day_end, false, true, name + " L", c)
+    in_s
+
+if show_kz_hl
+    f_kz_track(sess_asia, "ASIA", col_asia_hl, true)
+    f_kz_track(sess_london, "LDN", col_ldn_hl, true)
+    f_kz_track(sess_ny, "NY", col_ny_hl, true)
+
+// ---- ngày trước (00:00–24:00 NY) ----
+var float d_hi = na
+var float d_lo = na
+var int   d_start = na
+bool new_day = dayofmonth(time, TZ) != dayofmonth(time[1], TZ) or na(time[1])
+if new_day
+    if show_pd_hl and not na(d_hi) and time >= timenow - hl_days_back * DAY_MS
+        int day_end = timestamp(TZ, year(time, TZ), month(time, TZ), dayofmonth(time, TZ) + 1, 0, 0, 0)
+        f_hl_new(time, d_hi, day_end, true, false, "PDH", col_pd_hl)
+        f_hl_new(time, d_lo, day_end, false, false, "PDL", col_pd_hl)
+    d_hi := high
+    d_lo := low
+    d_start := time
+else
+    d_hi := math.max(d_hi, high)
+    d_lo := math.min(d_lo, low)
+
+// ---- tuần trước (tuần mới khi số thứ trong tuần giảm: Thứ Sáu/Bảy -> Chủ nhật/Thứ Hai) ----
+var float w_hi = na
+var float w_lo = na
+bool new_week = na(time[1]) or dayofweek(time, TZ) < dayofweek(time[1], TZ)
+if new_week
+    if show_pw_hl and not na(w_hi) and time >= timenow - hl_days_back * 7 * DAY_MS
+        int week_end = timestamp(TZ, year(time, TZ), month(time, TZ), dayofmonth(time, TZ) + (7 - dayofweek(time, TZ)), 0, 0, 0)
+        f_hl_new(time, w_hi, week_end, true, false, "PWH", col_pw_hl)
+        f_hl_new(time, w_lo, week_end, false, false, "PWL", col_pw_hl)
+    w_hi := high
+    w_lo := low
+else
+    w_hi := math.max(w_hi, high)
+    w_lo := math.min(w_lo, low)
 
 // =============================================================================
 // BẢNG TRẠNG THÁI VÀ BẢNG ĐỐI CHIẾU
