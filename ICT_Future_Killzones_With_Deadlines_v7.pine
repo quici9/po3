@@ -310,8 +310,6 @@ if barstate.isconfirmed and enable_sig and is_m1
         if show_debug and in_scope and in_window
             line.new(hs, ph, hs + HOUR_MS, ph, xloc = xloc.bar_time, color = color.new(color.gray, 30), style = line.style_dotted)
             line.new(hs, pl, hs + HOUR_MS, pl, xloc = xloc.bar_time, color = color.new(color.gray, 30), style = line.style_dotted)
-            line.new(hs, pl - depth_max_atr * atr, hs + HOUR_MS, pl - depth_max_atr * atr, xloc = xloc.bar_time, color = color.new(color.gray, 60), style = line.style_dashed)
-            line.new(hs, ph + depth_max_atr * atr, hs + HOUR_MS, ph + depth_max_atr * atr, xloc = xloc.bar_time, color = color.new(color.gray, 60), style = line.style_dashed)
 
     ch_bars += 1
     ch_hi := math.max(ch_hi, high)
