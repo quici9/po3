@@ -34,6 +34,7 @@ depth_max_atr = input.float(0.25, "Độ sâu quét tối đa (ATR)", minval = 0
 col_buy       = input.color(color.teal, "Màu tín hiệu mua", group = grp_sg)
 col_sell      = input.color(color.maroon, "Màu tín hiệu bán", group = grp_sg)
 show_status   = input.bool(true, "Bảng trạng thái (góc trên phải)", group = grp_sg)
+alert_cisd    = input.bool(true, "Alert ngay khi phát hiện CISD (kể cả khi bị bỏ vì quét sâu / không FVG)", group = grp_sg)
 
 grp_dbg = "Debug / kiểm chứng"
 show_debug    = input.bool(false, "Bật lớp debug (biên giờ trước, lý do bỏ, bảng đối chiếu, Pine Logs)", group = grp_dbg)
@@ -236,6 +237,8 @@ f_hour_row() =>
     string body = skip_hour != "" ? " | " + skip_hour : " | L: " + res_b + " | S: " + res_s
     head + body
 
+f_sess() => syminfo.ticker + " " + (hour(time, TZ) == 3 ? "London 03:00" : "NY AM 09:00")
+
 f_side_prefix(int sw_min, int cisd_bar, float depth) =>
     string s = "sweep " + f_m(sw_min)
     if not na(cisd_bar)
@@ -371,6 +374,8 @@ if barstate.isconfirmed and enable_sig and is_m1
                         if d >= depth_max_atr
                             buy_done := true
                             res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " -> SKIP deep"
+                            if alert_cisd
+                                alert(f_sess() + " — CISD BUY phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR ≥ " + f_2(depth_max_atr) + " → BỎ (quét sâu)", alert.freq_once_per_bar_close)
                             cur_state := "CISD mua nhưng quét sâu " + f_2(d) + " ATR"
                         else
                             cisd_b := bar_index
@@ -385,9 +390,11 @@ if barstate.isconfirmed and enable_sig and is_m1
                                     label.new(bar_index, cisd_b_lvl, "CISD " + f_m(m), style = label.style_label_left, color = col_buy, textcolor = color.white, size = size.small)
                                     f_draw_cisd(cisd_b_org, bar_index, cisd_b_lvl, col_buy)
                                     box.new(bar_index - fo, top, bar_index + (59 - m), bot, border_color = col_buy, bgcolor = color.new(col_buy, 80), text = "FVG " + f_1((top - bot) / pip) + "p", text_color = col_buy, text_size = size.tiny, text_halign = text.align_left)
-                                alert(syminfo.ticker + " " + (hour(time, TZ) == 3 ? "London 03:00" : "NY AM 09:00") + " — CISD BUY + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
+                                alert(f_sess() + " — CISD BUY + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
                             else
                                 cur_state := "CISD mua " + f_m(m) + ", chờ FVG 1 nến"
+                                if alert_cisd
+                                    alert(f_sess() + " — CISD BUY phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | chưa có FVG, chờ nến kế tiếp", alert.freq_once_per_bar_close)
             else
                 // nến ngay sau CISD: FVG với nến giữa = nến CISD
                 float b = high[2]
@@ -400,10 +407,12 @@ if barstate.isconfirmed and enable_sig and is_m1
                         label.new(cisd_b, cisd_b_lvl, "CISD " + f_m(minute(time[1], TZ)), style = label.style_label_left, color = col_buy, textcolor = color.white, size = size.small)
                         f_draw_cisd(cisd_b_org, cisd_b, cisd_b_lvl, col_buy)
                         box.new(bar_index, t, bar_index + (59 - m), b, border_color = col_buy, bgcolor = color.new(col_buy, 80), text = "FVG " + f_1((t - b) / pip) + "p", text_color = col_buy, text_size = size.tiny, text_halign = text.align_left)
-                    alert(syminfo.ticker + " " + (hour(time, TZ) == 3 ? "London 03:00" : "NY AM 09:00") + " — CISD BUY + FVG | CISD phút " + str.tostring(minute(time[1], TZ)) + " | quét " + f_2(depth_b) + " ATR | FVG " + f_p(b) + "–" + f_p(t) + " (" + f_1((t - b) / pip) + " pip)", alert.freq_once_per_bar_close)
+                    alert(f_sess() + " — CISD BUY + FVG | CISD phút " + str.tostring(minute(time[1], TZ)) + " | quét " + f_2(depth_b) + " ATR | FVG " + f_p(b) + "–" + f_p(t) + " (" + f_1((t - b) / pip) + " pip)", alert.freq_once_per_bar_close)
                 else
                     buy_done := true
                     res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_b) + " -> SKIP no FVG"
+                    if alert_cisd
+                        alert(f_sess() + " — CISD BUY phút " + str.tostring(minute(time[1], TZ)) + " không có FVG → BỎ", alert.freq_once_per_bar_close)
                     cur_state := "CISD mua không có FVG, bỏ"
                     if show_debug and in_window
                         label.new(cisd_b, cisd_b_lvl, "CISD no FVG", style = label.style_label_left, color = color.new(color.gray, 40), textcolor = color.white, size = size.tiny)
@@ -425,6 +434,8 @@ if barstate.isconfirmed and enable_sig and is_m1
                         if d >= depth_max_atr
                             sell_done := true
                             res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " -> SKIP deep"
+                            if alert_cisd
+                                alert(f_sess() + " — CISD SELL phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR ≥ " + f_2(depth_max_atr) + " → BỎ (quét sâu)", alert.freq_once_per_bar_close)
                             cur_state := "CISD bán nhưng quét sâu " + f_2(d) + " ATR"
                         else
                             cisd_s := bar_index
@@ -439,9 +450,11 @@ if barstate.isconfirmed and enable_sig and is_m1
                                     label.new(bar_index, cisd_s_lvl, "CISD " + f_m(m), style = label.style_label_left, color = col_sell, textcolor = color.white, size = size.small)
                                     f_draw_cisd(cisd_s_org, bar_index, cisd_s_lvl, col_sell)
                                     box.new(bar_index - fo, top, bar_index + (59 - m), bot, border_color = col_sell, bgcolor = color.new(col_sell, 80), text = "FVG " + f_1((top - bot) / pip) + "p", text_color = col_sell, text_size = size.tiny, text_halign = text.align_left)
-                                alert(syminfo.ticker + " " + (hour(time, TZ) == 3 ? "London 03:00" : "NY AM 09:00") + " — CISD SELL + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
+                                alert(f_sess() + " — CISD SELL + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
                             else
                                 cur_state := "CISD bán " + f_m(m) + ", chờ FVG 1 nến"
+                                if alert_cisd
+                                    alert(f_sess() + " — CISD SELL phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | chưa có FVG, chờ nến kế tiếp", alert.freq_once_per_bar_close)
             else
                 float t = low[2]
                 float b = high
@@ -453,10 +466,12 @@ if barstate.isconfirmed and enable_sig and is_m1
                         label.new(cisd_s, cisd_s_lvl, "CISD " + f_m(minute(time[1], TZ)), style = label.style_label_left, color = col_sell, textcolor = color.white, size = size.small)
                         f_draw_cisd(cisd_s_org, cisd_s, cisd_s_lvl, col_sell)
                         box.new(bar_index, t, bar_index + (59 - m), b, border_color = col_sell, bgcolor = color.new(col_sell, 80), text = "FVG " + f_1((t - b) / pip) + "p", text_color = col_sell, text_size = size.tiny, text_halign = text.align_left)
-                    alert(syminfo.ticker + " " + (hour(time, TZ) == 3 ? "London 03:00" : "NY AM 09:00") + " — CISD SELL + FVG | CISD phút " + str.tostring(minute(time[1], TZ)) + " | quét " + f_2(depth_s) + " ATR | FVG " + f_p(b) + "–" + f_p(t) + " (" + f_1((t - b) / pip) + " pip)", alert.freq_once_per_bar_close)
+                    alert(f_sess() + " — CISD SELL + FVG | CISD phút " + str.tostring(minute(time[1], TZ)) + " | quét " + f_2(depth_s) + " ATR | FVG " + f_p(b) + "–" + f_p(t) + " (" + f_1((t - b) / pip) + " pip)", alert.freq_once_per_bar_close)
                 else
                     sell_done := true
                     res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_s) + " -> SKIP no FVG"
+                    if alert_cisd
+                        alert(f_sess() + " — CISD SELL phút " + str.tostring(minute(time[1], TZ)) + " không có FVG → BỎ", alert.freq_once_per_bar_close)
                     cur_state := "CISD bán không có FVG, bỏ"
                     if show_debug and in_window
                         label.new(cisd_s, cisd_s_lvl, "CISD no FVG", style = label.style_label_left, color = color.new(color.gray, 40), textcolor = color.white, size = size.tiny)
