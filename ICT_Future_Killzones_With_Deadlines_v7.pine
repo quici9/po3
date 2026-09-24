@@ -583,6 +583,8 @@ if show_kz_hl
 // ---- ngày trước (00:00–24:00 NY) ----
 var float d_hi = na
 var float d_lo = na
+var float pdh = na
+var float pdl = na
 var int   d_start = na
 bool new_day = dayofmonth(time, TZ) != dayofmonth(time[1], TZ) or na(time[1])
 if new_day
@@ -590,6 +592,8 @@ if new_day
         int day_end = timestamp(TZ, year(time, TZ), month(time, TZ), dayofmonth(time, TZ) + 1, 0, 0, 0)
         f_hl_new(time, d_hi, day_end, true, false, "PDH", col_pd_hl)
         f_hl_new(time, d_lo, day_end, false, false, "PDL", col_pd_hl)
+    pdh := d_hi
+    pdl := d_lo
     d_hi := high
     d_lo := low
     d_start := time
@@ -600,12 +604,16 @@ else
 // ---- tuần trước (tuần mới khi số thứ trong tuần giảm: Thứ Sáu/Bảy -> Chủ nhật/Thứ Hai) ----
 var float w_hi = na
 var float w_lo = na
+var float pwh = na
+var float pwl = na
 bool new_week = na(time[1]) or dayofweek(time, TZ) < dayofweek(time[1], TZ)
 if new_week
     if show_pw_hl and not na(w_hi) and time >= timenow - hl_days_back * 7 * DAY_MS
         int week_end = timestamp(TZ, year(time, TZ), month(time, TZ), dayofmonth(time, TZ) + (7 - dayofweek(time, TZ)), 0, 0, 0)
         f_hl_new(time, w_hi, week_end, true, false, "PWH", col_pw_hl)
         f_hl_new(time, w_lo, week_end, false, false, "PWL", col_pw_hl)
+    pwh := w_hi
+    pwl := w_lo
     w_hi := high
     w_lo := low
 else
@@ -615,7 +623,7 @@ else
 // =============================================================================
 // BẢNG TRẠNG THÁI VÀ BẢNG ĐỐI CHIẾU
 // =============================================================================
-var table st = table.new(position.top_right, 2, 6, border_width = 1)
+var table st = table.new(position.top_right, 2, 8, border_width = 1)
 if barstate.islast and show_status and enable_sig
     color hdr = color.new(color.gray, 70)
     string warn = not is_m1 ? "CHUYỂN SANG M1" : not is_pair ? "chỉ đo trên EURUSD/GBPUSD" : "OK"
@@ -631,6 +639,10 @@ if barstate.islast and show_status and enable_sig
     table.cell(st, 1, 4, cur_state, text_color = str.startswith(cur_state, "SIGNAL") ? color.green : color.white, text_size = size.small)
     table.cell(st, 0, 5, "Quy tắc", bgcolor = hdr, text_size = size.small)
     table.cell(st, 1, 5, "v1.1: CISD ≤p" + str.tostring(cisd_max_min) + " + FVG ≥ " + f_1(min_fvg_pip) + "p, quét < " + f_2(depth_max_atr) + " ATR", text_size = size.small)
+    table.cell(st, 0, 6, "PDH / PDL", bgcolor = hdr, text_size = size.small)
+    table.cell(st, 1, 6, na(pdh) ? "—" : f_p(pdh) + " / " + f_p(pdl), text_size = size.small)
+    table.cell(st, 0, 7, "PWH / PWL", bgcolor = hdr, text_size = size.small)
+    table.cell(st, 1, 7, na(pwh) ? "—" : f_p(pwh) + " / " + f_p(pwl), text_size = size.small)
 
 var table dbg = table.new(position.bottom_left, 1, 61, border_width = 1)
 if barstate.islast and show_debug and enable_sig
