@@ -46,6 +46,8 @@ sess_ny      = input.session("0700-1100", "New York (giờ NY)", group = grp_hl)
 col_asia_hl  = input.color(color.purple, "Màu Asia", group = grp_hl)
 col_ldn_hl   = input.color(color.blue, "Màu London", group = grp_hl)
 col_ny_hl    = input.color(color.orange, "Màu New York", group = grp_hl)
+show_kz_box  = input.bool(true, "Tô vùng killzone (từ High đến Low của phiên)", group = grp_hl)
+kz_box_transp = input.int(88, "Độ trong suốt vùng tô (%)", minval = 50, maxval = 98, group = grp_hl)
 show_pd_hl   = input.bool(true, "Vẽ High/Low ngày trước (PDH/PDL)", group = grp_hl)
 col_pd_hl    = input.color(color.yellow, "Màu PDH/PDL", group = grp_hl)
 show_pw_hl   = input.bool(true, "Vẽ High/Low tuần trước (PWH/PWL)", group = grp_hl)
@@ -509,7 +511,8 @@ if barstate.isconfirmed and enable_sig and is_m1
 
 // =============================================================================
 // HIGH/LOW KILLZONE, NGÀY TRƯỚC, TUẦN TRƯỚC
-// Killzone: đường bắt đầu tại nến tạo đỉnh/đáy, kéo đến 24:00 NY của ngày sau phiên; bị quét thì dừng tại nến quét.
+// Killzone: vùng tô từ High đến Low của phiên; đường bắt đầu tại nến tạo đỉnh/đáy, kéo đến hết nến D (17:00 NY) chứa
+// nến đầu tiên sau phiên; bị quét thì dừng tại nến quét.
 // PDH/PDL và PWH/PWL: theo nến D/W của TradingView (request.security với [1] + lookahead_on: không repaint), kéo đến hết nến D/W hiện tại.
 // Nhãn đi theo nến hiện tại khi đường còn hiệu lực; khi bị quét, nhãn đứng lại tại điểm quét và thêm ✗.
 // =============================================================================
@@ -553,13 +556,16 @@ f_kz_track(string sess, string name, color c, bool enabled) =>
     var float kl = na
     var int   kh_t = na
     var int   kl_t = na
+    var box   bx = na
     bool in_s = not na(time(timeframe.period, sess, TZ))
+    bool in_win = time >= timenow - hl_days_back * DAY_MS
     if in_s
         if not in_s[1]
             kh := high
             kl := low
             kh_t := time
             kl_t := time
+            bx := show_kz_box and enabled and in_win ? box.new(time, high, time, low, xloc = xloc.bar_time, border_color = color.new(c, 70), bgcolor = color.new(c, kz_box_transp)) : box(na)
         else
             if high > kh
                 kh := high
@@ -567,12 +573,15 @@ f_kz_track(string sess, string name, color c, bool enabled) =>
             if low < kl
                 kl := low
                 kl_t := time
+        if not na(bx)
+            box.set_top(bx, kh)
+            box.set_bottom(bx, kl)
+            box.set_right(bx, time)
     else if in_s[1] and enabled and not na(kh)
-        // nến đầu tiên sau phiên: ngày của nến này quyết định mốc 24:00
-        int day_end = timestamp(TZ, year(time, TZ), month(time, TZ), dayofmonth(time, TZ) + 1, 0, 0, 0)
-        if time >= timenow - hl_days_back * DAY_MS
-            f_hl_new(kh_t, kh, day_end, true, true, name + " H", c)
-            f_hl_new(kl_t, kl, day_end, false, true, name + " L", c)
+        // nến đầu tiên sau phiên: kéo đến hết nến D (TradingView/OANDA: 17:00 NY) chứa nến này
+        if in_win
+            f_hl_new(kh_t, kh, time_close("D"), true, true, name + " H", c)
+            f_hl_new(kl_t, kl, time_close("D"), false, true, name + " L", c)
     in_s
 
 if show_kz_hl
