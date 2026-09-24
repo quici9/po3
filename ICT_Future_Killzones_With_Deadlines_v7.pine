@@ -307,9 +307,6 @@ if barstate.isconfirmed and enable_sig and is_m1
         res_b := ""
         res_s := ""
         cur_state := target_hr ? (skip_hour != "" ? skip_hour : "quan sát, chờ quét") : "ngoài giờ"
-        if show_debug and in_scope and in_window
-            line.new(hs, ph, hs + HOUR_MS, ph, xloc = xloc.bar_time, color = color.new(color.gray, 30), style = line.style_dotted)
-            line.new(hs, pl, hs + HOUR_MS, pl, xloc = xloc.bar_time, color = color.new(color.gray, 30), style = line.style_dotted)
 
     ch_bars += 1
     ch_hi := math.max(ch_hi, high)

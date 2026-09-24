@@ -66,6 +66,6 @@ Ghi nhật ký theo `nhat-ky-mau.csv`. Bắt buộc: phiên bản quy tắc (`ru
 ## 7. Indicator và kiểm chứng
 
 - `ICT_Future_Killzones_With_Deadlines_v7.pine` (chart M1, OANDA): vẽ killzone/deadline như v6, thêm mũi tên `CISD BUY/SELL`, đường CISD (nằm ngang tại mức CISD, từ nến gốc của chuỗi nến ngược chiều đến nến xác nhận), box FVG và một alert duy nhất khi có CISD + FVG (đặt alert kiểu "Any alert() function call"). Bảng góc trên phải cho biết đang ở bước nào trong giờ.
-- Lớp debug (tắt mặc định): biên giờ trước, điểm quét, lý do bỏ, bảng đối chiếu 10 ngày và Pine Logs, mỗi giờ một dòng.
+- Lớp debug (tắt mặc định): điểm quét, lý do bỏ, bảng đối chiếu 10 ngày và Pine Logs, mỗi giờ một dòng.
 - `verify_indicator.py EURUSD --days 10` in cùng định dạng từ Dukascopy (`data/fetch_dukascopy.py` rồi `data/build_csv_dukascopy.py`). So theo tầng: PH/PL và ATR lệch ≤ 0,3 pip là feed; phút CISD lệch ≤ 1 là feed; kết quả cuối (SIGNAL/SKIP) phải trùng, trừ FVG sát 0,5 pip.
 - Kiểm chứng 2026-09-24 trên 18 giờ (15–23/09, hai cặp): 17 giờ trùng kết quả; 1 giờ khác (EURUSD 23/09 03:00) vì FVG 0,5 pip trên OANDA và 0,4 pip trên Dukascopy.
