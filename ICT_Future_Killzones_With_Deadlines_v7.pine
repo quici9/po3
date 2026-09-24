@@ -34,6 +34,8 @@ depth_max_atr = input.float(0.25, "Độ sâu quét tối đa (ATR)", minval = 0
 col_buy       = input.color(color.teal, "Màu tín hiệu mua", group = grp_sg)
 col_sell      = input.color(color.maroon, "Màu tín hiệu bán", group = grp_sg)
 show_status   = input.bool(true, "Bảng trạng thái (góc trên phải)", group = grp_sg)
+show_prev_hl  = input.bool(true, "Vẽ đỉnh/đáy giờ trước (từ nến tạo đỉnh/đáy đến hết giờ setup)", group = grp_sg)
+col_prev_hl   = input.color(color.gray, "Màu đỉnh/đáy giờ trước", group = grp_sg)
 alert_cisd    = input.bool(true, "Alert ngay khi phát hiện CISD (kể cả khi bị bỏ vì quét sâu / không FVG)", group = grp_sg)
 
 grp_dbg = "Debug / kiểm chứng"
@@ -191,9 +193,13 @@ f_fvg_sell(int k_hi) =>
 var int   cur_hs   = na          // thời điểm bắt đầu giờ hiện tại (ms)
 var float ch_hi    = na
 var float ch_lo    = na
+var int   ch_hi_bar = na       // nến tạo đỉnh/đáy giờ hiện tại
+var int   ch_lo_bar = na
 var int   ch_bars  = 0
 var float ph       = na          // đỉnh/đáy giờ trước
 var float pl       = na
+var int   ph_bar   = na
+var int   pl_bar   = na
 var bool  prev_ok  = false
 var array<float> h1_rng = array.new<float>()
 var float atr      = na          // trung bình (high-low) 24 nến H1 đã đóng, tối thiểu 12 mẫu
@@ -276,10 +282,14 @@ if barstate.isconfirmed and enable_sig and is_m1
             prev_ok := ch_bars >= 30 and cur_hs == hs - HOUR_MS
             ph := ch_hi
             pl := ch_lo
+            ph_bar := ch_hi_bar
+            pl_bar := ch_lo_bar
         // 2. mở giờ mới
         cur_hs := hs
         ch_hi := high
         ch_lo := low
+        ch_hi_bar := bar_index
+        ch_lo_bar := bar_index
         ch_bars := 0
         int hr = hour(time, TZ)
         int dow = dayofweek(time, TZ)
@@ -307,10 +317,17 @@ if barstate.isconfirmed and enable_sig and is_m1
         res_b := ""
         res_s := ""
         cur_state := target_hr ? (skip_hour != "" ? skip_hour : "quan sát, chờ quét") : "ngoài giờ"
+        if show_prev_hl and target_hr and prev_ok and in_window
+            line.new(ph_bar, ph, bar_index + 59, ph, xloc = xloc.bar_index, color = col_prev_hl, style = line.style_dotted, width = 1)
+            line.new(pl_bar, pl, bar_index + 59, pl, xloc = xloc.bar_index, color = col_prev_hl, style = line.style_dotted, width = 1)
 
     ch_bars += 1
-    ch_hi := math.max(ch_hi, high)
-    ch_lo := math.min(ch_lo, low)
+    if high > ch_hi
+        ch_hi := high
+        ch_hi_bar := bar_index
+    if low < ch_lo
+        ch_lo := low
+        ch_lo_bar := bar_index
 
     if in_scope
         bool sweep_now_lo = false
