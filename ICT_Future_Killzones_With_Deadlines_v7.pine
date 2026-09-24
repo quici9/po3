@@ -513,7 +513,8 @@ if barstate.isconfirmed and enable_sig and is_m1
 // HIGH/LOW KILLZONE, NGÀY TRƯỚC, TUẦN TRƯỚC
 // Killzone: vùng tô từ High đến Low của phiên; đường bắt đầu tại nến tạo đỉnh/đáy, kéo đến hết nến D (17:00 NY) chứa
 // nến đầu tiên sau phiên; bị quét thì dừng tại nến quét.
-// PDH/PDL và PWH/PWL: theo nến D/W của TradingView (request.security với [1] + lookahead_on: không repaint), kéo đến hết nến D/W hiện tại.
+// PDH/PDL và PWH/PWL: theo nến D/W của TradingView (request.security với [1] + lookahead_on: không repaint), kéo đến hết nến D/W
+// hiện tại; bị quét thì dừng tại nến quét như killzone.
 // Nhãn đi theo nến hiện tại khi đường còn hiệu lực; khi bị quét, nhãn đứng lại tại điểm quét và thêm ✗.
 // =============================================================================
 type HL
@@ -603,11 +604,11 @@ pwl := pwl_s
 bool new_day  = ta.change(time("D")) != 0
 bool new_week = ta.change(time("W")) != 0
 if new_day and show_pd_hl and not na(pdh) and time >= timenow - hl_days_back * DAY_MS
-    f_hl_new(time, pdh, time_close("D"), true, false, "PDH", col_pd_hl)
-    f_hl_new(time, pdl, time_close("D"), false, false, "PDL", col_pd_hl)
+    f_hl_new(time, pdh, time_close("D"), true, true, "PDH", col_pd_hl)
+    f_hl_new(time, pdl, time_close("D"), false, true, "PDL", col_pd_hl)
 if new_week and show_pw_hl and not na(pwh) and time >= timenow - hl_days_back * 7 * DAY_MS
-    f_hl_new(time, pwh, time_close("W"), true, false, "PWH", col_pw_hl)
-    f_hl_new(time, pwl, time_close("W"), false, false, "PWL", col_pw_hl)
+    f_hl_new(time, pwh, time_close("W"), true, true, "PWH", col_pw_hl)
+    f_hl_new(time, pwl, time_close("W"), false, true, "PWL", col_pw_hl)
 
 // =============================================================================
 // BẢNG TRẠNG THÁI VÀ BẢNG ĐỐI CHIẾU
