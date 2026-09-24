@@ -54,6 +54,8 @@ show_pw_hl   = input.bool(true, "Vẽ High/Low tuần trước (PWH/PWL)", group
 col_pw_hl    = input.color(color.white, "Màu PWH/PWL", group = grp_hl)
 hl_days_back = input.int(1, "Số ngày hiển thị (1 = chỉ hôm nay; tuần: 1 = chỉ tuần này)", minval = 1, maxval = 30, group = grp_hl)
 hl_width     = input.int(1, "Độ dày đường", minval = 1, maxval = 3, group = grp_hl)
+hl_lbl_off   = input.int(6, "Nhãn cách nến hiện tại (số nến, đặt trong lề phải)", minval = 1, maxval = 30, group = grp_hl)
+hl_hide_swept = input.bool(false, "Ẩn nhãn của đường đã bị quét", group = grp_hl)
 
 grp_dbg = "Debug / kiểm chứng"
 show_debug    = input.bool(false, "Bật lớp debug (biên giờ trước, lý do bỏ, bảng đối chiếu, Pine Logs)", group = grp_dbg)
@@ -528,9 +530,12 @@ type HL
 
 var array<HL> hl_arr = array.new<HL>()
 
+// chữ đen trên nền sáng (vàng, trắng), chữ trắng trên nền tối
+f_txt_on(color c) => color.r(c) * 0.299 + color.g(c) * 0.587 + color.b(c) * 0.114 > 150 ? color.black : color.white
+
 f_hl_new(int x1_t, float lvl, int end_t, bool is_high, bool sweepable, string txt, color c) =>
     line  ln = line.new(x1_t, lvl, end_t, lvl, xloc = xloc.bar_time, color = c, style = line.style_solid, width = hl_width)
-    label lb = label.new(bar_index + 1, lvl, txt, xloc = xloc.bar_index, style = label.style_label_left, color = color.new(c, 100), textcolor = c, size = size.tiny)
+    label lb = label.new(bar_index + hl_lbl_off, lvl, txt, xloc = xloc.bar_index, style = label.style_label_left, color = color.new(c, 15), textcolor = f_txt_on(c), size = size.small)
     array.push(hl_arr, HL.new(ln, lb, lvl, is_high, end_t, sweepable, true))
     true
 
@@ -542,14 +547,20 @@ if array.size(hl_arr) > 0
             bool swept = h.sweepable and (h.is_high ? high > h.lvl : low < h.lvl)
             if swept
                 line.set_x2(h.ln, time)
-                label.set_x(h.lb, bar_index)
-                label.set_text(h.lb, label.get_text(h.lb) + " ✗")
+                if hl_hide_swept
+                    label.delete(h.lb)
+                else
+                    // nhãn đứng lại tại điểm quét, đặt về phía ngược với hướng phá (đỉnh bị quét: dưới đường; đáy: trên đường)
+                    label.set_x(h.lb, bar_index)
+                    label.set_style(h.lb, h.is_high ? label.style_label_upper_left : label.style_label_lower_left)
+                    label.set_size(h.lb, size.tiny)
+                    label.set_text(h.lb, label.get_text(h.lb) + " ✗")
                 h.active := false
             else if time >= h.end_t
                 label.set_x(h.lb, bar_index)
                 h.active := false
             else
-                label.set_x(h.lb, bar_index + 1)
+                label.set_x(h.lb, bar_index + hl_lbl_off)
 
 // ---- killzone ----
 f_kz_track(string sess, string name, color c, bool enabled) =>
