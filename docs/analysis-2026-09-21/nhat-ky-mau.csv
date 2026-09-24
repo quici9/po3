@@ -1,0 +1,2 @@
+rule_version,date_ny,pair,hour_ny,side,sweep_min,sweep_depth_pips,atr_pips,confirm_min,fvg_pip,entry_planned,entry_filled,slippage_pips,sl,tp,risk_pips,exit_reason,exit_min,exit_price,R_gross,cost_pips,R_net,rule_violation,note
+v1.1,2026-10-06,EURUSD,3,long,7,4.0,28.0,16,0.8,1.07350,1.07352,0.2,1.07270,1.07510,8.2,time,55,1.07398,0.56,1.0,0.44,,vi du dong mau

@@ -1,0 +1,155 @@
+//@version=6
+indicator("ICT Future Killzones & Deadlines - Tue/Wed/Thu (v6)", overlay = true, max_lines_count = 500, max_labels_count = 500)
+
+// =============================================================================
+// CẤU HÌNH GIAO DIỆN & TÙY CHỌN
+// =============================================================================
+
+// Nhóm London
+grp_ln = "London Focus (03:00 - 04:00 NY)"
+enable_london = input.bool(true, "Bật London Focus", group = grp_ln)
+col_london    = input.color(color.blue, "Màu London", group = grp_ln)
+
+// Nhóm New York AM
+grp_ny = "New York AM Focus (09:00 - 10:00 NY)"
+enable_ny     = input.bool(true, "Bật New York AM Focus", group = grp_ny)
+col_ny        = input.color(color.orange, "Màu New York AM", group = grp_ny)
+
+// Nhóm Deadlines (03:30 & 09:30)
+grp_dl = "Mốc Deadline (03:30 & 09:30 NY)"
+enable_deadlines = input.bool(true, "Bật hiển thị Deadline", group = grp_dl)
+col_deadline     = input.color(color.red, "Màu đường Deadline", group = grp_dl)
+deadline_style_in = input.string("Dotted", "Kiểu đường Deadline", options = ["Dotted", "Dashed", "Solid"], group = grp_dl)
+
+// Chuyển chuỗi sang line.style
+dl_style = deadline_style_in == "Solid" ? line.style_solid : deadline_style_in == "Dashed" ? line.style_dashed : line.style_dotted
+
+// =============================================================================
+// QUẢN LÝ MẢNG ĐỐI TƯỢNG (CHỐNG TRÙNG LẶP / ĐÈ CHỮ TRÊN REAL-TIME BAR)
+// =============================================================================
+var array<line>  lines_arr  = array.new<line>()
+var array<label> labels_arr = array.new<label>()
+
+f_clear_objects() =>
+    if array.size(lines_arr) > 0
+        for i = 0 to array.size(lines_arr) - 1
+            line.delete(array.get(lines_arr, i))
+        array.clear(lines_arr)
+        
+    if array.size(labels_arr) > 0
+        for i = 0 to array.size(labels_arr) - 1
+            label.delete(array.get(labels_arr, i))
+        array.clear(labels_arr)
+
+// Hàm vẽ đường dọc
+f_add_vline(int t, color c, string st, int w) =>
+    l = line.new(
+      x1 = t, y1 = low, 
+      x2 = t, y2 = high, 
+      xloc = xloc.bar_time, 
+      extend = extend.both, 
+      color = c, 
+      style = st, 
+      width = w
+      )
+    array.push(lines_arr, l)
+
+// Hàm tạo nhãn
+f_add_label(int t, string txt, color c) =>
+    lb = label.new(
+      x = t, y = high, 
+      text = txt, 
+      xloc = xloc.bar_time, 
+      color = color.new(c, 100), 
+      textcolor = c, 
+      style = label.style_label_down, 
+      size = size.small
+      )
+    array.push(labels_arr, lb)
+
+// Hàm vẽ trọn vẹn 1 Killzone tương lai kèm mốc Deadline
+f_draw_future_killzone(int start_t, int deadline_t, int end_t, color c, string title_str, string dl_title) =>
+    // Chỉ vẽ nếu phiên chưa kết thúc hoàn toàn
+    if end_t > timenow
+        // 1. Vạch mở phiên (Solid)
+        f_add_vline(start_t, c, line.style_solid, 1)
+        f_add_label(start_t, title_str, c)
+
+        // 2. Vạch Deadline (03:30 hoặc 09:30)
+        if enable_deadlines
+            f_add_vline(deadline_t, col_deadline, dl_style, 1)
+            f_add_label(deadline_t, dl_title, col_deadline)
+
+        // 3. Vạch đóng phiên (Dashed)
+        f_add_vline(end_t, c, line.style_dashed, 1)
+
+// =============================================================================
+// TÍNH TOÁN VÀ CHIẾU TƯƠNG LAI (CHỈ TRÊN NẾN CUỐI CÙNG)
+// =============================================================================
+if barstate.islast
+    // Xóa sạch các đường cũ của tick trước trước khi vẽ phiên bản mới
+    f_clear_objects()
+
+    tz = "America/New_York"
+    
+    int y_now   = year(timenow, tz)
+    int m_now   = month(timenow, tz)
+    int d_now   = dayofmonth(timenow, tz)
+    int dow_now = dayofweek(timenow, tz) // 1=CN, 2=T2, 3=T3, 4=T4, 5=T5, 6=T6, 7=T7
+
+    // Số ngày còn lại đến hết Thứ Sáu tuần này
+    int days_to_friday = 6 - dow_now
+    if days_to_friday >= 0
+        for i = 0 to days_to_friday
+            int day_anchor = timestamp(tz, y_now, m_now, d_now + i, 0, 0, 0)
+            int y_i   = year(day_anchor, tz)
+            int m_i   = month(day_anchor, tz)
+            int d_i   = dayofmonth(day_anchor, tz)
+            int dow_i = dayofweek(day_anchor, tz)
+            
+            // CHỈ ÁP DỤNG THỨ 3 (3), THỨ 4 (4), THỨ 5 (5)
+            bool is_target_day = (dow_i == dayofweek.tuesday or dow_i == dayofweek.wednesday or dow_i == dayofweek.thursday)
+            
+            if is_target_day
+                // London: 03:00 - 03:30 (Deadline) - 04:00 NY
+                int lon_start    = timestamp(tz, y_i, m_i, d_i, 3, 0, 0)
+                int lon_deadline = timestamp(tz, y_i, m_i, d_i, 3, 30, 0)
+                int lon_end      = timestamp(tz, y_i, m_i, d_i, 4, 0, 0)
+                
+                // New York AM: 09:00 - 09:30 (Deadline) - 10:00 NY
+                int ny_start     = timestamp(tz, y_i, m_i, d_i, 9, 0, 0)
+                int ny_deadline  = timestamp(tz, y_i, m_i, d_i, 9, 30, 0)
+                int ny_end       = timestamp(tz, y_i, m_i, d_i, 10, 0, 0)
+
+                if enable_london
+                    f_draw_future_killzone(lon_start, lon_deadline, lon_end, col_london, "London 03:00", "Deadline 03:30")
+
+                if enable_ny
+                    f_draw_future_killzone(ny_start, ny_deadline, ny_end, col_ny, "NY AM 09:00", "Deadline 09:30")
+
+// =============================================================================
+// CẢNH BÁO THỜI GIAN THỰC (ALERTS) - CHỈ PHÁT VÀO THỨ 3, 4, 5
+// =============================================================================
+cur_dow_ny = dayofweek(timenow, "America/New_York")
+is_alert_day = (cur_dow_ny == dayofweek.tuesday or cur_dow_ny == dayofweek.wednesday or cur_dow_ny == dayofweek.thursday)
+
+// Cửa sổ nhận diện 1 phút cho các mốc
+in_lon_start = not na(time(timeframe.period, "0300-0301:345", "America/New_York"))
+in_lon_dl    = not na(time(timeframe.period, "0330-0331:345", "America/New_York"))
+
+in_ny_start  = not na(time(timeframe.period, "0900-0901:345", "America/New_York"))
+in_ny_dl     = not na(time(timeframe.period, "0930-0931:345", "America/New_York"))
+
+// Báo chuông mở phiên London & Deadline London
+if is_alert_day and enable_london and in_lon_start and not in_lon_start[1]
+    alert("Bắt đầu London Focus (03:00 NY) - T3/T4/T5!", alert.freq_once_per_bar)
+
+if is_alert_day and enable_deadlines and in_lon_dl and not in_lon_dl[1]
+    alert("CẢNH BÁO: Mốc London Deadline (03:30 NY)!", alert.freq_once_per_bar)
+
+// Báo chuông mở phiên NY & Deadline NY (Equities Open)
+if is_alert_day and enable_ny and in_ny_start and not in_ny_start[1]
+    alert("Bắt đầu New York AM Focus (09:00 NY) - T3/T4/T5!", alert.freq_once_per_bar)
+
+if is_alert_day and enable_deadlines and in_ny_dl and not in_ny_dl[1]
+    alert("CẢNH BÁO: Mốc New York Deadline / Equities Open (09:30 NY)!", alert.freq_once_per_bar)
