@@ -34,6 +34,7 @@ depth_max_atr = input.float(0.25, "Độ sâu quét tối đa (ATR)", minval = 0
 col_buy       = input.color(color.teal, "Màu tín hiệu mua", group = grp_sg)
 col_sell      = input.color(color.maroon, "Màu tín hiệu bán", group = grp_sg)
 show_status   = input.bool(true, "Bảng trạng thái (góc trên phải)", group = grp_sg)
+show_sweep    = input.bool(true, "Đánh dấu điểm quét (tại cực trị của swing, tooltip)", group = grp_sg)
 show_prev_hl  = input.bool(true, "Vẽ đỉnh/đáy giờ trước (từ nến tạo đỉnh/đáy đến hết giờ setup)", group = grp_sg)
 col_prev_hl   = input.color(color.gray, "Màu đỉnh/đáy giờ trước", group = grp_sg)
 alert_cisd    = input.bool(true, "Alert ngay khi phát hiện CISD (kể cả khi bị bỏ vì quét sâu / không FVG)", group = grp_sg)
@@ -235,6 +236,8 @@ var int    sw_lo_min  = na
 var int    hi_bar     = na
 var float  hi_px      = na
 var int    sw_hi_min  = na
+var label  sw_lo_lb   = na       // chấm đánh dấu cực trị quét
+var label  sw_hi_lb   = na
 var int    cisd_b     = na
 var int    cisd_s     = na
 var int    cisd_b_org = na       // nến gốc của mức CISD
@@ -323,6 +326,8 @@ if barstate.isconfirmed and enable_sig and is_m1
         hi_bar := na
         hi_px := na
         sw_hi_min := na
+        sw_lo_lb := na
+        sw_hi_lb := na
         cisd_b := na
         cisd_s := na
         cisd_b_org := na
@@ -360,24 +365,30 @@ if barstate.isconfirmed and enable_sig and is_m1
                 lo_bar := bar_index
                 lo_px := low
                 sweep_now_lo := true
-                if show_debug and in_window
-                    label.new(bar_index, low, "", style = label.style_circle, color = color.new(color.gray, 40), size = size.tiny, tooltip = "sweep L " + f_m(m))
+                if show_sweep and in_window
+                    sw_lo_lb := label.new(bar_index, low, "", style = label.style_label_up, color = color.new(col_buy, 30), size = size.tiny, tooltip = "Quét đáy giờ trước " + f_p(pl) + "\nquét " + f_m(m) + " | cực trị " + f_m(m) + " " + f_p(low))
         else if not buy_done and na(cisd_b) and low < lo_px
             lo_bar := bar_index
             lo_px := low
             newlo_now := true
+            if not na(sw_lo_lb)
+                label.set_xy(sw_lo_lb, bar_index, low)
+                label.set_tooltip(sw_lo_lb, "Quét đáy giờ trước " + f_p(pl) + "\nquét " + f_m(sw_lo_min) + " | cực trị " + f_m(m) + " " + f_p(low))
         if na(sw_hi_min)
             if m <= sweep_max_min and high > ph
                 sw_hi_min := m
                 hi_bar := bar_index
                 hi_px := high
                 sweep_now_hi := true
-                if show_debug and in_window
-                    label.new(bar_index, high, "", style = label.style_circle, color = color.new(color.gray, 40), size = size.tiny, tooltip = "sweep H " + f_m(m))
+                if show_sweep and in_window
+                    sw_hi_lb := label.new(bar_index, high, "", style = label.style_label_down, color = color.new(col_sell, 30), size = size.tiny, tooltip = "Quét đỉnh giờ trước " + f_p(ph) + "\nquét " + f_m(m) + " | cực trị " + f_m(m) + " " + f_p(high))
         else if not sell_done and na(cisd_s) and high > hi_px
             hi_bar := bar_index
             hi_px := high
             newhi_now := true
+            if not na(sw_hi_lb)
+                label.set_xy(sw_hi_lb, bar_index, high)
+                label.set_tooltip(sw_hi_lb, "Quét đỉnh giờ trước " + f_p(ph) + "\nquét " + f_m(sw_hi_min) + " | cực trị " + f_m(m) + " " + f_p(high))
 
         // --- quét cả hai biên: bỏ mọi phía chưa có tín hiệu ---
         if not na(sw_lo_min) and not na(sw_hi_min)
@@ -418,9 +429,10 @@ if barstate.isconfirmed and enable_sig and is_m1
                                 res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " FVG " + f_1((top - bot) / pip) + "p " + f_m(minute(time[fo], TZ)) + " -> SIGNAL BUY"
                                 cur_state := "SIGNAL BUY " + f_m(m)
                                 if in_window
-                                    label.new(bar_index, cisd_b_lvl, "CISD " + f_m(m), style = label.style_label_left, color = col_buy, textcolor = color.white, size = size.small)
+                                    label.new(bar_index, cisd_b_lvl, "", style = label.style_label_left, color = col_buy, size = size.small, tooltip = "CISD BUY " + f_m(m) + "\nmức " + f_p(cisd_b_lvl) + " | đóng " + f_p(close) + "\nquét " + f_2(d) + " ATR | cực trị " + f_p(lo_px))
                                     f_draw_cisd(cisd_b_org, bar_index, cisd_b_lvl, col_buy)
-                                    box.new(bar_index - fo, top, bar_index + (59 - m), bot, border_color = col_buy, bgcolor = color.new(col_buy, 80), text = "FVG " + f_1((top - bot) / pip) + "p", text_color = col_buy, text_size = size.tiny, text_halign = text.align_left)
+                                    box.new(bar_index - fo, top, bar_index + (59 - m), bot, border_color = col_buy, bgcolor = color.new(col_buy, 80))
+                                    label.new(bar_index - fo, (top + bot) / 2, "", style = label.style_square, color = color.new(col_buy, 30), size = size.tiny, tooltip = "FVG mua " + f_1((top - bot) / pip) + " pip\n" + f_p(bot) + " – " + f_p(top) + " | hoàn thành " + f_m(minute(time[fo], TZ)))
                                 alert("[SETUP] " + f_sess() + " — CISD BUY + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
                             else
                                 cur_state := "CISD mua " + f_m(m) + ", chờ FVG 1 nến"
@@ -435,9 +447,10 @@ if barstate.isconfirmed and enable_sig and is_m1
                     res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_b) + " FVG " + f_1((t - b) / pip) + "p " + f_m(m) + " -> SIGNAL BUY"
                     cur_state := "SIGNAL BUY " + f_m(m)
                     if in_window
-                        label.new(cisd_b, cisd_b_lvl, "CISD " + f_m(minute(time[1], TZ)), style = label.style_label_left, color = col_buy, textcolor = color.white, size = size.small)
+                        label.new(cisd_b, cisd_b_lvl, "", style = label.style_label_left, color = col_buy, size = size.small, tooltip = "CISD BUY " + f_m(minute(time[1], TZ)) + "\nmức " + f_p(cisd_b_lvl) + " | đóng " + f_p(close[1]) + "\nquét " + f_2(depth_b) + " ATR | cực trị " + f_p(lo_px))
                         f_draw_cisd(cisd_b_org, cisd_b, cisd_b_lvl, col_buy)
-                        box.new(bar_index, t, bar_index + (59 - m), b, border_color = col_buy, bgcolor = color.new(col_buy, 80), text = "FVG " + f_1((t - b) / pip) + "p", text_color = col_buy, text_size = size.tiny, text_halign = text.align_left)
+                        box.new(bar_index, t, bar_index + (59 - m), b, border_color = col_buy, bgcolor = color.new(col_buy, 80))
+                        label.new(bar_index, (t + b) / 2, "", style = label.style_square, color = color.new(col_buy, 30), size = size.tiny, tooltip = "FVG mua " + f_1((t - b) / pip) + " pip\n" + f_p(b) + " – " + f_p(t) + " | hoàn thành " + f_m(m))
                     alert("[SETUP] " + f_sess() + " — CISD BUY + FVG | CISD phút " + str.tostring(minute(time[1], TZ)) + " | quét " + f_2(depth_b) + " ATR | FVG " + f_p(b) + "–" + f_p(t) + " (" + f_1((t - b) / pip) + " pip)", alert.freq_once_per_bar_close)
                 else
                     buy_done := true
@@ -478,9 +491,10 @@ if barstate.isconfirmed and enable_sig and is_m1
                                 res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " FVG " + f_1((top - bot) / pip) + "p " + f_m(minute(time[fo], TZ)) + " -> SIGNAL SELL"
                                 cur_state := "SIGNAL SELL " + f_m(m)
                                 if in_window
-                                    label.new(bar_index, cisd_s_lvl, "CISD " + f_m(m), style = label.style_label_left, color = col_sell, textcolor = color.white, size = size.small)
+                                    label.new(bar_index, cisd_s_lvl, "", style = label.style_label_left, color = col_sell, size = size.small, tooltip = "CISD SELL " + f_m(m) + "\nmức " + f_p(cisd_s_lvl) + " | đóng " + f_p(close) + "\nquét " + f_2(d) + " ATR | cực trị " + f_p(hi_px))
                                     f_draw_cisd(cisd_s_org, bar_index, cisd_s_lvl, col_sell)
-                                    box.new(bar_index - fo, top, bar_index + (59 - m), bot, border_color = col_sell, bgcolor = color.new(col_sell, 80), text = "FVG " + f_1((top - bot) / pip) + "p", text_color = col_sell, text_size = size.tiny, text_halign = text.align_left)
+                                    box.new(bar_index - fo, top, bar_index + (59 - m), bot, border_color = col_sell, bgcolor = color.new(col_sell, 80))
+                                    label.new(bar_index - fo, (top + bot) / 2, "", style = label.style_square, color = color.new(col_sell, 30), size = size.tiny, tooltip = "FVG bán " + f_1((top - bot) / pip) + " pip\n" + f_p(bot) + " – " + f_p(top) + " | hoàn thành " + f_m(minute(time[fo], TZ)))
                                 alert("[SETUP] " + f_sess() + " — CISD SELL + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
                             else
                                 cur_state := "CISD bán " + f_m(m) + ", chờ FVG 1 nến"
@@ -494,9 +508,10 @@ if barstate.isconfirmed and enable_sig and is_m1
                     res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_s) + " FVG " + f_1((t - b) / pip) + "p " + f_m(m) + " -> SIGNAL SELL"
                     cur_state := "SIGNAL SELL " + f_m(m)
                     if in_window
-                        label.new(cisd_s, cisd_s_lvl, "CISD " + f_m(minute(time[1], TZ)), style = label.style_label_left, color = col_sell, textcolor = color.white, size = size.small)
+                        label.new(cisd_s, cisd_s_lvl, "", style = label.style_label_left, color = col_sell, size = size.small, tooltip = "CISD SELL " + f_m(minute(time[1], TZ)) + "\nmức " + f_p(cisd_s_lvl) + " | đóng " + f_p(close[1]) + "\nquét " + f_2(depth_s) + " ATR | cực trị " + f_p(hi_px))
                         f_draw_cisd(cisd_s_org, cisd_s, cisd_s_lvl, col_sell)
-                        box.new(bar_index, t, bar_index + (59 - m), b, border_color = col_sell, bgcolor = color.new(col_sell, 80), text = "FVG " + f_1((t - b) / pip) + "p", text_color = col_sell, text_size = size.tiny, text_halign = text.align_left)
+                        box.new(bar_index, t, bar_index + (59 - m), b, border_color = col_sell, bgcolor = color.new(col_sell, 80))
+                        label.new(bar_index, (t + b) / 2, "", style = label.style_square, color = color.new(col_sell, 30), size = size.tiny, tooltip = "FVG bán " + f_1((t - b) / pip) + " pip\n" + f_p(b) + " – " + f_p(t) + " | hoàn thành " + f_m(m))
                     alert("[SETUP] " + f_sess() + " — CISD SELL + FVG | CISD phút " + str.tostring(minute(time[1], TZ)) + " | quét " + f_2(depth_s) + " ATR | FVG " + f_p(b) + "–" + f_p(t) + " (" + f_1((t - b) / pip) + " pip)", alert.freq_once_per_bar_close)
                 else
                     sell_done := true

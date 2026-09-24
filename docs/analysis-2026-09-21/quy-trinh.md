@@ -65,7 +65,7 @@ Ghi nhật ký theo `nhat-ky-mau.csv`. Bắt buộc: phiên bản quy tắc (`ru
 
 ## 7. Indicator và kiểm chứng
 
-- `ICT_Future_Killzones_With_Deadlines_v7.pine` (chart M1, OANDA): vẽ killzone/deadline như v6, thêm mũi tên `CISD BUY/SELL`, đường CISD (nằm ngang tại mức CISD, từ nến gốc của chuỗi nến ngược chiều đến nến xác nhận), box FVG và một alert duy nhất khi có CISD + FVG (đặt alert kiểu "Any alert() function call"). Bảng góc trên phải cho biết đang ở bước nào trong giờ.
+- `ICT_Future_Killzones_With_Deadlines_v7.pine` (chart M1, OANDA): vẽ killzone/deadline như v6, thêm đường CISD (nằm ngang tại mức CISD, từ nến gốc của chuỗi nến ngược chiều đến nến xác nhận) với tag ở đầu cuối, box FVG với ô vuông ở mép trái, tag điểm quét tại cực trị của swing — chi tiết (phút, mức, độ sâu quét, kích thước FVG) hiện dưới dạng tooltip khi rê chuột — và một alert duy nhất khi có CISD + FVG (đặt alert kiểu "Any alert() function call"). Bảng góc trên phải cho biết đang ở bước nào trong giờ.
 - Đỉnh/đáy giờ trước vẽ bằng đường chấm từ nến tạo đỉnh/đáy đến hết giờ setup (bật mặc định).
 - Mức tham chiếu (bật mặc định, nhãn chữ nhỏ chạy theo nến hiện tại): killzone Asia 20:00–00:00, London 02:00–05:00, New York 07:00–11:00 NY được tô vùng từ High đến Low của phiên; đường High/Low bắt đầu tại nến tạo đỉnh/đáy, kéo đến hết nến D (17:00 NY), bị quét thì dừng tại nến quét và nhãn thêm ✗; PDH/PDL và PWH/PWL lấy theo nến D và W của TradingView (OANDA: ngày 17:00–17:00 NY, tuần gồm cả Chủ nhật tối), kéo đến hết nến D/W hiện tại, bị quét thì dừng tại nến quét (✗). Mặc định chỉ ngày/tuần hiện tại.
 - Lớp debug (tắt mặc định): điểm quét, lý do bỏ, bảng đối chiếu 10 ngày và Pine Logs, mỗi giờ một dòng.
