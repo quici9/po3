@@ -4,6 +4,8 @@
 indicator("ICT Killzones + CISD/FVG Setup (v7, M1)", overlay = true, max_lines_count = 500, max_labels_count = 500, max_boxes_count = 100, max_bars_back = 500)
 
 TZ = "America/New_York"
+// Mốc "hiện tại" = thời gian nến cuối trên chart: trong Bar Replay chính là vị trí đang replay (timenow là giờ thật, sẽ sai).
+NOW = last_bar_time
 HOUR_MS = 3600000
 DAY_MS  = 86400000
 
@@ -87,7 +89,7 @@ f_add_label(int t, string txt, color c) =>
     array.push(labels_arr, lb)
 
 f_draw_future_killzone(int start_t, int deadline_t, int end_t, color c, string title_str, string dl_title) =>
-    if end_t > timenow
+    if end_t > NOW
         f_add_vline(start_t, c, line.style_solid, 1)
         f_add_label(start_t, title_str, c)
         if enable_deadlines
@@ -97,10 +99,10 @@ f_draw_future_killzone(int start_t, int deadline_t, int end_t, color c, string t
 
 if barstate.islast
     f_clear_objects()
-    int y_now   = year(timenow, TZ)
-    int m_now   = month(timenow, TZ)
-    int d_now   = dayofmonth(timenow, TZ)
-    int dow_now = dayofweek(timenow, TZ)
+    int y_now   = year(NOW, TZ)
+    int m_now   = month(NOW, TZ)
+    int d_now   = dayofmonth(NOW, TZ)
+    int dow_now = dayofweek(NOW, TZ)
     int days_to_friday = 6 - dow_now
     if days_to_friday >= 0
         for i = 0 to days_to_friday
@@ -320,7 +322,7 @@ if barstate.isconfirmed and enable_sig and is_m1
         int hr = hour(time, TZ)
         int dow = dayofweek(time, TZ)
         target_hr := (hr == 3 or hr == 9) and (dow == dayofweek.tuesday or dow == dayofweek.wednesday or dow == dayofweek.thursday)
-        in_window := time >= timenow - days_back * DAY_MS
+        in_window := time >= NOW - days_back * DAY_MS
         open_in := prev_ok and open >= pl and open <= ph
         skip_hour := not target_hr ? "" : not prev_ok ? "SKIP no prev hour" : (na(atr) or atr <= 0) ? "SKIP no ATR" : not open_in ? "SKIP open OUT (" + f_p(open) + ")" : ""
         in_scope := target_hr and skip_hour == ""
@@ -597,7 +599,7 @@ f_kz_track(string sess, string name, color c, bool enabled) =>
     var int   kl_t = na
     var box   bx = na
     bool in_s = not na(time(timeframe.period, sess, TZ))
-    bool in_win = time >= timenow - hl_days_back * DAY_MS
+    bool in_win = time >= NOW - hl_days_back * DAY_MS
     if in_s
         if not in_s[1]
             kh := high
@@ -641,10 +643,10 @@ pwh := pwh_s
 pwl := pwl_s
 bool new_day  = ta.change(time("D")) != 0
 bool new_week = ta.change(time("W")) != 0
-if new_day and show_pd_hl and not na(pdh) and time >= timenow - hl_days_back * DAY_MS
+if new_day and show_pd_hl and not na(pdh) and time >= NOW - hl_days_back * DAY_MS
     f_hl_new(time, pdh, time_close("D"), true, true, "PDH", col_pd_hl)
     f_hl_new(time, pdl, time_close("D"), false, true, "PDL", col_pd_hl)
-if new_week and show_pw_hl and not na(pwh) and time >= timenow - hl_days_back * 7 * DAY_MS
+if new_week and show_pw_hl and not na(pwh) and time >= NOW - hl_days_back * 7 * DAY_MS
     f_hl_new(time, pwh, time_close("W"), true, true, "PWH", col_pw_hl)
     f_hl_new(time, pwl, time_close("W"), false, true, "PWL", col_pw_hl)
 
