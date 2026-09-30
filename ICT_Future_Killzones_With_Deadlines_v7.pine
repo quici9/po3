@@ -35,10 +35,10 @@ cisd_max_min  = input.int(29, "Nến CISD muộn nhất (phút)", minval = 1, ma
 depth_max_atr = input.float(0.25, "Độ sâu quét tối đa (ATR)", minval = 0.05, step = 0.05, group = grp_sg)
 col_buy       = input.color(color.teal, "Màu tín hiệu mua", group = grp_sg)
 col_sell      = input.color(color.maroon, "Màu tín hiệu bán", group = grp_sg)
-show_status   = input.bool(true, "Bảng trạng thái (góc trên phải)", group = grp_sg)
 show_sweep    = input.bool(true, "Đánh dấu điểm quét (tại cực trị của swing, tooltip)", group = grp_sg)
 show_prev_hl  = input.bool(true, "Vẽ đỉnh/đáy giờ trước (từ nến tạo đỉnh/đáy đến hết giờ setup)", group = grp_sg)
-col_prev_hl   = input.color(color.gray, "Màu đỉnh/đáy giờ trước", group = grp_sg)
+// màu độ sáng trung bình: đọc được trên cả nền sáng và nền tối
+col_prev_hl   = input.color(#E040FB, "Màu đỉnh/đáy giờ trước", group = grp_sg)
 alert_cisd    = input.bool(true, "Alert ngay khi phát hiện CISD (kể cả khi bị bỏ vì quét sâu / không FVG)", group = grp_sg)
 
 grp_hl = "Mức High/Low: Killzone, ngày trước, tuần trước"
@@ -59,6 +59,13 @@ hl_days_back = input.int(1, "Số ngày hiển thị (1 = chỉ hôm nay; tuần
 hl_width     = input.int(1, "Độ dày đường", minval = 1, maxval = 3, group = grp_hl)
 hl_lbl_off   = input.int(6, "Nhãn cách nến hiện tại (số nến, đặt trong lề phải)", minval = 1, maxval = 30, group = grp_hl)
 hl_hide_swept = input.bool(false, "Ẩn nhãn của đường đã bị quét", group = grp_hl)
+
+grp_tb = "Bảng (góc trên phải): DOL + nhắc setup A+"
+show_status = input.bool(true, "Hiện bảng", group = grp_tb)
+show_dol    = input.bool(true, "Mục DOL: còn hiệu lực / đã quét, phá (PW > PD > phiên)", group = grp_tb)
+show_rules  = input.bool(true, "Mục nhắc setup A+", group = grp_tb)
+tbl_size_in = input.string("Vừa", "Cỡ chữ", options = ["Nhỏ", "Vừa", "Lớn"], group = grp_tb)
+tbl_size = tbl_size_in == "Nhỏ" ? size.small : tbl_size_in == "Lớn" ? size.large : size.normal
 
 grp_dbg = "Debug / kiểm chứng"
 show_debug    = input.bool(false, "Bật lớp debug (biên giờ trước, lý do bỏ, bảng đối chiếu, Pine Logs)", group = grp_dbg)
@@ -256,7 +263,6 @@ var bool   buy_done   = false
 var bool   sell_done  = false
 var string res_b      = ""
 var string res_s      = ""
-var string cur_state  = "chờ"
 var array<string> dbg_rows = array.new<string>()
 
 f_push_row(string s) =>
@@ -346,10 +352,12 @@ if barstate.isconfirmed and enable_sig and is_m1
         sell_done := false
         res_b := ""
         res_s := ""
-        cur_state := target_hr ? (skip_hour != "" ? skip_hour : "quan sát, chờ quét") : "ngoài giờ"
         if show_prev_hl and target_hr and prev_ok and in_window
             line.new(ph_bar, ph, bar_index + 59, ph, xloc = xloc.bar_index, color = col_prev_hl, style = line.style_dotted, width = 1)
             line.new(pl_bar, pl, bar_index + 59, pl, xloc = xloc.bar_index, color = col_prev_hl, style = line.style_dotted, width = 1)
+            // nhãn ở cuối đường (hết giờ setup): đỉnh đặt trên đường, đáy đặt dưới đường
+            label.new(bar_index + 59, ph, "Đỉnh giờ trước", xloc = xloc.bar_index, style = label.style_label_lower_right, color = color.new(col_prev_hl, 100), textcolor = col_prev_hl, size = size.small)
+            label.new(bar_index + 59, pl, "Đáy giờ trước", xloc = xloc.bar_index, style = label.style_label_upper_right, color = color.new(col_prev_hl, 100), textcolor = col_prev_hl, size = size.small)
 
     ch_bars += 1
     if high > ch_hi
@@ -404,7 +412,6 @@ if barstate.isconfirmed and enable_sig and is_m1
             if not sell_done
                 sell_done := true
                 res_s := f_side_prefix(sw_hi_min, cisd_s, depth_s) + " -> SKIP 2 sides"
-            cur_state := "SKIP quét 2 biên"
 
         // --- phía mua ---
         if not na(sw_lo_min) and not buy_done
@@ -412,7 +419,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                 if m > cisd_max_min
                     buy_done := true
                     res_b := f_side_prefix(sw_lo_min, cisd_b, depth_b) + " -> no CISD"
-                    cur_state := "hết phút " + str.tostring(cisd_max_min) + ", không CISD mua"
                 else if not sweep_now_lo and not newlo_now
                     int k = bar_index - lo_bar
                     [lvl_b, org_b] = f_cisd_lvl_buy(k)
@@ -424,7 +430,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                             res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " -> SKIP deep"
                             if alert_cisd
                                 alert("[BỎ] " + f_sess() + " — CISD BUY phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR ≥ " + f_2(depth_max_atr) + " (quét sâu)", alert.freq_once_per_bar_close)
-                            cur_state := "CISD mua nhưng quét sâu " + f_2(d) + " ATR"
                         else
                             cisd_b := bar_index
                             cisd_b_org := bar_index - org_b
@@ -433,7 +438,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                             if not na(fo)
                                 buy_done := true
                                 res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " FVG " + f_1((top - bot) / pip) + "p " + f_m(minute(time[fo], TZ)) + " -> SIGNAL BUY"
-                                cur_state := "SIGNAL BUY " + f_m(m)
                                 if in_window
                                     f_draw_cisd(cisd_b_org, bar_index, cisd_b_lvl, col_buy)
                                     f_cisd_label(cisd_b_org, bar_index, cisd_b_lvl, col_buy, "CISD " + f_m(m), "CISD BUY " + f_m(m) + "\nmức " + f_p(cisd_b_lvl) + " | đóng " + f_p(close) + "\nquét " + f_2(d) + " ATR | cực trị " + f_p(lo_px))
@@ -443,7 +447,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                                     label.new(bar_index - fo + math.round((59 - m + fo) / 2), (top + bot) / 2, "FVG " + f_1((top - bot) / pip) + "p", style = label.style_none, textcolor = col_buy, size = size.tiny, tooltip = "FVG mua " + f_1((top - bot) / pip) + " pip | " + f_p(bot) + " – " + f_p(top) + " | hoàn thành " + f_m(minute(time[fo], TZ)) + "\nCISD BUY " + f_m(m) + " | mức " + f_p(cisd_b_lvl) + " | đóng " + f_p(close) + "\nquét " + f_2(d) + " ATR | cực trị " + f_p(lo_px))
                                 alert("[SETUP] " + f_sess() + " — CISD BUY + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
                             else
-                                cur_state := "CISD mua " + f_m(m) + ", chờ FVG 1 nến"
                                 if alert_cisd
                                     alert("[CHỜ] " + f_sess() + " — CISD BUY phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | chưa có FVG, chờ nến kế tiếp", alert.freq_once_per_bar_close)
             else
@@ -453,7 +456,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                 if t - b >= min_gap and t > b
                     buy_done := true
                     res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_b) + " FVG " + f_1((t - b) / pip) + "p " + f_m(m) + " -> SIGNAL BUY"
-                    cur_state := "SIGNAL BUY " + f_m(m)
                     if in_window
                         f_draw_cisd(cisd_b_org, cisd_b, cisd_b_lvl, col_buy)
                         f_cisd_label(cisd_b_org, cisd_b, cisd_b_lvl, col_buy, "CISD " + f_m(minute(time[1], TZ)), "CISD BUY " + f_m(minute(time[1], TZ)) + "\nmức " + f_p(cisd_b_lvl) + " | đóng " + f_p(close[1]) + "\nquét " + f_2(depth_b) + " ATR | cực trị " + f_p(lo_px))
@@ -467,7 +469,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                     res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_b) + " -> SKIP no FVG"
                     if alert_cisd
                         alert("[BỎ] " + f_sess() + " — CISD BUY phút " + str.tostring(minute(time[1], TZ)) + " không có FVG", alert.freq_once_per_bar_close)
-                    cur_state := "CISD mua không có FVG, bỏ"
                     if show_debug and in_window
                         label.new(cisd_b, cisd_b_lvl, "CISD no FVG", style = label.style_label_left, color = color.new(color.gray, 40), textcolor = color.white, size = size.tiny)
                         f_draw_cisd(cisd_b_org, cisd_b, cisd_b_lvl, color.new(color.gray, 40))
@@ -478,7 +479,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                 if m > cisd_max_min
                     sell_done := true
                     res_s := f_side_prefix(sw_hi_min, cisd_s, depth_s) + " -> no CISD"
-                    cur_state := "hết phút " + str.tostring(cisd_max_min) + ", không CISD bán"
                 else if not sweep_now_hi and not newhi_now
                     int k = bar_index - hi_bar
                     [lvl_s, org_s] = f_cisd_lvl_sell(k)
@@ -490,7 +490,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                             res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " -> SKIP deep"
                             if alert_cisd
                                 alert("[BỎ] " + f_sess() + " — CISD SELL phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR ≥ " + f_2(depth_max_atr) + " (quét sâu)", alert.freq_once_per_bar_close)
-                            cur_state := "CISD bán nhưng quét sâu " + f_2(d) + " ATR"
                         else
                             cisd_s := bar_index
                             cisd_s_org := bar_index - org_s
@@ -499,7 +498,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                             if not na(fo)
                                 sell_done := true
                                 res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " FVG " + f_1((top - bot) / pip) + "p " + f_m(minute(time[fo], TZ)) + " -> SIGNAL SELL"
-                                cur_state := "SIGNAL SELL " + f_m(m)
                                 if in_window
                                     f_draw_cisd(cisd_s_org, bar_index, cisd_s_lvl, col_sell)
                                     f_cisd_label(cisd_s_org, bar_index, cisd_s_lvl, col_sell, "CISD " + f_m(m), "CISD SELL " + f_m(m) + "\nmức " + f_p(cisd_s_lvl) + " | đóng " + f_p(close) + "\nquét " + f_2(d) + " ATR | cực trị " + f_p(hi_px))
@@ -509,7 +507,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                                     label.new(bar_index - fo + math.round((59 - m + fo) / 2), (top + bot) / 2, "FVG " + f_1((top - bot) / pip) + "p", style = label.style_none, textcolor = col_sell, size = size.tiny, tooltip = "FVG bán " + f_1((top - bot) / pip) + " pip | " + f_p(bot) + " – " + f_p(top) + " | hoàn thành " + f_m(minute(time[fo], TZ)) + "\nCISD SELL " + f_m(m) + " | mức " + f_p(cisd_s_lvl) + " | đóng " + f_p(close) + "\nquét " + f_2(d) + " ATR | cực trị " + f_p(hi_px))
                                 alert("[SETUP] " + f_sess() + " — CISD SELL + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
                             else
-                                cur_state := "CISD bán " + f_m(m) + ", chờ FVG 1 nến"
                                 if alert_cisd
                                     alert("[CHỜ] " + f_sess() + " — CISD SELL phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | chưa có FVG, chờ nến kế tiếp", alert.freq_once_per_bar_close)
             else
@@ -518,7 +515,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                 if t - b >= min_gap and t > b
                     sell_done := true
                     res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_s) + " FVG " + f_1((t - b) / pip) + "p " + f_m(m) + " -> SIGNAL SELL"
-                    cur_state := "SIGNAL SELL " + f_m(m)
                     if in_window
                         f_draw_cisd(cisd_s_org, cisd_s, cisd_s_lvl, col_sell)
                         f_cisd_label(cisd_s_org, cisd_s, cisd_s_lvl, col_sell, "CISD " + f_m(minute(time[1], TZ)), "CISD SELL " + f_m(minute(time[1], TZ)) + "\nmức " + f_p(cisd_s_lvl) + " | đóng " + f_p(close[1]) + "\nquét " + f_2(depth_s) + " ATR | cực trị " + f_p(hi_px))
@@ -532,13 +528,9 @@ if barstate.isconfirmed and enable_sig and is_m1
                     res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_s) + " -> SKIP no FVG"
                     if alert_cisd
                         alert("[BỎ] " + f_sess() + " — CISD SELL phút " + str.tostring(minute(time[1], TZ)) + " không có FVG", alert.freq_once_per_bar_close)
-                    cur_state := "CISD bán không có FVG, bỏ"
                     if show_debug and in_window
                         label.new(cisd_s, cisd_s_lvl, "CISD no FVG", style = label.style_label_left, color = color.new(color.gray, 40), textcolor = color.white, size = size.tiny)
                         f_draw_cisd(cisd_s_org, cisd_s, cisd_s_lvl, color.new(color.gray, 40))
-
-        if m == 55
-            cur_state := "phút 55: đóng lệnh còn mở"
 
 // =============================================================================
 // HIGH/LOW KILLZONE, NGÀY TRƯỚC, TUẦN TRƯỚC
@@ -556,16 +548,23 @@ type HL
     int   end_t
     bool  sweepable
     bool  active
+    string name
+    int   swept_t       // thời điểm nến quét đầu tiên (na = chưa bị quét)
 
 var array<HL> hl_arr = array.new<HL>()
+// DOL mới nhất của mỗi loại, theo thứ tự lớn đến nhỏ: PWH, PWL, PDH, PDL, NY H/L, LDN H/L, ASIA H/L
+DOL_N = 10
+var array<HL> dol_last = array.new<HL>(DOL_N)
 
 // chữ đen trên nền sáng (vàng, trắng), chữ trắng trên nền tối
 f_txt_on(color c) => color.r(c) * 0.299 + color.g(c) * 0.587 + color.b(c) * 0.114 > 150 ? color.black : color.white
 
-f_hl_new(int x1_t, float lvl, int end_t, bool is_high, bool sweepable, string txt, color c) =>
+f_hl_new(int x1_t, float lvl, int end_t, bool is_high, bool sweepable, string txt, color c, int rank) =>
     line  ln = line.new(x1_t, lvl, end_t, lvl, xloc = xloc.bar_time, color = c, style = line.style_solid, width = hl_width)
     label lb = label.new(bar_index + hl_lbl_off, lvl, txt, xloc = xloc.bar_index, style = label.style_label_left, color = color.new(c, 15), textcolor = f_txt_on(c), size = size.small)
-    array.push(hl_arr, HL.new(ln, lb, lvl, is_high, end_t, sweepable, true))
+    HL h = HL.new(ln, lb, lvl, is_high, end_t, sweepable, true, txt, na)
+    array.push(hl_arr, h)
+    array.set(dol_last, rank, h)
     true
 
 // cập nhật các đường còn hiệu lực trên mỗi nến
@@ -576,6 +575,7 @@ if array.size(hl_arr) > 0
             bool swept = h.sweepable and (h.is_high ? high > h.lvl : low < h.lvl)
             if swept
                 line.set_x2(h.ln, time)
+                h.swept_t := time
                 if hl_hide_swept
                     label.delete(h.lb)
                 else
@@ -592,7 +592,7 @@ if array.size(hl_arr) > 0
                 label.set_x(h.lb, bar_index + hl_lbl_off)
 
 // ---- killzone ----
-f_kz_track(string sess, string name, color c, bool enabled) =>
+f_kz_track(string sess, string name, color c, bool enabled, int rank) =>
     var float kh = na
     var float kl = na
     var int   kh_t = na
@@ -621,14 +621,14 @@ f_kz_track(string sess, string name, color c, bool enabled) =>
     else if in_s[1] and enabled and not na(kh)
         // nến đầu tiên sau phiên: kéo đến hết nến D (TradingView/OANDA: 17:00 NY) chứa nến này
         if in_win
-            f_hl_new(kh_t, kh, time_close("D"), true, true, name + " H", c)
-            f_hl_new(kl_t, kl, time_close("D"), false, true, name + " L", c)
+            f_hl_new(kh_t, kh, time_close("D"), true, true, name + " H", c, rank)
+            f_hl_new(kl_t, kl, time_close("D"), false, true, name + " L", c, rank + 1)
     in_s
 
 if show_kz_hl
-    f_kz_track(sess_asia, "ASIA", col_asia_hl, true)
-    f_kz_track(sess_london, "LDN", col_ldn_hl, true)
-    f_kz_track(sess_ny, "NY", col_ny_hl, true)
+    f_kz_track(sess_asia, "ASIA", col_asia_hl, true, 8)
+    f_kz_track(sess_london, "LDN", col_ldn_hl, true, 6)
+    f_kz_track(sess_ny, "NY", col_ny_hl, true, 4)
 
 // ---- ngày trước / tuần trước: theo nến D và W của TradingView (OANDA: ngày 17:00–17:00 NY) ----
 [pdh_s, pdl_s] = request.security(syminfo.tickerid, "D", [high[1], low[1]], lookahead = barmerge.lookahead_on)
@@ -644,35 +644,76 @@ pwl := pwl_s
 bool new_day  = ta.change(time("D")) != 0
 bool new_week = ta.change(time("W")) != 0
 if new_day and show_pd_hl and not na(pdh) and time >= NOW - hl_days_back * DAY_MS
-    f_hl_new(time, pdh, time_close("D"), true, true, "PDH", col_pd_hl)
-    f_hl_new(time, pdl, time_close("D"), false, true, "PDL", col_pd_hl)
+    f_hl_new(time, pdh, time_close("D"), true, true, "PDH", col_pd_hl, 2)
+    f_hl_new(time, pdl, time_close("D"), false, true, "PDL", col_pd_hl, 3)
 if new_week and show_pw_hl and not na(pwh) and time >= NOW - hl_days_back * 7 * DAY_MS
-    f_hl_new(time, pwh, time_close("W"), true, true, "PWH", col_pw_hl)
-    f_hl_new(time, pwl, time_close("W"), false, true, "PWL", col_pw_hl)
+    f_hl_new(time, pwh, time_close("W"), true, true, "PWH", col_pw_hl, 0)
+    f_hl_new(time, pwl, time_close("W"), false, true, "PWL", col_pw_hl, 1)
 
 // =============================================================================
-// BẢNG TRẠNG THÁI VÀ BẢNG ĐỐI CHIẾU
+// BẢNG GÓC TRÊN PHẢI: symbol/giờ, DOL (còn hiệu lực / đã quét, phá), nhắc setup A+
+// Màu lấy theo nền chart (chart.bg_color / chart.fg_color) nên đọc được ở cả Light và Dark mode.
+// DOL đã quét: "Phá" nếu giá đóng cửa hiện tại vẫn nằm ngoài mức, "Quét" nếu giá đã quay lại bên trong.
 // =============================================================================
-var table st = table.new(position.top_right, 2, 8, border_width = 1)
-if barstate.islast and show_status and enable_sig
-    color hdr = color.new(color.gray, 70)
-    string warn = not is_m1 ? "CHUYỂN SANG M1" : not is_pair ? "chỉ đo trên EURUSD/GBPUSD" : "OK"
-    table.cell(st, 0, 0, "Symbol / TF", bgcolor = hdr, text_size = size.small)
-    table.cell(st, 1, 0, syminfo.ticker + " " + timeframe.period + " — " + warn, text_color = warn == "OK" ? color.green : color.red, text_size = size.small)
-    table.cell(st, 0, 1, "Giờ NY", bgcolor = hdr, text_size = size.small)
-    table.cell(st, 1, 1, str.format_time(time, "EEE HH:mm", TZ) + (target_hr ? " (giờ setup)" : ""), text_size = size.small)
-    table.cell(st, 0, 2, "Biên giờ trước", bgcolor = hdr, text_size = size.small)
-    table.cell(st, 1, 2, na(ph) ? "—" : "PH " + f_p(ph) + "  PL " + f_p(pl) + (prev_ok ? "" : " (thiếu)"), text_size = size.small)
-    table.cell(st, 0, 3, "ATR24 H1", bgcolor = hdr, text_size = size.small)
-    table.cell(st, 1, 3, na(atr) ? "—" : f_1(atr / pip) + " pip | quét nông < " + f_1(depth_max_atr * atr / pip) + " pip", text_size = size.small)
-    table.cell(st, 0, 4, "Trạng thái", bgcolor = hdr, text_size = size.small)
-    table.cell(st, 1, 4, cur_state, text_color = str.startswith(cur_state, "SIGNAL") ? color.green : color.white, text_size = size.small)
-    table.cell(st, 0, 5, "Quy tắc", bgcolor = hdr, text_size = size.small)
-    table.cell(st, 1, 5, "v1.1: CISD ≤p" + str.tostring(cisd_max_min) + " + FVG ≥ " + f_1(min_fvg_pip) + "p, quét < " + f_2(depth_max_atr) + " ATR", text_size = size.small)
-    table.cell(st, 0, 6, "PDH / PDL", bgcolor = hdr, text_size = size.small)
-    table.cell(st, 1, 6, na(pdh) ? "—" : f_p(pdh) + " / " + f_p(pdl), text_size = size.small)
-    table.cell(st, 0, 7, "PWH / PWL", bgcolor = hdr, text_size = size.small)
-    table.cell(st, 1, 7, na(pwh) ? "—" : f_p(pwh) + " / " + f_p(pwl), text_size = size.small)
+TBL_ROWS = 24
+var table st = table.new(position.top_right, 3, TBL_ROWS, border_width = 1)
+
+f_row(int r, string txt, color tc, color bg) =>
+    table.cell(st, 0, r, txt, text_color = tc, bgcolor = bg, text_size = tbl_size, text_halign = text.align_left)
+    table.merge_cells(st, 0, r, 2, r)
+    r + 1
+
+f_dol_row(int r, HL h, string status, color sc, color bg, color fg) =>
+    table.cell(st, 0, r, h.name, text_color = fg, bgcolor = bg, text_size = tbl_size, text_halign = text.align_left)
+    table.cell(st, 1, r, f_p(h.lvl), text_color = fg, bgcolor = bg, text_size = tbl_size, text_halign = text.align_right)
+    table.cell(st, 2, r, status, text_color = sc, bgcolor = bg, text_size = tbl_size, text_halign = text.align_right)
+    r + 1
+
+if barstate.islast and show_status
+    table.clear(st, 0, 0, 2, TBL_ROWS - 1)
+    color fg  = chart.fg_color
+    color bg  = color.new(chart.bg_color, 0)
+    color hdr = color.new(fg, 82)
+    color dim = color.new(fg, 45)
+    color c_ok  = #26A69A
+    color c_bad = #F23645
+    color c_brk = #FF9800
+    string warn = not is_m1 ? "  CHUYỂN SANG M1" : not is_pair ? "  chỉ đo EURUSD/GBPUSD" : ""
+    int r = 0
+    r := f_row(r, syminfo.ticker + " · " + timeframe.period + warn, warn == "" ? fg : c_bad, hdr)
+    bool setup_now = is_m1 and target_hr
+    r := f_row(r, str.format_time(time, "EEE HH:mm", TZ) + " NY" + (setup_now ? "  ·  GIỜ SETUP" : ""), setup_now ? c_ok : fg, bg)
+    if show_dol
+        r := f_row(r, "DOL CÒN HIỆU LỰC", fg, hdr)
+        int n_act = 0
+        for i = 0 to DOL_N - 1
+            HL h = array.get(dol_last, i)
+            if not na(h) and time < h.end_t and na(h.swept_t)
+                float dist = math.abs(h.lvl - close) / pip
+                r := f_dol_row(r, h, (h.is_high ? "↑ " : "↓ ") + f_1(dist) + " pip", h.is_high ? c_ok : c_bad, bg, fg)
+                n_act += 1
+        if n_act == 0
+            r := f_row(r, "—", dim, bg)
+        r := f_row(r, "DOL ĐÃ QUÉT / PHÁ", fg, hdr)
+        int n_sw = 0
+        for i = 0 to DOL_N - 1
+            HL h = array.get(dol_last, i)
+            if not na(h) and time < h.end_t and not na(h.swept_t)
+                bool broken = h.is_high ? close > h.lvl : close < h.lvl
+                string when = str.format_time(h.swept_t, dayofmonth(h.swept_t, TZ) == dayofmonth(time, TZ) ? "HH:mm" : "EEE HH:mm", TZ)
+                r := f_dol_row(r, h, (broken ? "Phá " : "Quét ") + when, broken ? c_brk : dim, bg, dim)
+                n_sw += 1
+        if n_sw == 0
+            r := f_row(r, "—", dim, bg)
+    if show_rules
+        r := f_row(r, "SETUP A+", fg, hdr)
+        r := f_row(r, "• Thứ Ba–Năm, nến 03:00 / 09:00 NY", fg, bg)
+        r := f_row(r, "• Mở cửa bên trong biên giờ trước", fg, bg)
+        r := f_row(r, "• Quét nông một biên giờ trước", fg, bg)
+        r := f_row(r, "• CISD trong nửa đầu giờ", fg, bg)
+        r := f_row(r, "• Có FVG trong chân đẩy", fg, bg)
+        r := f_row(r, "• Vào khi nến xác nhận đóng, không bias", fg, bg)
+        r := f_row(r, "• Phút 55 đóng lệnh còn mở", fg, bg)
 
 var table dbg = table.new(position.bottom_left, 1, 61, border_width = 1)
 if barstate.islast and show_debug and enable_sig
