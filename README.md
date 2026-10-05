@@ -4,6 +4,11 @@ Bot chạy trên GitHub Actions, đo phân bố thời gian tạo cực trị th
 
 Nền tảng số liệu và lý do thiết kế: `docs/bao-cao-v2-fx.md` (báo cáo đã xác thực), `docs/chung-thuc-fx.md` (chứng thực FX), `docs/errata-xac-thuc.md` (đối chiếu báo cáo gốc).
 
+Phân tích chuyên đề và quy trình thủ công:
+
+- `docs/analysis-2026-09-21/` — AMD theo phút, killzone London/NY, RR và SL/TP, bias trước giờ mở; `quy-trinh.md` là quy trình giao dịch thủ công (quy tắc v1.1) và `nhat-ky-mau.csv` là mẫu nhật ký.
+- `docs/analysis-2026-10-05/` — weekly profile và daily profile: xếp loại, tần suất đối chiếu bước đi ngẫu nhiên, mức DOL, biên độ còn lại sau 03:00 và 09:00, phân bổ. `ket-luan.md` là kết luận, `phac-thao-ngay-tuan.md` là khung phác thảo tuần/ngày dùng kèm quy trình.
+
 ## Chu kỳ
 
 | Workflow | Lịch (UTC) | Việc làm |

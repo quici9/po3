@@ -1,0 +1,796 @@
+pair,day,Ngày trong tuần,Giờ,Hướng,R,ket_cuc,risk_pip,Khối đặt cực trị ngày cùng phía,Trạng thái biên tuần,Vị trí so với mở 00:00,Vị trí trong biên ngày tới lúc đó,Biên độ ngày
+EURUSD,2023-01-03,Thứ 3,09:00,bán,-1.0746907336808458,SL,13.388541666667038,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-01-05,Thứ 5,09:00,mua,-1.0656365376726322,SL,15.235416666668176,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-01-10,Thứ 3,03:00,bán,-1.12842809364547,SL,7.786458333334939,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-01-24,Thứ 3,03:00,mua,-1.090183184593692,SL,11.088541666667561,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-01-25,Thứ 4,03:00,mua,-1.0940254652301664,SL,10.635416666667021,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-01-31,Thứ 3,09:00,bán,1.8697068403908472,TP,7.674999999998818,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-02-01,Thứ 4,03:00,bán,-1.1140684410646138,SL,8.76666666666831,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-02-01,Thứ 4,09:00,bán,-0.22846263683965884,time,10.942708333333966,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-02-09,Thứ 5,03:00,bán,-1.1206788183532406,SL,8.286458333331993,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-02-09,Thứ 5,09:00,bán,0.3113513513512558,time,10.598958333333334,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-03-07,Thứ 3,09:00,mua,-1.086416419119646,SL,11.571874999998233,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2023-03-09,Thứ 5,09:00,bán,-1.0929242086922915,SL,10.761458333331877,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-03-15,Thứ 4,03:00,mua,-0.5826626203984002,time,15.789583333332274,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2023-03-28,Thứ 3,03:00,bán,-0.2832972653942844,time,5.29479166666615,Á,quét biên tuần cùng phía,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-04-05,Thứ 4,03:00,mua,0.5276224770206857,time,10.992708333333992,Luân Đôn,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-04-05,Thứ 4,03:00,bán,0.9857211615592266,time,6.492708333333378,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-04-06,Thứ 5,09:00,bán,1.8585322723253972,TP,7.0687500000001195,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-04-11,Thứ 3,03:00,bán,1.8151001540831637,TP,5.408333333333237,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-04-12,Thứ 4,03:00,bán,1.8274312421356067,TP,5.794791666668686,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-04-13,Thứ 5,03:00,mua,-1.1582330641174072,SL,6.319791666665394,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-04-18,Thứ 3,03:00,bán,-1.1458301686161363,SL,6.8572916666660015,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-04-25,Thứ 3,03:00,bán,1.3409261845924534,time,9.694791666665255,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2023-04-26,Thứ 4,03:00,bán,-1.2340892465251567,SL,4.271875000000901,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-05-02,Thứ 3,03:00,mua,1.7904387688277805,TP,4.7718750000004295,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2023-05-03,Thứ 4,03:00,mua,1.8059429957550566,TP,5.153125000000359,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2023-05-09,Thứ 3,03:00,bán,-1.1526474797264994,SL,6.551041666667811,Á,sát biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2023-05-10,Thứ 4,03:00,bán,-1.150187734668278,SL,6.658333333334927,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2023-05-17,Thứ 4,03:00,mua,1.7161442933176116,TP,3.522916666667264,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-05-18,Thứ 5,03:00,mua,-1.1441225041285308,SL,6.938541666665309,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-05-23,Thứ 3,03:00,bán,1.8689240851993163,TP,7.629166666665229,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-05-25,Thứ 5,03:00,bán,-1.1411972348874797,SL,7.082291666665973,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-06-01,Thứ 5,03:00,mua,0.723961297666385,time,7.3208333333328595,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2023-06-06,Thứ 3,03:00,mua,-0.7475180066187113,time,5.3510416666653855,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-06-07,Thứ 4,03:00,mua,-1.1651754989676464,SL,6.054166666667193,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-06-08,Thứ 5,09:00,bán,-1.1588352084711928,SL,6.295833333333407,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-06-13,Thứ 3,03:00,bán,-1.1818870784387587,SL,5.497916666667851,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-06-20,Thứ 3,03:00,bán,-1.1911969727146803,SL,5.230208333331399,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-06-27,Thứ 3,03:00,mua,1.7958749734211874,TP,4.898958333333508,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-06-28,Thứ 4,03:00,bán,1.8165488247659007,TP,5.451041666665625,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-07-05,Thứ 4,03:00,bán,-1.18838304552589,SL,5.308333333332767,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-07-25,Thứ 3,03:00,bán,-1.18038331454337,SL,5.54375000000049,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2023-08-01,Thứ 3,03:00,bán,1.8213953488371886,TP,5.598958333331894,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-08-01,Thứ 3,09:00,mua,-1.1375358166189238,SL,7.2708333333319315,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2023-08-03,Thứ 5,03:00,bán,1.8928212571173406,TP,9.33020833333335,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-08-08,Thứ 3,03:00,bán,-1.1284452769601065,SL,7.785416666667617,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-08-09,Thứ 4,03:00,bán,-1.1332408049965221,SL,7.505208333333281,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-08-15,Thứ 3,09:00,mua,-1.1162931556632176,SL,8.598958333334988,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-08-16,Thứ 4,03:00,mua,1.8191409193669978,TP,5.529166666666159,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-08-16,Thứ 4,03:00,bán,-1.1083521444695004,SL,9.229166666668194,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-08-17,Thứ 5,03:00,bán,-1.2045599829533826,SL,4.888541666665756,Á,sát biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2023-08-24,Thứ 5,03:00,mua,-1.1357850070720907,SL,7.364583333335065,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-08-29,Thứ 3,03:00,mua,-1.259039395574667,SL,3.8604166666675788,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2023-08-31,Thứ 5,03:00,mua,-1.1719197707736284,SL,5.816666666666609,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2023-09-06,Thứ 4,03:00,bán,1.8344827586206487,TP,6.041666666665561,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-09-07,Thứ 5,09:00,mua,-1.1598135508573246,SL,6.257291666667112,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2023-09-12,Thứ 3,03:00,bán,1.8397061279011218,TP,6.238541666665788,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-09-12,Thứ 3,09:00,bán,0.27376425855515035,time,8.76666666666595,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-09-13,Thứ 4,09:00,mua,-1.0784249652806221,SL,12.75104166666587,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-09-14,Thứ 5,03:00,mua,-1.2299952084331338,SL,4.347916666666955,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-09-14,Thứ 5,09:00,mua,-1.170363797693006,SL,5.8697916666669805,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2023-09-19,Thứ 3,03:00,bán,0.35237439779797364,time,4.540625000000442,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2023-09-20,Thứ 4,09:00,mua,-1.2678571428572998,SL,3.733333333332025,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-09-28,Thứ 5,09:00,mua,1.875162548764621,TP,8.010416666666686,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-10-03,Thứ 3,09:00,mua,-1.072650219464205,SL,13.764583333333048,Á,quét biên tuần cùng phía,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-10-04,Thứ 4,09:00,mua,1.8630918425556107,TP,7.304166666665852,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-10-05,Thứ 5,03:00,mua,-1.154988698740735,SL,6.452083333333344,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2023-10-05,Thứ 5,09:00,bán,-1.1462522851919361,SL,6.837500000001703,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2023-10-10,Thứ 3,03:00,mua,-0.5588952071486119,time,7.693750000000002,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-10-10,Thứ 3,03:00,bán,0.04548685145678036,time,8.793750000000548,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-10-11,Thứ 4,03:00,mua,0.4353036437247445,time,6.432291666666918,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-10-12,Thứ 5,03:00,mua,-0.16375803700296365,time,7.938541666667881,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-10-12,Thứ 5,03:00,bán,-0.36305965597172385,time,8.53854166666737,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-10-12,Thứ 5,09:00,bán,-1.1707577374600335,SL,5.856249999998976,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2023-10-17,Thứ 3,03:00,mua,-1.2266824085004815,SL,4.411458333334732,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-10-19,Thứ 5,03:00,mua,1.7953528032402337,TP,4.886458333332431,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-10-24,Thứ 3,03:00,mua,0.2262668587142571,time,7.955208333332321,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+EURUSD,2023-10-24,Thứ 3,03:00,bán,-1.1289456010745487,SL,7.755208333333231,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa trên,rộng
+EURUSD,2023-10-25,Thứ 4,03:00,mua,-1.1398193999417539,SL,7.152083333332264,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+EURUSD,2023-10-25,Thứ 4,09:00,bán,-1.1276426007179923,SL,7.834374999999467,Luân Đôn,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2023-10-26,Thứ 5,03:00,mua,-1.1641586867304778,SL,6.091666666667393,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2023-10-31,Thứ 3,03:00,bán,-1.1533791340469894,SL,6.51979166666608,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-11-01,Thứ 4,03:00,bán,1.4218981428737394,time,9.142708333332653,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2023-11-02,Thứ 5,03:00,bán,-1.1918081918081964,SL,5.213541666666637,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-11-07,Thứ 3,03:00,bán,-1.1680672268907215,SL,5.950000000000653,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-11-08,Thứ 4,03:00,mua,-1.1657458563535423,SL,6.033333333334972,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-11-09,Thứ 5,03:00,bán,0.3452035726714028,time,8.980208333333113,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-11-15,Thứ 4,03:00,bán,1.8961376176565894,TP,9.628124999998336,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2023-11-21,Thứ 3,03:00,mua,-1.1189149015235933,SL,8.409375000001152,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2023-11-21,Thứ 3,03:00,bán,0.8117073170732253,time,9.609375000000131,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2023-11-23,Thứ 5,03:00,bán,-1.1098775323337353,SL,9.101041666668165,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-11-28,Thứ 3,09:00,bán,-1.1640745171765559,SL,6.09479166666584,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-12-06,Thứ 4,09:00,bán,0.8055944055945299,time,8.9374999999989,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-12-07,Thứ 5,03:00,bán,-0.3406898081402132,time,9.392708333334983,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-12-12,Thứ 3,03:00,mua,0.1804753592050425,time,7.7572916666673635,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-12-14,Thứ 5,03:00,mua,1.8980891719745154,TP,9.812499999999845,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2023-12-14,Thứ 5,09:00,bán,-1.0475930791730705,SL,21.0114583333338,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+EURUSD,2023-12-26,Thứ 3,03:00,bán,1.445475638050884,time,6.157142857143913,Á,Thứ 2 (chưa có biên tuần),dưới mở 00:00,nửa trên,hẹp
+EURUSD,2023-12-26,Thứ 3,09:00,bán,-1.1570587185436478,SL,6.3670454545440185,Á,Thứ 2 (chưa có biên tuần),trên mở 00:00,nửa trên,hẹp
+EURUSD,2023-12-27,Thứ 4,09:00,bán,-1.1695214550591182,SL,5.898958333333792,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-12-28,Thứ 5,03:00,mua,-1.1226680296447513,SL,8.152083333334073,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2023-12-28,Thứ 5,09:00,mua,1.9114799446749635,TP,11.296875000000062,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-01-03,Thứ 4,03:00,bán,0.2389140271494468,time,9.20833333333299,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2024-01-09,Thứ 3,09:00,bán,-1.0966183574879322,SL,10.349999999998692,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-01-10,Thứ 4,03:00,mua,0.9576755447938953,time,10.755208333334657,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-01-16,Thứ 3,09:00,mua,1.8541255128399603,TP,6.8552083333322615,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-01-18,Thứ 5,03:00,mua,-1.1656028980507234,SL,6.038541666667323,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-01-23,Thứ 3,03:00,mua,-1.2409638554217841,SL,4.149999999999432,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-01-25,Thứ 5,03:00,mua,0.4876550502065405,time,8.817708333334455,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-01-25,Thứ 5,03:00,bán,-1.123187475939954,SL,8.11770833333209,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-02-01,Thứ 5,03:00,mua,0.9612912868030783,time,6.969791666667456,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-02-07,Thứ 4,03:00,bán,1.7492817968137657,TP,3.988541666665411,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-02-13,Thứ 3,09:00,mua,-0.14299900695144657,time,10.489583333333611,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-02-20,Thứ 3,03:00,bán,-1.2004175365344827,SL,4.989583333332761,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-02-21,Thứ 4,03:00,bán,1.857057772483639,TP,6.995833333334547,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-02-28,Thứ 4,09:00,bán,-0.3771559984668505,time,10.870833333333495,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2024-03-05,Thứ 3,03:00,bán,-1.2380952380953147,SL,4.199999999999574,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-03-12,Thứ 3,03:00,mua,-1.2081977878985413,SL,4.803124999999617,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-03-13,Thứ 4,03:00,bán,-1.0118577075097406,time,3.9531250000012643,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-03-14,Thứ 5,09:00,mua,-1.1822323462414255,SL,5.487500000001393,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-03-20,Thứ 4,03:00,bán,0.9964813511613932,time,5.920833333333564,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+EURUSD,2024-03-20,Thứ 4,09:00,bán,-1.2802919708030351,SL,3.5677083333324426,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-03-26,Thứ 3,03:00,bán,1.7182271793367758,TP,3.548958333334679,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-03-27,Thứ 4,03:00,bán,1.1612095933265776,time,4.994791666666359,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-04-02,Thứ 3,03:00,mua,-0.11813930593181118,time,4.232291666667771,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-04-03,Thứ 4,03:00,mua,-1.26023312550817,SL,3.842708333334105,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-04-03,Thứ 4,09:00,bán,1.7043424699723144,TP,3.382291666667661,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-04-04,Thứ 5,09:00,mua,1.7683956574185231,TP,4.317708333333193,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-04-10,Thứ 4,03:00,mua,-1.373540856031121,SL,2.6770833333334774,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-04-18,Thứ 5,09:00,bán,1.8125732135884707,TP,5.33541666666785,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-04-24,Thứ 4,09:00,bán,1.7399783315276418,TP,3.8458333333336867,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-04-25,Thứ 5,03:00,bán,-1.2856292770008668,SL,3.5010416666663344,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-04-30,Thứ 3,03:00,mua,-1.17278617710581,SL,5.78750000000033,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-05-01,Thứ 4,03:00,mua,-1.2342606149340876,SL,4.268750000000279,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-05-07,Thứ 3,03:00,mua,0.9022556390978596,time,4.987500000000269,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-05-09,Thứ 5,03:00,mua,-1.380047505938198,SL,2.631249999999913,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-05-14,Thứ 3,03:00,bán,-0.6329113924050698,time,3.950000000001707,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-05-14,Thứ 3,09:00,mua,-1.1779425393883212,SL,5.619791666666892,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-05-14,Thứ 3,09:00,bán,1.5867412828241534,TP,2.4197916666681327,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-05-15,Thứ 4,03:00,bán,-1.252299605781971,SL,3.9635416666658254,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-05-16,Thứ 5,03:00,mua,-1.224771716225673,SL,4.4489583333334055,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-05-21,Thứ 3,03:00,bán,-1.4401650618983128,SL,2.2718750000001497,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-05-21,Thứ 3,09:00,bán,1.808993235177085,TP,5.235416666666455,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-05-23,Thứ 5,03:00,mua,0.17231751096917078,time,5.2229166666654026,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-05-23,Thứ 5,09:00,bán,-1.250456561439973,SL,3.992708333334672,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-05-28,Thứ 3,03:00,bán,0.2970092815396498,time,3.0302083333345884,Á,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-05-30,Thứ 5,09:00,mua,1.7668205003643087,TP,4.288541666666428,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-06-04,Thứ 3,03:00,mua,-1.300846129739794,SL,3.323958333333853,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-06-11,Thứ 3,03:00,bán,-1.2091047702025415,SL,4.782291666667581,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-06-12,Thứ 4,03:00,bán,-0.01897233201554377,time,5.270833333331388,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-06-13,Thứ 5,09:00,mua,1.9099437148217637,TP,11.104166666666023,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-06-19,Thứ 4,03:00,bán,0.3359196713831947,time,6.846875000000261,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-06-20,Thứ 5,03:00,mua,-1.4055766793407691,SL,2.4656250000007485,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-07-03,Thứ 4,09:00,mua,1.8723064644852165,TP,7.831249999998707,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-07-04,Thứ 5,03:00,bán,-1.1802140041298639,SL,5.548958333334228,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2024-07-04,Thứ 5,09:00,mua,-0.46937014667828325,time,3.621875000000274,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-07-09,Thứ 3,03:00,mua,-1.4274265360642042,SL,2.3395833333321225,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-07-10,Thứ 4,03:00,mua,1.6740237691001376,TP,3.067708333332891,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+EURUSD,2024-07-10,Thứ 4,09:00,bán,-0.21294615849978518,time,5.165625000000002,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-07-11,Thứ 5,03:00,mua,-1.2943882244709086,SL,3.396875000000743,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+EURUSD,2024-07-11,Thứ 5,09:00,bán,-1.1836969001147966,SL,5.443750000001153,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-07-16,Thứ 3,09:00,bán,1.7655677655677378,TP,4.26562500000012,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-07-17,Thứ 4,03:00,mua,-1.1513240857502645,SL,6.608333333334599,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2024-07-18,Thứ 5,09:00,bán,-1.1870615744349553,SL,5.345833333333128,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-07-23,Thứ 3,09:00,mua,-1.0778164924505935,time,5.381250000000004,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-07-24,Thứ 4,09:00,bán,-1.3416370106762185,SL,2.9270833333331963,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-07-25,Thứ 5,09:00,bán,1.8234645090106718,TP,5.664583333334083,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-07-30,Thứ 3,03:00,mua,0.1408772215883936,time,6.388541666665059,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-07-31,Thứ 4,03:00,mua,-1.210618692409012,SL,4.747916666665968,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2024-07-31,Thứ 4,09:00,mua,1.8418711909075571,TP,6.323958333332829,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-08-01,Thứ 5,03:00,mua,-1.1858304297328495,SL,5.381250000000097,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-08-06,Thứ 3,03:00,mua,-1.1132342533616297,SL,8.831250000000862,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-08-06,Thứ 3,09:00,bán,0.9989594172733249,time,6.006250000001045,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-08-07,Thứ 4,03:00,mua,0.2983590253606454,time,8.379166666665563,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-08-07,Thứ 4,03:00,bán,-1.1543408360128689,SL,6.479166666666439,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-08-07,Thứ 4,09:00,mua,-1.2373887240355859,SL,4.212500000000003,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2024-08-08,Thứ 5,03:00,bán,-1.231492645285727,SL,4.319791666667072,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-08-14,Thứ 4,09:00,mua,-1.118870728083223,SL,8.412499999999556,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-08-15,Thứ 5,03:00,mua,-0.015106215578400584,time,6.619791666667545,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-08-15,Thứ 5,03:00,bán,-0.17316798196146252,time,4.619791666665545,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-08-15,Thứ 5,09:00,bán,1.708561020036524,TP,3.4312500000018473,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-08-20,Thứ 3,03:00,bán,-1.1796743402583099,SL,5.565625000000101,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-08-27,Thứ 3,09:00,mua,-1.1835564053536949,SL,5.44791666666757,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-08-29,Thứ 5,03:00,bán,1.8309859154929233,TP,5.916666666666108,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-09-03,Thứ 3,09:00,mua,1.819514946418502,TP,5.540624999999128,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-09-04,Thứ 4,03:00,mua,-1.2202845341899664,SL,4.539583333333143,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-09-11,Thứ 4,03:00,mua,0.41963043910215314,time,5.2427083333324065,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-09-12,Thứ 5,03:00,bán,1.8489616110761375,TP,6.620833333332623,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-09-17,Thứ 3,03:00,bán,-1.229775011967394,SL,4.3520833333337645,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-09-19,Thứ 5,03:00,bán,-1.1264322402212334,SL,7.909375000000745,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-09-19,Thứ 5,09:00,mua,-1.0814733090044995,SL,12.27395833333295,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-10-01,Thứ 3,09:00,mua,-1.1744502998363786,SL,5.732291666668092,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-10-02,Thứ 4,09:00,bán,1.8162327718224,TP,5.44166666666843,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-10-03,Thứ 5,09:00,mua,-1.1814744801512007,SL,5.510416666667194,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-10-08,Thứ 3,09:00,bán,1.7923875432526153,TP,4.816666666668176,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-10-10,Thứ 5,03:00,mua,0.12808539026025817,time,3.122916666667211,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2024-10-17,Thứ 5,09:00,mua,1.724375538329135,TP,3.6281250000009395,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-10-22,Thứ 3,03:00,mua,0.5208775654636256,time,4.415624999999299,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-10-29,Thứ 3,03:00,mua,0.37369664952008697,time,7.492708333333824,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2024-10-31,Thứ 5,03:00,mua,0.46652267818577503,time,9.645833333334377,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-11-06,Thứ 4,09:00,bán,-1.0745573159366224,SL,13.412500000000021,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2024-11-07,Thứ 5,03:00,bán,0.8262803041171646,time,7.261458333333835,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2024-11-14,Thứ 5,03:00,bán,1.8961600865332606,TP,9.630208333334087,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-11-19,Thứ 3,09:00,mua,1.8921469497809342,TP,9.271875000000605,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2024-11-26,Thứ 3,03:00,mua,1.898348157560362,TP,9.837500000000588,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2024-12-03,Thứ 3,09:00,bán,1.901639344262295,TP,10.166666666666657,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2024-12-04,Thứ 4,03:00,mua,-1.1216730038022855,SL,8.218749999999257,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2024-12-12,Thứ 5,03:00,mua,-1.1137036598365544,SL,8.794791666666805,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2024-12-17,Thứ 3,03:00,mua,-1.1957585644372306,SL,5.1083333333327285,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-12-24,Thứ 3,03:00,mua,1.801652892562016,TP,5.041666666667846,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2024-12-31,Thứ 3,03:00,bán,-1.1713062098501414,SL,5.837499999999777,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-01-02,Thứ 5,03:00,mua,-1.0816048962937717,SL,12.254166666667935,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2025-01-08,Thứ 4,09:00,bán,-0.6597098498344153,time,12.278125000001495,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-01-21,Thứ 3,03:00,mua,-1.098461538461542,SL,10.156250000000663,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-01-22,Thứ 4,03:00,bán,-1.078727242906346,SL,12.702083333333464,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-02-06,Thứ 5,09:00,bán,-1.1984701261113198,SL,5.038541666664796,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-02-11,Thứ 3,03:00,mua,1.8541919805589655,TP,6.858333333334016,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-02-12,Thứ 4,03:00,bán,1.172544297264745,time,6.055208333333426,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2025-02-18,Thứ 3,09:00,mua,1.8175251853259637,TP,5.480208333332737,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-02-25,Thứ 3,03:00,bán,1.8218262806236298,TP,5.612500000000502,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-02-25,Thứ 3,09:00,mua,1.8726959289219023,TP,7.855208333333331,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-02-26,Thứ 4,03:00,mua,0.4935732647815516,time,7.698958333333626,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-02-27,Thứ 5,03:00,bán,-0.4546269038781333,time,8.138541666666415,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2025-03-12,Thứ 4,03:00,mua,1.2542871141592402,time,6.378125000001053,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-03-13,Thứ 5,09:00,mua,1.8720682302771878,TP,7.816666666667405,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-03-18,Thứ 3,03:00,bán,-1.2321083172147946,SL,4.308333333332044,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-03-19,Thứ 4,03:00,mua,-1.2053915275994875,SL,4.868750000000324,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-03-20,Thứ 5,03:00,mua,-1.1052285432423674,SL,9.503124999999851,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-03-26,Thứ 4,03:00,mua,0.5832320777644335,time,8.57291666666718,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2025-03-26,Thứ 4,03:00,bán,-1.2052159042325545,SL,4.872916666667365,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2025-04-02,Thứ 4,03:00,bán,-0.8549780672604568,time,7.836458333333115,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-04-03,Thứ 5,03:00,bán,-1.0609988562714407,SL,16.393750000000725,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+EURUSD,2025-04-03,Thứ 5,09:00,bán,-0.6162141344117275,time,32.45624999999926,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+EURUSD,2025-04-08,Thứ 3,03:00,bán,-1.0575056906673117,SL,17.389583333332464,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-04-10,Thứ 5,03:00,mua,0.6609294320138364,time,13.91979166666638,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2025-04-15,Thứ 3,03:00,mua,-1.061815840309072,SL,16.17708333333502,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-04-16,Thứ 4,09:00,mua,-1.101490643831283,SL,9.853124999998887,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-04-17,Thứ 5,03:00,mua,1.1659595707513952,time,12.52187499999858,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-04-23,Thứ 4,09:00,bán,-0.1172721478648553,time,19.612500000000324,Luân Đôn,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-04-29,Thứ 3,09:00,mua,1.9060297572435376,TP,10.641666666665515,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-04-30,Thứ 4,09:00,bán,0.9732008431197948,time,10.378124999999896,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2025-05-01,Thứ 5,03:00,bán,-1.1198202695955948,SL,8.345833333333122,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-05-07,Thứ 4,03:00,bán,-1.0907887270663916,SL,11.014583333333652,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2025-05-13,Thứ 3,03:00,mua,-0.2719546742208935,time,12.1343750000003,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-05-13,Thứ 3,09:00,bán,-1.0940254652301664,SL,10.635416666666213,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-05-14,Thứ 4,09:00,mua,1.87441130298274,TP,7.962500000000098,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2025-05-20,Thứ 3,03:00,bán,-1.09186602870812,SL,10.885416666667734,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2025-05-21,Thứ 4,09:00,mua,0.7981486243250435,time,12.15312499999938,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-05-22,Thứ 5,09:00,bán,-0.0602852785503023,time,11.61145833333386,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-05-28,Thứ 4,09:00,mua,-1.1474880934091467,SL,6.7802083333321175,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2025-06-05,Thứ 5,03:00,bán,-1.1537475976938154,SL,6.504166666665006,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-06-05,Thứ 5,09:00,mua,1.9414205516231435,TP,17.07083333333359,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-06-05,Thứ 5,09:00,bán,-1.1594684385381635,SL,6.270833333333892,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-06-10,Thứ 3,03:00,bán,1.9087625926629819,TP,10.960416666665335,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2025-06-11,Thứ 4,03:00,mua,-1.1644398766700734,SL,6.081250000000912,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2025-06-11,Thứ 4,03:00,bán,1.269841269841095,time,7.481250000001202,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2025-06-18,Thứ 4,03:00,bán,-1.1051478641840289,SL,9.510416666665897,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-06-19,Thứ 5,03:00,mua,0.5408886027043116,time,12.941666666667118,Á,quét biên tuần cùng phía,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2025-06-25,Thứ 4,09:00,mua,-1.180927252167399,SL,5.527083333332721,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-06-26,Thứ 5,03:00,mua,1.8864442867282005,TP,8.806250000001024,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-06-26,Thứ 5,09:00,mua,1.0633088492479381,time,8.93437500000126,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-07-01,Thứ 3,03:00,mua,-1.1513718070009276,SL,6.6062499999999105,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-07-02,Thứ 4,03:00,mua,-1.1946472019464378,SL,5.137500000000304,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-07-03,Thứ 5,09:00,mua,-1.129188534517542,SL,7.74062500000126,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-07-08,Thứ 3,03:00,mua,1.4608695652175507,time,7.666666666666561,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2025-07-10,Thứ 5,03:00,mua,-1.118577075098849,SL,8.433333333331845,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-07-10,Thứ 5,03:00,bán,0.011070110701168284,time,9.033333333333555,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2025-07-10,Thứ 5,09:00,mua,-1.161943319838015,SL,6.175000000001596,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-07-15,Thứ 3,03:00,bán,1.8014888337469082,TP,5.0374999999995795,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2025-07-15,Thứ 3,09:00,mua,1.8134110787172109,TP,5.3593749999993054,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2025-07-16,Thứ 4,03:00,bán,-1.1722282023681374,SL,5.806250000000776,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2025-07-22,Thứ 3,09:00,bán,1.8688345402377062,TP,7.62395833333214,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-07-23,Thứ 4,09:00,bán,0.12557973599719058,time,8.759374999999999,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-07-24,Thứ 5,09:00,bán,1.7731032852753132,TP,4.407291666666281,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-07-29,Thứ 3,03:00,mua,-1.1030817137334805,SL,9.701041666666566,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-07-29,Thứ 3,09:00,mua,-1.1367521367521647,SL,7.312499999999101,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-07-31,Thứ 5,09:00,bán,1.8833535844471496,TP,8.57291666666704,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2025-08-05,Thứ 3,03:00,mua,0.4711538461539649,time,10.400000000000384,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-08-05,Thứ 3,09:00,bán,-0.5831663326652806,time,16.633333333333454,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-08-06,Thứ 4,03:00,bán,-1.1469687691365429,SL,6.804166666666787,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-08-07,Thứ 5,03:00,mua,0.3397728948532333,time,7.063541666666752,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-08-12,Thứ 3,03:00,mua,-0.5418480890179607,time,6.459375000001006,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-08-13,Thứ 4,03:00,bán,-1.105506099571384,SL,9.478124999998972,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+EURUSD,2025-08-13,Thứ 4,09:00,bán,1.8546115402090066,TP,6.878125000000582,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,hẹp
+EURUSD,2025-08-14,Thứ 5,03:00,mua,-1.1066548161315415,SL,9.376041666667676,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-08-14,Thứ 5,03:00,bán,0.8296143428351502,time,8.076041666665821,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-08-14,Thứ 5,09:00,mua,-1.1024655779698982,SL,9.75937500000079,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-08-19,Thứ 3,03:00,mua,1.876812524060046,TP,8.117708333332738,Á,quét biên tuần cùng phía,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2025-08-19,Thứ 3,09:00,mua,-1.1291016675632206,SL,7.745833333332984,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2025-08-20,Thứ 4,03:00,bán,1.8578409595735035,TP,7.034374999999986,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2025-08-21,Thứ 5,03:00,bán,1.781818181818237,TP,4.5833333333349335,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-08-21,Thứ 5,09:00,mua,1.8510010864503985,TP,6.711458333331875,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-08-27,Thứ 4,03:00,bán,0.09274082252278548,time,7.547916666666317,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-08-28,Thứ 5,03:00,bán,-1.2232558139534921,SL,4.479166666666289,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-08-28,Thứ 5,09:00,bán,-1.1037165082108915,SL,9.641666666667033,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-09-03,Thứ 4,03:00,bán,-1.1160261058738201,SL,8.61874999999998,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2025-09-03,Thứ 4,09:00,bán,1.435448577680802,time,5.712499999999815,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-09-10,Thứ 4,03:00,bán,1.8580931263858251,TP,7.046874999999883,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2025-09-11,Thứ 5,03:00,mua,0.07153502235488533,time,8.387499999999482,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-09-17,Thứ 4,03:00,mua,-1.1432194539758413,SL,6.982291666665109,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-09-17,Thứ 4,03:00,bán,1.397852625385348,time,7.0822916666679845,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2025-09-17,Thứ 4,09:00,mua,1.0951813383274964,time,6.11770833333453,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-09-18,Thứ 5,03:00,mua,1.852760736196345,TP,6.791666666667469,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-09-18,Thứ 5,09:00,mua,-1.111822947000591,SL,8.942708333333538,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-09-23,Thứ 3,09:00,mua,-1.1801125703565445,SL,5.552083333332051,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-09-25,Thứ 5,03:00,mua,1.7787508642544119,TP,4.519791666665722,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2025-10-01,Thứ 4,03:00,mua,1.413800205972657,time,10.114583333335087,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-10-01,Thứ 4,09:00,mua,-0.15379238028662773,time,35.76249999999968,New York,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-10-02,Thứ 5,09:00,bán,0.7029455816275982,time,12.51874999999877,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-10-08,Thứ 4,03:00,bán,-0.5356223175964544,time,7.281249999999916,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-10-08,Thứ 4,09:00,mua,1.773958088062132,TP,4.42395833333301,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2025-10-14,Thứ 3,03:00,mua,-1.1139060275273,SL,8.77916666666564,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-10-15,Thứ 4,03:00,mua,1.8597106532222696,TP,7.128125000000578,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+EURUSD,2025-10-15,Thứ 4,09:00,mua,-1.1058201058200838,SL,9.4500000000014,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2025-10-16,Thứ 5,03:00,bán,-1.1781406568936634,SL,5.613541666667475,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa trên,trung bình
+EURUSD,2025-10-22,Thứ 4,09:00,mua,-1.147397512666982,SL,6.784375000000614,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-10-22,Thứ 4,09:00,bán,1.790986283474846,TP,4.784375000000835,Luân Đôn,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-10-23,Thứ 5,09:00,bán,-1.197084787517993,SL,5.073958333331718,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-10-30,Thứ 5,03:00,mua,-1.101223112610715,SL,9.879166666665398,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2025-11-11,Thứ 3,03:00,bán,-1.250391236306742,SL,3.9937499999993795,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-11-18,Thứ 3,03:00,mua,-0.5911481719049496,time,8.119791666665414,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+EURUSD,2025-11-26,Thứ 4,09:00,mua,1.8990536277602321,TP,9.9062499999984,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-11-27,Thứ 5,03:00,bán,0.46821111304655016,time,5.980208333333629,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-12-17,Thứ 4,03:00,bán,-1.1362668559262006,SL,7.338541666665799,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2025-12-23,Thứ 3,03:00,bán,-1.2106186924089135,SL,4.74791666666835,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-12-23,Thứ 3,09:00,mua,-1.1262659476522494,SL,7.919791666666485,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2025-12-24,Thứ 4,09:00,mua,-1.1883830455259687,SL,5.308333333332351,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2025-12-31,Thứ 4,03:00,bán,1.75077881619932,TP,4.0124999999991084,Á,sát biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2026-01-15,Thứ 5,09:00,mua,-1.1532811751556273,SL,6.523958333334787,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-01-22,Thứ 5,09:00,bán,-1.124400673836991,SL,8.038541666666985,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2026-02-10,Thứ 3,03:00,bán,-1.1042005861283,SL,9.596875000000397,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2026-02-12,Thứ 5,09:00,bán,-0.4133283414451202,time,5.564583333332849,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-02-18,Thứ 4,03:00,mua,-1.1162227602905679,SL,8.604166666666691,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-02-18,Thứ 4,09:00,mua,-1.2615803814713662,SL,3.8229166666663383,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-02-19,Thứ 5,03:00,bán,-1.1735357917570666,SL,5.762499999998847,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-02-24,Thứ 3,09:00,mua,-0.83602001111704,time,5.621875000001279,Á,quét biên tuần cùng phía,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2026-02-26,Thứ 5,09:00,mua,1.7701699784533944,TP,4.351041666666397,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-03-04,Thứ 4,09:00,mua,-1.081480224070615,SL,12.272916666667735,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-03-10,Thứ 3,03:00,bán,-1.085136573252936,SL,11.745833333332428,Á,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-03-10,Thứ 3,09:00,bán,0.6317521250344124,time,11.396874999999099,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-03-11,Thứ 4,03:00,mua,-1.085691332678749,SL,11.669791666667022,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-03-12,Thứ 5,03:00,bán,-0.3473336479470199,time,6.621875000000822,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2026-03-25,Thứ 4,03:00,bán,-0.7294832826749351,time,8.910416666665945,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-03-31,Thứ 3,03:00,mua,0.921677614957305,time,6.184374999999738,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-03-31,Thứ 3,03:00,bán,-0.14566145092455587,time,10.984375000000098,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-04-01,Thứ 4,03:00,mua,1.2069867521725013,time,12.344791666668689,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-04-01,Thứ 4,09:00,bán,-1.113354587318453,SL,8.82187500000087,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-04-08,Thứ 4,09:00,bán,-1.0623174294060378,SL,16.046874999999723,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+EURUSD,2026-04-14,Thứ 3,03:00,mua,1.7871868765240575,TP,4.698958333334303,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2026-04-14,Thứ 3,03:00,bán,-1.0926015240667684,SL,10.798958333332077,Á,quét biên tuần cùng phía,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-04-14,Thứ 3,09:00,mua,-0.38761776581424917,time,16.253124999999294,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-04-15,Thứ 4,03:00,bán,0.9031906190343231,time,7.639583333335087,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-04-21,Thứ 3,09:00,mua,0.06208067254049553,time,12.886458333333932,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-04-22,Thứ 4,09:00,mua,-1.1057967820145342,SL,9.452083333334471,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-04-23,Thứ 5,03:00,bán,-1.1637107776261626,SL,6.108333333334724,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-04-23,Thứ 5,09:00,bán,0.9062303335431955,time,8.276041666666298,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2026-04-29,Thứ 4,03:00,mua,1.730564131349968,TP,3.7114583333338014,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-04-30,Thứ 5,03:00,mua,1.7950032030749827,TP,4.878125000000617,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-04-30,Thứ 5,03:00,bán,-1.1208003020007433,SL,8.278125000000687,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-05-05,Thứ 3,03:00,bán,-1.194410692588067,SL,5.1437500000011305,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2026-05-07,Thứ 5,03:00,mua,-1.1712756467439598,SL,5.83854166666659,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2026-05-07,Thứ 5,09:00,bán,-1.230880230880331,SL,4.331249999998492,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-05-14,Thứ 5,03:00,mua,-1.2245614035088195,SL,4.453124999999567,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-05-19,Thứ 3,03:00,bán,1.7775718257645985,TP,4.495833333334291,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2026-05-19,Thứ 3,09:00,mua,-0.662068965517431,time,6.796874999999587,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-05-19,Thứ 3,09:00,bán,1.814707585408183,TP,5.396874999999297,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-05-21,Thứ 5,09:00,mua,-1.1283765712757108,SL,7.789583333334289,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-05-26,Thứ 3,03:00,mua,1.658484525079933,TP,2.9281249999996377,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2026-05-26,Thứ 3,09:00,mua,-0.9049863557433329,time,4.198958333333502,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-05-27,Thứ 4,03:00,mua,1.7252432741842512,TP,3.639583333333399,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-06-03,Thứ 4,09:00,mua,-1.2687569988801426,SL,3.7208333333342556,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-06-04,Thứ 5,09:00,bán,0.2535071794028171,time,6.311458333332214,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-06-09,Thứ 3,09:00,bán,-1.2184300341296457,SL,4.578125000000132,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-06-10,Thứ 4,03:00,bán,0.726069487118691,time,4.407291666666697,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-06-11,Thứ 5,03:00,mua,-0.08597528210658342,time,5.815625000001254,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+EURUSD,2026-06-17,Thứ 4,03:00,mua,-1.199294166493702,SL,5.0177083333317185,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2026-06-17,Thứ 4,09:00,bán,-1.2526980784416437,SL,3.9572916666680507,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2026-06-18,Thứ 5,09:00,mua,1.8798046826092394,TP,8.319791666666607,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2026-06-18,Thứ 5,09:00,bán,-1.1096516276413653,SL,9.119791666665186,Luân Đôn,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2026-06-25,Thứ 5,03:00,mua,-1.1256051288760809,SL,7.961458333334975,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-07-01,Thứ 4,03:00,mua,-1.1771217712176838,SL,5.645833333333936,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-07-02,Thứ 5,09:00,mua,1.7530864197530796,TP,4.0500000000005345,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2026-07-14,Thứ 3,03:00,mua,-1.1976121860848037,SL,5.060416666666835,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2026-07-15,Thứ 4,03:00,bán,1.7688974482427633,TP,4.327083333334549,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-07-16,Thứ 5,03:00,bán,-0.608160983789815,time,5.590624999999734,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2026-07-16,Thứ 5,09:00,bán,1.8052738336713807,TP,5.135416666665962,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-07-21,Thứ 3,03:00,bán,-1.3478260869562577,SL,2.87500000000151,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-07-21,Thứ 3,09:00,mua,-1.2343177935073952,SL,4.267708333334183,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2026-07-23,Thứ 5,03:00,mua,-1.233975140141324,SL,4.273958333334132,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2026-07-29,Thứ 4,09:00,mua,-1.3655750190404559,SL,2.7354166666668926,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2026-07-30,Thứ 5,03:00,mua,-1.1874633860574457,SL,5.334374999999766,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+EURUSD,2026-07-30,Thứ 5,09:00,bán,-1.140433001755445,SL,7.120833333332729,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+EURUSD,2026-08-04,Thứ 3,03:00,bán,-1.22424667133842,SL,4.459375000001065,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2026-08-05,Thứ 4,09:00,bán,1.7964376590331013,TP,4.912499999999963,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-08-06,Thứ 5,03:00,bán,0.9407572383077978,time,4.677083333331963,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-08-11,Thứ 3,03:00,bán,1.6444444444447386,TP,2.8125000000012395,Á,sát biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+EURUSD,2026-08-12,Thứ 4,09:00,bán,-1.2817728206632242,SL,3.548958333333801,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+EURUSD,2026-08-13,Thứ 5,09:00,mua,-1.222841225626687,SL,4.487500000001758,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+EURUSD,2026-08-18,Thứ 3,03:00,bán,-0.44315267567081107,time,6.092708333332169,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2026-08-19,Thứ 4,09:00,bán,-1.2875973636907623,SL,3.477083333334902,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+EURUSD,2026-08-20,Thứ 5,03:00,bán,-1.2149093351242275,SL,4.653125000000715,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2026-08-25,Thứ 3,03:00,bán,1.6302003081661756,TP,2.704166666665878,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2026-08-26,Thứ 4,09:00,bán,-1.3386243386243004,SL,2.95312499999964,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+EURUSD,2026-08-27,Thứ 5,09:00,bán,-1.1764705882353135,SL,5.666666666666898,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+EURUSD,2026-09-02,Thứ 4,03:00,bán,-1.240903387703882,SL,4.151041666667724,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+EURUSD,2026-09-09,Thứ 4,03:00,bán,-1.266296809986108,SL,3.7552083333330932,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-01-05,Thứ 5,09:00,mua,-1.059631032983408,SL,16.769791666668816,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-01-11,Thứ 4,03:00,mua,-1.0805098960080668,SL,12.420833333331693,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2023-01-11,Thứ 4,09:00,mua,1.914224446032879,TP,11.658333333332873,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-01-17,Thứ 3,03:00,bán,-1.0887573964497,SL,11.266666666666923,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-01-19,Thứ 5,09:00,bán,-1.0434094505991434,SL,23.036458333332725,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2023-01-24,Thứ 3,03:00,bán,0.5311903036689317,time,15.813541666668609,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-01-26,Thứ 5,09:00,bán,-1.0802273107136866,SL,12.46458333333473,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2023-02-01,Thứ 4,09:00,bán,1.8633451957295541,TP,7.317708333333835,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-02-08,Thứ 4,09:00,mua,-1.0716952949962713,SL,13.947916666665247,Luân Đôn,sát biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2023-02-14,Thứ 3,03:00,mua,1.939151930024722,TP,16.43437499999981,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+GBPUSD,2023-02-15,Thứ 4,03:00,mua,0.7633183143385632,time,15.720833333333788,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2023-02-28,Thứ 3,03:00,mua,1.9367547269253538,TP,15.811458333331887,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-03-01,Thứ 4,03:00,bán,0.838125750901038,time,13.00520833333494,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-03-08,Thứ 4,03:00,mua,1.897172236503837,TP,9.72499999999853,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-03-14,Thứ 3,03:00,bán,1.9331057069193713,TP,14.9489583333322,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2023-03-15,Thứ 4,03:00,mua,-1.1233140655105893,SL,8.109375000000137,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2023-03-16,Thứ 5,03:00,mua,1.927366270711967,TP,13.76770833333397,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2023-03-23,Thứ 5,03:00,mua,1.8916600835120136,TP,9.230208333331884,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2023-03-28,Thứ 3,03:00,bán,-1.101705689161983,SL,9.83229166666671,Á,quét biên tuần cùng phía,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2023-03-29,Thứ 4,03:00,mua,-0.32989690721651876,time,9.39687499999962,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-04-04,Thứ 3,09:00,mua,-1.088462956137107,SL,11.304166666667934,Luân Đôn,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-04-11,Thứ 3,03:00,bán,-0.2405412177399076,time,8.31458333333308,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-04-12,Thứ 4,03:00,mua,-1.1193732902262852,SL,8.377083333334992,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-04-12,Thứ 4,03:00,bán,1.8714170908116823,TP,7.777083333333281,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-04-13,Thứ 5,03:00,mua,1.4677127338565026,time,10.356249999998827,Luân Đôn,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-04-13,Thứ 5,03:00,bán,-1.1341156747694938,SL,7.456249999999813,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-04-26,Thứ 4,03:00,mua,1.8697245216447265,TP,7.6760416666659985,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-04-27,Thứ 5,03:00,mua,-1.119121479091708,SL,8.394791666666592,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2023-05-04,Thứ 5,03:00,mua,-1.099927136462991,SL,10.007291666667253,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2023-05-04,Thứ 5,03:00,bán,1.2637012819411328,time,12.107291666665468,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2023-05-10,Thứ 4,03:00,bán,-1.1527203308940144,SL,6.547916666667329,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-05-11,Thứ 5,03:00,bán,1.8699010706057775,TP,7.686458333333891,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2023-05-18,Thứ 5,03:00,mua,-1.0731540044197239,SL,13.669791666667148,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-05-25,Thứ 5,03:00,bán,-1.0879604178119817,SL,11.36875000000007,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-05-30,Thứ 3,03:00,mua,1.8893881783615722,TP,9.040625000000915,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2023-06-01,Thứ 5,03:00,mua,0.35337423312871735,time,10.187500000000519,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2023-06-07,Thứ 4,03:00,mua,-1.149276939822736,SL,6.698958333332186,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-06-15,Thứ 5,03:00,bán,-0.20092820092815594,time,11.446875000000976,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,rộng
+GBPUSD,2023-06-27,Thứ 3,03:00,mua,1.8240469208210985,TP,5.683333333332888,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2023-06-28,Thứ 4,03:00,bán,-0.4886942109623871,time,8.798958333332575,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,rộng
+GBPUSD,2023-08-08,Thứ 3,03:00,mua,-0.5838401390094149,time,8.392708333333683,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-08-08,Thứ 3,09:00,mua,-1.1030927835051636,SL,9.699999999998667,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-08-15,Thứ 3,03:00,mua,0.05718585402561829,time,33.22500000000022,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-08-16,Thứ 4,09:00,bán,0.9889009793253789,time,14.359375000000187,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-08-17,Thứ 5,03:00,bán,-1.1023017902813452,SL,9.774999999999599,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-08-17,Thứ 5,09:00,bán,-1.0824742268041196,SL,12.125000000000028,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-08-24,Thứ 5,03:00,bán,1.450332681017365,time,13.30729166666817,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2023-08-29,Thứ 3,03:00,bán,0.9671684247953083,time,8.788541666668522,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2023-08-31,Thứ 5,09:00,bán,-1.1310401310401734,SL,7.631249999998483,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-09-06,Thứ 4,09:00,bán,1.8911194283769965,TP,9.184375000000147,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-09-07,Thứ 5,03:00,mua,-1.097303871883247,SL,10.277083333332358,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-09-07,Thứ 5,09:00,mua,-1.1224802245470629,SL,8.164583333333507,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-09-12,Thứ 3,09:00,mua,0.04442045191635331,time,13.50729166666777,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-09-12,Thứ 3,09:00,bán,-1.1368496079828836,SL,7.307291666667122,Luân Đôn,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-09-14,Thứ 5,09:00,bán,1.8863367274449538,TP,8.797916666667613,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-09-19,Thứ 3,03:00,bán,-1.1753104455806422,SL,5.704166666668831,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-09-20,Thứ 4,09:00,bán,-1.1796071094480651,SL,5.567708333332917,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2023-09-21,Thứ 5,03:00,mua,0.7717581265292495,time,8.940625000001164,Á,quét biên tuần cùng phía,trên mở 00:00,nửa dưới,rộng
+GBPUSD,2023-09-21,Thứ 5,03:00,bán,-1.0702216370419169,SL,14.240625000000358,Á,sát biên tuần đối diện,trên mở 00:00,nửa dưới,rộng
+GBPUSD,2023-09-26,Thứ 3,09:00,bán,0.32254123396446205,time,10.231250000001408,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-09-28,Thứ 5,03:00,mua,-1.136674259681069,SL,7.316666666667391,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2023-10-03,Thứ 3,09:00,bán,-1.1067140951533787,SL,9.370833333334632,Luân Đôn,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-10-05,Thứ 5,09:00,bán,1.9298758217677159,TP,14.26041666666706,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2023-10-10,Thứ 3,03:00,bán,0.42328625559769234,time,15.119791666665451,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-10-11,Thứ 4,03:00,mua,-0.817833309669327,time,7.336458333332153,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-10-11,Thứ 4,09:00,bán,1.891328956305205,TP,9.202083333334523,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2023-10-12,Thứ 5,03:00,mua,-0.47358507489467794,time,11.613541666666073,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2023-10-12,Thứ 5,09:00,bán,1.9344038264434567,TP,15.244791666665877,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2023-10-24,Thứ 3,03:00,mua,0.31249152312491135,time,15.360416666667005,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2023-10-26,Thứ 5,03:00,mua,-1.1658317498704223,SL,6.030208333333449,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-10-31,Thứ 3,03:00,bán,-1.1144492131616586,SL,8.737500000000365,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-11-02,Thứ 5,03:00,mua,-1.1169020944958752,SL,8.554166666666546,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2023-11-07,Thứ 3,03:00,bán,-1.1170018281535412,SL,8.546875000001082,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-11-08,Thứ 4,03:00,mua,-1.0784057497549837,SL,12.754166666667162,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-11-21,Thứ 3,03:00,mua,0.5435244161358505,time,8.831250000000356,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2023-11-23,Thứ 5,03:00,bán,-1.1198352265634575,SL,8.344791666667167,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-11-23,Thứ 5,09:00,mua,-1.124255759772228,SL,8.04791666666545,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-11-28,Thứ 3,03:00,mua,0.7710269948685905,time,14.007291666668527,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-11-29,Thứ 4,03:00,bán,0.8519066297988203,time,16.1989583333332,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-11-30,Thứ 5,03:00,bán,1.9108635097492987,TP,11.218750000000107,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-12-05,Thứ 3,09:00,bán,1.8924490253193127,TP,9.297916666667442,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2023-12-06,Thứ 4,09:00,mua,0.37417044137780753,time,9.888541666666892,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2023-12-07,Thứ 5,03:00,bán,1.0250696378830404,time,11.218749999999433,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2023-12-12,Thứ 3,03:00,mua,-1.0791556728232012,SL,12.63333333333519,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2023-12-12,Thứ 3,09:00,mua,-1.0578417786346925,SL,17.28854166666585,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-12-13,Thứ 4,03:00,mua,0.47865378622631394,time,10.02812499999952,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2023-12-14,Thứ 5,09:00,bán,-1.061951471347435,SL,16.141666666668282,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+GBPUSD,2023-12-20,Thứ 4,09:00,bán,-1.1161665053242713,SL,8.608333333334887,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2023-12-26,Thứ 3,09:00,bán,-1.2374999999999141,SL,4.210526315790412,Á,Thứ 2 (chưa có biên tuần),trên mở 00:00,nửa trên,hẹp
+GBPUSD,2023-12-28,Thứ 5,09:00,mua,1.8943778193420555,TP,9.467708333332954,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-01-02,Thứ 3,09:00,mua,1.8966185655825836,TP,9.672916666666012,New York,Thứ 2 (chưa có biên tuần),dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2024-01-03,Thứ 4,09:00,mua,1.9048562933597648,TP,10.51041666666803,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-01-04,Thứ 5,03:00,bán,-1.068191504475061,SL,14.664583333333878,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-01-09,Thứ 3,03:00,mua,-1.1266490765171844,SL,7.895833333332279,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-01-09,Thứ 3,09:00,mua,-0.5399075500769612,time,13.520833333332538,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-01-11,Thứ 5,09:00,mua,1.9372302863868216,TP,15.931250000000885,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-01-18,Thứ 5,03:00,mua,-0.833251833740746,time,8.520833333333922,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-01-18,Thứ 5,09:00,mua,0.24806201550391987,time,22.57499999999945,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-01-24,Thứ 4,03:00,bán,-1.1840490797545988,SL,5.4333333333337475,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-01-25,Thứ 5,03:00,bán,-0.25627842594420075,time,10.535416666667313,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-01-30,Thứ 3,03:00,bán,0.8954998109166211,time,8.263541666665223,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-01-31,Thứ 4,03:00,bán,-1.130169491525467,SL,7.682291666665046,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-02-07,Thứ 4,03:00,bán,0.9949031600405884,time,6.1312499999999455,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-02-07,Thứ 4,09:00,bán,0.9671722888839608,time,9.202083333332718,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-02-15,Thứ 5,03:00,mua,1.0927624872576143,time,6.131250000000962,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-02-21,Thứ 4,03:00,bán,1.8978071109218533,TP,9.785416666665085,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-02-28,Thứ 4,03:00,bán,1.7987843219450939,TP,4.969791666667028,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-03-05,Thứ 3,03:00,bán,-1.086338699523349,SL,11.582291666665359,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-03-06,Thứ 4,09:00,bán,-0.5926643263528507,time,8.605208333332254,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-03-07,Thứ 5,03:00,mua,-0.7809890815672088,time,9.731250000000353,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+GBPUSD,2024-03-13,Thứ 4,03:00,bán,1.8435972629521011,TP,6.393749999999674,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2024-03-19,Thứ 3,03:00,mua,-1.112994350282511,SL,8.849999999998234,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-04-02,Thứ 3,03:00,mua,1.5650364203955385,time,6.006250000000028,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-04-02,Thứ 3,09:00,bán,1.8729486500794241,TP,7.870833333333434,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-04-03,Thứ 4,03:00,mua,-1.1841549971226095,SL,5.430208333332964,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-04-10,Thứ 4,03:00,mua,0.3601957585642873,time,6.385416666667143,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+GBPUSD,2024-04-10,Thứ 4,09:00,bán,-1.2235157159487902,SL,4.473958333333754,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-04-11,Thứ 5,09:00,mua,-1.0831961175145175,SL,12.019791666666563,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-04-18,Thứ 5,03:00,bán,-1.1532811751556795,SL,6.523958333333375,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-04-24,Thứ 4,03:00,bán,1.1338582677168636,time,10.318749999998651,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-04-24,Thứ 4,09:00,mua,0.1403991741225189,time,12.108333333331911,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-04-25,Thứ 5,03:00,bán,-1.2419354838709424,SL,4.133333333334414,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-04-30,Thứ 3,09:00,mua,-1.1344537815125972,SL,7.437500000001262,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-05-01,Thứ 4,09:00,bán,-1.1459410155062404,SL,6.852083333332471,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-05-02,Thứ 5,09:00,bán,-1.13059447694194,SL,7.657291666665645,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-05-08,Thứ 4,03:00,bán,-1.2286803239638182,SL,4.372916666666495,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-05-08,Thứ 4,09:00,mua,-1.2440264361973254,SL,4.097916666665457,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-05-14,Thứ 3,03:00,bán,-1.1164765833535564,SL,8.585416666665758,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-05-14,Thứ 3,09:00,mua,-1.2025316455696369,SL,4.937499999999502,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-05-14,Thứ 3,09:00,bán,1.812646370023419,TP,5.337499999999902,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-05-15,Thứ 4,03:00,bán,0.15815485996698678,time,6.322916666666965,Á,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-05-21,Thứ 3,03:00,bán,-1.2861400894187327,SL,3.494791666666918,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-05-23,Thứ 5,03:00,mua,-0.048613748575828286,time,8.22812500000066,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-05-23,Thứ 5,09:00,bán,1.806295399515737,TP,5.162499999999819,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-05-28,Thứ 3,03:00,bán,1.7285835453773866,TP,3.6843749999984166,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-05-29,Thứ 4,03:00,bán,-1.1588089330025295,SL,6.296874999998231,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-05-29,Thứ 4,09:00,bán,0.8335745296675171,time,9.357291666666097,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-05-30,Thứ 5,09:00,mua,1.7476340694006933,TP,3.962499999999892,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-06-04,Thứ 3,03:00,mua,-1.1885680612846923,SL,5.3031249999981975,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-04,Thứ 3,09:00,bán,0.08516678495366453,time,5.870833333333238,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-05,Thứ 4,09:00,bán,-1.2276499881433134,SL,4.392708333332366,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-06-06,Thứ 5,03:00,mua,-0.22094361334852647,time,8.146874999999802,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-06,Thứ 5,09:00,mua,1.8847677349658063,TP,8.678125000000184,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-11,Thứ 3,03:00,bán,0.3177157689811813,time,16.052083333332398,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-11,Thứ 3,09:00,mua,-1.1536983669548473,SL,6.506249999999648,Luân Đôn,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-06-13,Thứ 5,03:00,bán,-0.6105439330541187,time,6.223958333332405,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-13,Thứ 5,09:00,mua,1.8715203426124551,TP,7.783333333334919,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-18,Thứ 3,03:00,mua,-1.1639344262295084,SL,6.100000000000502,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-18,Thứ 3,03:00,bán,-1.1923076923076643,SL,5.200000000001268,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-18,Thứ 3,09:00,mua,1.7506493506493448,TP,4.010416666666063,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-19,Thứ 4,09:00,mua,-1.1362475163213364,SL,7.339583333331734,Luân Đôn,sát biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-06-26,Thứ 4,09:00,bán,1.7388465723614208,TP,3.829166666668368,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-06-27,Thứ 5,03:00,bán,-1.1443391971131986,SL,6.928125000001835,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-07-02,Thứ 3,03:00,bán,0.8166934189404627,time,6.489583333333659,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-07-03,Thứ 4,09:00,bán,-1.213713268032102,SL,4.6791666666661875,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-07-04,Thứ 5,09:00,mua,-1.242669362992869,SL,4.120833333335211,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-07-09,Thứ 3,03:00,mua,-0.2833251352681847,time,6.353125000000889,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-07-09,Thứ 3,03:00,bán,1.7262617621897753,TP,3.653124999998744,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-07-10,Thứ 4,09:00,mua,0.1848375451259331,time,4.328125000002009,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-07-11,Thứ 5,09:00,bán,-1.1607501674481138,SL,6.220833333332917,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-07-16,Thứ 3,03:00,mua,-1.2166553825320758,SL,4.615625000001141,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-07-16,Thứ 3,09:00,bán,-1.1844026123703513,SL,5.4229166666663655,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-07-24,Thứ 4,09:00,bán,-1.2196796338672709,SL,4.552083333333734,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-07-25,Thứ 5,03:00,mua,-1.237037037037028,SL,4.218749999999651,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-07-25,Thứ 5,09:00,bán,0.6355039178597073,time,7.71041666666863,Luân Đôn,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-07-30,Thứ 3,09:00,mua,-1.1822323462414255,SL,5.487500000001162,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-07-31,Thứ 4,09:00,mua,1.8427775958073966,TP,6.360416666666008,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-08-06,Thứ 3,03:00,mua,-1.070885328213834,SL,14.107291666666265,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2024-08-07,Thứ 4,03:00,mua,0.7929838874161365,time,10.21458333333232,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-08-07,Thứ 4,03:00,bán,-1.087607227596293,SL,11.414583333331299,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-08-13,Thứ 3,09:00,bán,-1.1414052143172813,SL,7.071874999999561,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-08-14,Thứ 4,03:00,bán,-0.07732696897374793,time,34.916666666666494,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-08-14,Thứ 4,09:00,bán,-1.0948522873233986,SL,10.542708333331902,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-08-20,Thứ 3,03:00,bán,-1.1382488479262527,SL,7.233333333333373,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-08-20,Thứ 3,09:00,bán,-1.1572996886776752,SL,6.35729166666837,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-08-21,Thứ 4,03:00,mua,0.542597187758465,time,7.556249999999913,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2024-08-21,Thứ 4,09:00,mua,0.7281691476247014,time,10.986458333334577,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-08-22,Thứ 5,03:00,mua,1.8709850826502066,TP,7.7510416666671835,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-08-27,Thứ 3,03:00,bán,-1.0921747479596697,SL,10.848958333333675,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-08-28,Thứ 4,03:00,mua,-1.152139461172728,SL,6.5729166666663135,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-08-28,Thứ 4,09:00,mua,-1.1470813543741263,SL,6.79895833333342,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-09-10,Thứ 3,09:00,mua,-1.1468788249693722,SL,6.808333333334752,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-09-11,Thứ 4,09:00,mua,-1.1874633860573676,SL,5.334375000000484,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2024-09-12,Thứ 5,03:00,bán,1.1738741425592336,time,6.985416666665199,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-09-12,Thứ 5,09:00,mua,1.8575033397654526,TP,7.017708333332494,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-09-17,Thứ 3,09:00,bán,1.8856734548052982,TP,8.746875000000289,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-09-18,Thứ 4,09:00,mua,1.8531885609420895,TP,6.811458333334935,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-09-26,Thứ 5,03:00,bán,-1.1408037547667682,SL,7.102083333334296,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-09-26,Thứ 5,09:00,mua,-1.142750929368042,SL,7.005208333332988,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-10-02,Thứ 4,03:00,bán,-1.1301518438177622,SL,7.683333333333869,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-10-02,Thứ 4,09:00,bán,0.7412832351538311,time,13.08541666666457,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-10-03,Thứ 5,09:00,bán,-0.4381161007668232,time,11.412500000001977,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2024-10-08,Thứ 3,03:00,mua,-1.109028960817714,SL,9.17187500000055,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-10-09,Thứ 4,03:00,mua,-1.1368691189050706,SL,7.306249999998876,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-10-10,Thứ 5,03:00,mua,0.722307370767616,time,7.476041666666655,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-10-15,Thứ 3,09:00,mua,1.8501170960187727,TP,6.671875000001635,Luân Đôn,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-10-16,Thứ 4,09:00,bán,1.867128027681642,TP,7.526041666665848,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-10-17,Thứ 5,03:00,mua,-1.1073585327667226,SL,9.314583333333362,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-10-17,Thứ 5,09:00,bán,-1.1471038921238397,SL,6.7979166666651025,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2024-10-22,Thứ 3,03:00,mua,0.32189560746614754,time,9.31979166666555,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-10-23,Thứ 4,03:00,mua,-1.1740076128330938,SL,5.746874999999485,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-10-24,Thứ 5,03:00,bán,-1.128876359242844,SL,7.759374999999347,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-10-24,Thứ 5,09:00,bán,0.38483380658095867,time,6.23645833333399,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-10-29,Thứ 3,09:00,mua,1.9119185246353037,TP,11.353125000001494,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2024-11-06,Thứ 4,03:00,bán,-1.0761662964138305,SL,13.129166666666684,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2024-11-07,Thứ 5,03:00,mua,-1.0687876182287173,SL,14.53750000000064,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2024-11-14,Thứ 5,09:00,bán,-1.1229823212913022,SL,8.131250000000072,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-11-19,Thứ 3,03:00,bán,1.9062042012701592,TP,10.66145833333321,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-11-21,Thứ 5,03:00,mua,-1.1486068111454812,SL,6.729166666668308,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2024-11-26,Thứ 3,03:00,mua,1.8978288633461076,TP,9.787499999999635,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2024-11-28,Thứ 5,03:00,mua,-0.21962937542892563,time,13.659375000000251,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-12-03,Thứ 3,09:00,bán,0.9759450171821177,time,14.549999999998823,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-12-10,Thứ 3,03:00,mua,-0.7441860465116873,time,9.675000000000006,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2024-12-19,Thứ 5,09:00,mua,-1.0687876182287173,SL,14.537500000000222,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,rộng
+GBPUSD,2025-01-16,Thứ 5,03:00,mua,-0.1416028657723135,time,14.830208333332997,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-01-21,Thứ 3,03:00,mua,-0.4908217321671263,time,16.910416666666794,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-01-21,Thứ 3,09:00,bán,-1.0543755310110454,SL,18.39062500000032,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-01-22,Thứ 4,03:00,bán,-1.0939334637964744,SL,10.645833333333249,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-01-23,Thứ 5,03:00,mua,0.2364240857036752,time,8.459375000000348,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-01-23,Thứ 5,09:00,bán,-1.073749711915196,SL,13.559374999999502,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-01-30,Thứ 5,03:00,bán,-1.0963275135460566,SL,10.381250000000216,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2025-02-06,Thứ 5,03:00,mua,-1.1160401305451397,SL,8.617708333333747,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2025-02-13,Thứ 5,09:00,bán,-1.1036381301953855,SL,9.64895833333449,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-02-19,Thứ 4,03:00,mua,-0.14003590664272186,time,9.28333333333295,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-02-19,Thứ 4,09:00,mua,0.9403894397319127,time,8.719791666668396,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-02-26,Thứ 4,03:00,bán,-1.1343973120537734,SL,7.440624999998923,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-02-27,Thứ 5,03:00,bán,-1.1108929190250822,SL,9.017708333331834,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-03-04,Thứ 3,09:00,mua,-1.084469863616366,SL,11.838541666667409,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-03-11,Thứ 3,03:00,bán,-1.0871697085262717,SL,11.471875000001047,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-03-12,Thứ 4,03:00,mua,0.5115452930731152,time,10.556249999998819,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-03-18,Thứ 3,03:00,bán,-1.150234741784062,SL,6.65624999999952,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-03-18,Thứ 3,09:00,bán,1.870410367170655,TP,7.716666666667676,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-03-19,Thứ 4,09:00,mua,-1.17278617710581,SL,5.787500000000768,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-03-20,Thứ 5,03:00,mua,-1.1419068736141749,SL,7.046875000000948,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-03-25,Thứ 3,03:00,bán,0.8190670499862167,time,11.23229166666538,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-03-26,Thứ 4,09:00,bán,-0.4069364161849682,time,24.32812500000154,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-04-01,Thứ 3,03:00,mua,-0.2530060945478279,time,6.323958333332227,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-04-02,Thứ 4,03:00,mua,-0.27964359150071877,time,6.079166666666132,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-04-02,Thứ 4,09:00,bán,1.841610295330814,TP,6.313541666667227,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-04-03,Thứ 5,09:00,bán,-0.0916613621897055,time,22.910416666668244,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-04-08,Thứ 3,03:00,bán,0.6171153073525709,time,12.963541666665042,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-04-08,Thứ 3,09:00,bán,-0.26746678096862614,time,14.581250000000093,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2025-04-09,Thứ 4,09:00,mua,1.0373936767775234,time,19.471874999999798,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-04-10,Thứ 5,03:00,mua,-0.5603112840467288,time,21.416666666667705,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-04-17,Thứ 5,03:00,mua,1.0998805088916888,time,14.819791666664852,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-04-29,Thứ 3,03:00,bán,-1.1377331420373218,SL,7.260416666665336,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-04-30,Thứ 4,09:00,mua,-1.1195665711794986,SL,8.363541666665347,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-05-01,Thứ 5,09:00,mua,-1.0981896287204693,SL,10.184375000000731,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2025-05-06,Thứ 3,03:00,mua,1.4578381437466392,time,11.043749999999214,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-05-07,Thứ 4,03:00,bán,0.17183231276505623,time,11.057291666666268,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-05-13,Thứ 3,03:00,mua,0.8698245211602931,time,9.082291666667903,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-05-13,Thứ 3,09:00,bán,-1.1436480622474718,SL,6.9614583333351545,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-05-15,Thứ 5,03:00,bán,-1.0656500034192697,SL,15.232291666666422,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2025-05-22,Thứ 5,09:00,bán,1.8948751642575759,TP,9.51250000000135,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2025-05-27,Thứ 3,09:00,bán,-1.1687467041659472,SL,5.926041666665913,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-05-29,Thứ 5,09:00,bán,-1.1521153541435547,SL,6.573958333333147,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-06-03,Thứ 3,03:00,bán,-1.1131675114935893,SL,8.836458333332356,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-06-03,Thứ 3,09:00,mua,1.8820204006390662,TP,8.47604166666724,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-06-04,Thứ 4,09:00,mua,0.514199631758077,time,18.669791666666896,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-06-05,Thứ 5,09:00,mua,1.908089995213033,TP,10.880208333334206,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-06-10,Thứ 3,09:00,bán,-1.0711954909522488,SL,14.045833333331883,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-06-17,Thứ 3,09:00,bán,0.05743589743589812,time,12.187500000001041,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+GBPUSD,2025-06-19,Thứ 5,03:00,mua,1.613510880155731,time,12.82916666666694,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-06-25,Thứ 4,03:00,bán,-1.1413635694301034,SL,7.073958333333647,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-06-25,Thứ 4,09:00,mua,-1.1879772860779219,SL,5.319791666666036,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-06-26,Thứ 5,03:00,bán,-1.148975791433914,SL,6.712499999999936,Á,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-07-03,Thứ 5,09:00,mua,-1.096930533117923,SL,10.316666666666716,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-07-08,Thứ 3,09:00,mua,-1.098169546988434,SL,10.18645833333431,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-07-09,Thứ 4,03:00,mua,1.8688524590163933,TP,7.625000000000663,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2025-07-10,Thứ 5,09:00,mua,-1.103997400065009,SL,9.615624999998625,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-07-15,Thứ 3,09:00,mua,1.8876141418871355,TP,8.897916666666488,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-07-16,Thứ 4,09:00,mua,-1.1791044776119066,SL,5.583333333333367,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-07-17,Thứ 5,03:00,bán,0.09326974032860211,time,11.79374999999943,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-07-22,Thứ 3,09:00,bán,0.2516964836520408,time,6.7541666666664595,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-07-23,Thứ 4,09:00,mua,-0.10381184103824816,time,7.706249999999345,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-07-29,Thứ 3,03:00,mua,-1.14142604596346,SL,7.0708333333343445,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-07-31,Thứ 5,03:00,mua,0.5758848230354873,time,10.418750000000045,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-07-31,Thứ 5,09:00,mua,-1.0560616678346189,SL,17.837499999999263,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-08-06,Thứ 4,09:00,mua,1.8042813455657822,TP,5.109374999999981,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-08-07,Thứ 5,03:00,bán,-1.1398397669337257,SL,7.151041666667464,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-08-13,Thứ 4,03:00,bán,-1.1214421252371554,SL,8.234375000001858,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-08-13,Thứ 4,09:00,bán,1.211201148835824,time,10.155208333332718,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-08-19,Thứ 3,03:00,mua,1.3239115568727873,time,9.139583333333348,Á,quét biên tuần cùng phía,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2025-08-27,Thứ 4,03:00,bán,-1.1199850018747528,SL,8.334375000000083,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-09-03,Thứ 4,09:00,bán,-1.1183577857230884,SL,8.448958333334005,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-09-09,Thứ 3,03:00,mua,-1.1194326947001876,SL,8.372916666664759,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-09-09,Thứ 3,03:00,bán,1.8761290322580881,TP,8.072916666667235,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-09-10,Thứ 4,03:00,bán,1.8600990964733515,TP,7.147916666667465,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2025-09-10,Thứ 4,09:00,mua,1.8833252309187998,TP,8.57083333333286,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2025-09-11,Thứ 5,03:00,mua,0.07022677395749265,time,8.543750000001685,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-09-11,Thứ 5,09:00,mua,-1.073349633251831,SL,13.633333333333551,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-09-23,Thứ 3,03:00,mua,1.8528735632183724,TP,6.796874999999796,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-09-24,Thứ 4,09:00,mua,-1.1521876981610326,SL,6.570833333335024,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-10-01,Thứ 4,03:00,mua,1.8792300918354508,TP,8.28020833333327,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-10-01,Thứ 4,09:00,mua,0.3886385896179889,time,31.906250000000668,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-10-02,Thứ 5,03:00,bán,-1.1644962302946813,SL,6.079166666667104,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+GBPUSD,2025-10-08,Thứ 4,03:00,mua,0.5540829414278741,time,14.618750000000984,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-10-08,Thứ 4,03:00,bán,-1.120210368144247,SL,8.31874999999968,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-10-09,Thứ 5,03:00,mua,-1.1581288090923874,SL,6.323958333333268,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2025-10-15,Thứ 4,09:00,mua,-1.127084988085824,SL,7.868749999998213,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-10-16,Thứ 5,03:00,mua,-1.0630003937524548,SL,15.872916666667749,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2025-10-16,Thứ 5,03:00,bán,0.10232359837983734,time,9.772916666667754,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-10-21,Thứ 3,03:00,mua,0.9206713228396333,time,9.992708333333756,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-10-21,Thứ 3,09:00,mua,0.9429994465968438,time,7.52916666666617,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-10-29,Thứ 4,03:00,mua,-0.7021714285715375,time,9.11458333333219,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2025-10-29,Thứ 4,09:00,bán,1.8774415932593005,TP,8.159375,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2025-10-30,Thứ 5,03:00,mua,-1.0643949557284627,SL,15.529166666667487,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2025-11-04,Thứ 3,09:00,mua,-1.119165839126109,SL,8.391666666668074,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2025-11-11,Thứ 3,03:00,mua,-1.084641156762472,SL,11.814583333333132,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-11-13,Thứ 5,03:00,bán,-1.1193436101442236,SL,8.379166666666048,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-11-19,Thứ 4,09:00,mua,-1.1202856784864024,SL,8.313541666666358,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2025-12-02,Thứ 3,03:00,mua,1.1782032400585396,time,6.365625000001224,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2025-12-02,Thứ 3,09:00,bán,-0.011595603333566823,time,8.62395833333381,Á,sát biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2025-12-03,Thứ 4,09:00,mua,1.8327526132403802,TP,5.979166666665984,Á,sát biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-12-09,Thứ 3,03:00,bán,-1.1121757419958025,SL,8.914583333333285,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2025-12-09,Thứ 3,09:00,mua,-1.1390901188061395,SL,7.189583333333572,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2025-12-10,Thứ 4,03:00,bán,1.0983981693363802,time,6.828124999999189,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-12-10,Thứ 4,09:00,bán,-1.0989078920255522,SL,10.110416666666566,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2025-12-17,Thứ 4,03:00,mua,0.2471113144949412,time,18.210416666666546,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2025-12-18,Thứ 5,09:00,bán,1.9314628400085643,TP,14.590624999999967,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2025-12-24,Thứ 4,09:00,bán,0.24656478746619057,time,8.111458333334431,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-01-13,Thứ 3,03:00,bán,-1.1463191586647912,SL,6.8343750000013115,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2026-01-15,Thứ 5,09:00,mua,-1.1223553403007906,SL,8.172916666667057,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-01-20,Thứ 3,09:00,mua,0.7899984174708952,time,13.164583333334967,Á,sát biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-01-22,Thứ 5,03:00,mua,-1.137417692527888,SL,7.2770833333336835,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2026-01-27,Thứ 3,03:00,mua,-0.17292377701944928,time,10.987500000001436,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2026-02-05,Thứ 5,09:00,mua,-1.0488649088873012,SL,20.464583333334797,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2026-02-12,Thứ 5,03:00,bán,-1.1166889510149591,SL,8.569791666666696,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2026-02-19,Thứ 5,03:00,bán,-0.48995719460003856,time,6.3270833333339365,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-02-24,Thứ 3,03:00,mua,1.0011761938367751,time,13.284375000000177,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-02-24,Thứ 3,09:00,bán,-1.0847008999470666,SL,11.806249999998311,Luân Đôn,sát biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-02-25,Thứ 4,09:00,mua,1.8311048557353797,TP,5.920833333333125,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-02-26,Thứ 5,09:00,mua,1.8652442448062945,TP,7.420833333333006,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2026-03-03,Thứ 3,09:00,mua,-1.0562423106215946,SL,17.78020833333435,Luân Đôn,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2026-03-11,Thứ 4,03:00,mua,-1.0968914008881565,SL,10.320833333333823,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2026-03-12,Thứ 5,03:00,bán,-1.1144492131616586,SL,8.737500000000736,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-03-12,Thứ 5,09:00,mua,-1.0474988867448392,SL,21.053125000000232,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-03-17,Thứ 3,03:00,bán,-1.1538954793202663,SL,6.497916666667695,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-03-18,Thứ 4,03:00,mua,-1.1767955801105277,SL,5.6562499999996545,Á,sát biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-03-18,Thứ 4,09:00,mua,-1.0912894636744088,SL,10.9541666666649,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-03-26,Thứ 5,09:00,bán,-1.1140684410646426,SL,8.76666666666639,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-04-01,Thứ 4,09:00,bán,1.9205692536819463,TP,12.589583333333605,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-04-02,Thứ 5,03:00,mua,-1.1015335801163348,SL,9.848958333333185,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-04-08,Thứ 4,09:00,bán,-1.051796697960506,SL,19.306249999999775,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,rộng
+GBPUSD,2026-04-15,Thứ 4,09:00,bán,-1.0038022813687884,time,7.670833333333997,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-04-22,Thứ 4,09:00,mua,-1.0833695180199534,SL,11.994791666668572,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-04-23,Thứ 5,03:00,bán,-0.08618883734874459,time,6.961458333334714,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-04-29,Thứ 4,09:00,bán,1.231654676259163,time,8.687500000000199,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-04-30,Thứ 5,03:00,mua,1.8864308529515874,TP,8.805208333332152,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2026-05-05,Thứ 3,03:00,bán,-1.1026518391787796,SL,9.741666666667573,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-05-06,Thứ 4,03:00,mua,-0.06882707198178953,time,7.2645833333340875,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-05-07,Thứ 5,03:00,mua,0.884661117717311,time,7.008333333331808,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2026-05-07,Thứ 5,09:00,bán,-0.7261920842900944,time,7.71145833333299,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-05-13,Thứ 4,03:00,bán,1.8910947249007448,TP,9.18229166666731,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-05-14,Thứ 5,09:00,bán,1.8141335914811565,TP,5.380208333334441,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,rộng
+GBPUSD,2026-05-21,Thứ 5,03:00,bán,-0.49357326478146396,time,6.483333333331929,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-05-26,Thứ 3,03:00,mua,1.765223771093162,TP,4.2593750000003565,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-05-26,Thứ 3,09:00,mua,-1.21409455842997,SL,4.670833333333471,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-06-03,Thứ 4,09:00,mua,-1.2081075222197906,SL,4.805208333333148,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-06-04,Thứ 5,03:00,bán,0.2893104059564162,time,5.876041666665703,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2026-06-04,Thứ 5,09:00,bán,0.30112023898424206,time,6.973958333335098,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2026-06-09,Thứ 3,09:00,bán,-0.7041272998507752,time,8.379166666666558,New York,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-06-10,Thứ 4,03:00,bán,0.6678725476552967,time,7.486458333335194,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-06-16,Thứ 3,03:00,mua,1.762552559980133,TP,4.211458333332914,Á,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-06-17,Thứ 4,03:00,bán,0.39641700019065934,time,16.39687499999864,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2026-06-18,Thứ 5,09:00,bán,-1.1013192612137077,SL,9.869791666668133,Luân Đôn,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,rộng
+GBPUSD,2026-06-23,Thứ 3,03:00,bán,-0.4243547697133695,time,7.30520833333403,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-06-25,Thứ 5,03:00,mua,-1.1640184520758854,SL,6.096874999999186,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình
+GBPUSD,2026-07-01,Thứ 4,09:00,mua,-1.1430061075524671,SL,6.9927083333352895,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-07-07,Thứ 3,09:00,mua,-1.1006816990036596,SL,9.932291666666648,New York,sát biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2026-07-22,Thứ 4,03:00,mua,-1.086292134831473,SL,11.588541666665447,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2026-07-23,Thứ 5,09:00,mua,-1.120030007501877,SL,8.331250000000525,New York,quét biên tuần cùng phía,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-07-29,Thứ 4,03:00,bán,0.45649072753195186,time,4.381250000000946,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,rộng
+GBPUSD,2026-08-05,Thứ 4,03:00,bán,-1.2814423922603482,SL,3.553124999998968,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2026-08-06,Thứ 5,03:00,bán,0.9605437039831852,time,5.517708333333166,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-08-06,Thứ 5,09:00,bán,-0.9817007534983323,time,5.806250000000914,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,hẹp
+GBPUSD,2026-08-11,Thứ 3,03:00,bán,0.754267136277545,time,7.689583333333217,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2026-08-11,Thứ 3,09:00,mua,0.7220570229144522,time,5.955208333331917,New York,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-08-12,Thứ 4,03:00,bán,-1.2396405391911893,SL,4.172916666667104,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-08-13,Thứ 5,03:00,mua,-1.2048218476636956,SL,4.882291666667172,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-08-13,Thứ 5,03:00,bán,1.8626805893291656,TP,7.282291666667352,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-08-13,Thứ 5,09:00,mua,-1.165175498967707,SL,6.054166666664858,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,hẹp
+GBPUSD,2026-08-18,Thứ 3,09:00,bán,-1.1574544858126645,SL,6.351041666667125,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-08-20,Thứ 5,03:00,bán,-1.1171017321297856,SL,8.539583333332958,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-08-25,Thứ 3,03:00,mua,1.711451758340924,TP,3.4656249999998514,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-08-27,Thứ 5,03:00,bán,-1.2861400894187327,SL,3.4947916666662695,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-08-27,Thứ 5,09:00,bán,-1.2053475935829059,SL,4.86979166666591,Á,sát biên tuần đối diện,dưới mở 00:00,nửa dưới,hẹp
+GBPUSD,2026-09-01,Thứ 3,09:00,mua,-1.1254737942752249,SL,7.969791666667877,Luân Đôn,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa dưới,trung bình
+GBPUSD,2026-09-08,Thứ 3,09:00,bán,-1.1796071094480651,SL,5.5677083333342114,Luân Đôn,quét biên tuần cùng phía,trên mở 00:00,nửa trên,trung bình
+GBPUSD,2026-09-10,Thứ 5,03:00,bán,0.4157558259436098,time,5.05104166666712,Á,còn ≥ 2R khoảng trống tới biên tuần đối diện,dưới mở 00:00,nửa trên,trung bình

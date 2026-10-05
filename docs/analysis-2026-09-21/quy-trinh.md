@@ -21,10 +21,12 @@ Chỉ thứ Ba, Tư, Năm. Chỉ EURUSD và GBPUSD. Không giao dịch 02:00, 04
 
 ## 2. Trước giờ (10 phút)
 
+Mở đầu bằng bản phác thảo ngày viết theo `../analysis-2026-10-05/phac-thao-ngay-tuan.md`: hai kịch bản đối xứng kèm mốc giá, không có hướng, cùng bản phác thảo tuần đã viết chiều thứ Hai. Rồi:
+
 1. Ghi đỉnh và đáy của giờ liền trước (02:00 hoặc 08:00).
 2. Ghi ATR 24 giờ tính bằng pip, và ngưỡng quét nông = 0,25 ATR (thường 5–7 pip với EURUSD ở London).
 3. Lịch tin: nến 09:00 chỉ giao dịch nếu tin 08:30 đã ra ít nhất 30 phút và không có tin 10:00 lớn. Nến 03:00 bỏ nếu có tin châu Âu trong giờ.
-4. Không đặt bias. Không có yếu tố nào trước giờ mở dự báo được hướng (10 yếu tố đo được đều 50%). Nếu thấy mình "chờ mua" hay "chờ bán", ghi vào nhật ký và bỏ qua.
+4. Không đặt bias. Không có yếu tố nào trước giờ mở dự báo được hướng (10 yếu tố đo được đều 50%; đợt đo 2026-10-05 thêm vào danh sách này: weekly profile, hình dạng nến thứ Hai, vị trí so với mốc mở 00:00 và mở tuần, tỷ lệ quét PDH/PDL — xem `../analysis-2026-10-05/ket-luan.md`). Nếu thấy mình "chờ mua" hay "chờ bán", ghi vào nhật ký và bỏ qua.
 
 ## 3. Trong giờ
 
