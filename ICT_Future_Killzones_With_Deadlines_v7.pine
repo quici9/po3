@@ -18,7 +18,7 @@ col_london    = input.color(color.blue, "Màu London", group = grp_ln)
 
 grp_ny = "New York AM Focus (09:00 - 10:00 NY)"
 enable_ny     = input.bool(true, "Bật New York AM Focus", group = grp_ny)
-col_ny        = input.color(color.orange, "Màu New York AM", group = grp_ny)
+col_ny        = input.color(#E65100, "Màu New York AM", group = grp_ny)
 
 grp_sg = "Setup CISD + FVG (quy tắc v1.1, chỉ M1, giờ 03:00 & 09:00 NY, T3/T4/T5)"
 // tắt mặc định: người dùng đang theo setup khác, chưa hệ thống hoá (2026-10-16)
@@ -37,15 +37,16 @@ show_kz_hl   = input.bool(true, "Vẽ High/Low killzone (Asia, London, New York)
 sess_asia    = input.session("2000-0000", "Asia (giờ NY)", group = grp_hl)
 sess_london  = input.session("0200-0500", "London (giờ NY)", group = grp_hl)
 sess_ny      = input.session("0700-1100", "New York (giờ NY)", group = grp_hl)
+// mặc định chọn cho nền sáng (light mode): tương phản >= 3:1 trên nền trắng
 col_asia_hl  = input.color(color.purple, "Màu Asia", group = grp_hl)
 col_ldn_hl   = input.color(color.blue, "Màu London", group = grp_hl)
-col_ny_hl    = input.color(color.orange, "Màu New York", group = grp_hl)
+col_ny_hl    = input.color(#E65100, "Màu New York", group = grp_hl)
 show_kz_box  = input.bool(true, "Tô vùng killzone (từ High đến Low của phiên)", group = grp_hl)
 kz_box_transp = input.int(88, "Độ trong suốt vùng tô (%)", minval = 50, maxval = 98, group = grp_hl)
 show_pd_hl   = input.bool(true, "Vẽ High/Low ngày trước (PDH/PDL)", group = grp_hl)
-col_pd_hl    = input.color(color.yellow, "Màu PDH/PDL", group = grp_hl)
+col_pd_hl    = input.color(#A67C00, "Màu PDH/PDL", group = grp_hl)
 show_pw_hl   = input.bool(true, "Vẽ High/Low tuần trước (PWH/PWL)", group = grp_hl)
-col_pw_hl    = input.color(color.white, "Màu PWH/PWL", group = grp_hl)
+col_pw_hl    = input.color(#455A64, "Màu PWH/PWL", group = grp_hl)
 hl_days_back = input.int(1, "Số ngày hiển thị (1 = chỉ hôm nay; tuần: 1 = chỉ tuần này)", minval = 1, maxval = 30, group = grp_hl)
 hl_width     = input.int(1, "Độ dày đường", minval = 1, maxval = 3, group = grp_hl)
 hl_lbl_off   = input.int(6, "Nhãn cách nến hiện tại (số nến, đặt trong lề phải)", minval = 1, maxval = 30, group = grp_hl)
@@ -503,7 +504,7 @@ var array<HL> hl_arr = array.new<HL>()
 DOL_N = 10
 var array<HL> dol_last = array.new<HL>(DOL_N)
 
-// chữ đen trên nền sáng (vàng, trắng), chữ trắng trên nền tối
+// chữ đen trên nền nhãn sáng, chữ trắng trên nền nhãn tối
 f_txt_on(color c) => color.r(c) * 0.299 + color.g(c) * 0.587 + color.b(c) * 0.114 > 150 ? color.black : color.white
 
 f_hl_new(int x1_t, float lvl, int end_t, bool is_high, bool sweepable, string txt, color c, int rank) =>
@@ -622,9 +623,9 @@ if barstate.islast and show_status
     color bg  = color.new(chart.bg_color, 0)
     color hdr = color.new(fg, 82)
     color dim = color.new(fg, 45)
-    color c_ok  = #26A69A
+    color c_ok  = #00897B
     color c_bad = #F23645
-    color c_brk = #FF9800
+    color c_brk = #E65100
     string warn = not is_m1 ? "  CHUYỂN SANG M1" : not is_pair ? "  chỉ đo EURUSD/GBPUSD" : ""
     int r = 0
     r := f_row(r, syminfo.ticker + " · " + timeframe.period + warn, warn == "" ? fg : c_bad, hdr)
