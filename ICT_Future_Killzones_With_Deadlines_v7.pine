@@ -1,5 +1,5 @@
 //@version=6
-// v7: v6 killzones/deadlines + CISD+FVG setup marker for the 03:00 and 09:00 NY hours (M1 only).
+// v7: v6 killzone start lines (03:00/09:00) + CISD+FVG setup marker for the 03:00 and 09:00 NY hours (M1 only).
 // Logic mirrors docs/analysis-2026-09-21/verify_indicator.py (rule v1.1). Keep both in sync.
 indicator("ICT Killzones + CISD/FVG Setup (v7, M1)", overlay = true, max_lines_count = 500, max_labels_count = 500, max_boxes_count = 100, max_bars_back = 500)
 
@@ -20,14 +20,9 @@ grp_ny = "New York AM Focus (09:00 - 10:00 NY)"
 enable_ny     = input.bool(true, "Bật New York AM Focus", group = grp_ny)
 col_ny        = input.color(color.orange, "Màu New York AM", group = grp_ny)
 
-grp_dl = "Mốc Deadline (03:30 & 09:30 NY)"
-enable_deadlines  = input.bool(true, "Bật hiển thị Deadline", group = grp_dl)
-col_deadline      = input.color(color.red, "Màu đường Deadline", group = grp_dl)
-deadline_style_in = input.string("Dotted", "Kiểu đường Deadline", options = ["Dotted", "Dashed", "Solid"], group = grp_dl)
-dl_style = deadline_style_in == "Solid" ? line.style_solid : deadline_style_in == "Dashed" ? line.style_dashed : line.style_dotted
-
 grp_sg = "Setup CISD + FVG (quy tắc v1.1, chỉ M1, giờ 03:00 & 09:00 NY, T3/T4/T5)"
-enable_sig    = input.bool(true, "Bật đánh dấu setup", group = grp_sg)
+// tắt mặc định: người dùng đang theo setup khác, chưa hệ thống hoá (2026-10-16)
+enable_sig    = input.bool(false, "Bật đánh dấu setup", group = grp_sg)
 days_back     = input.int(10, "Số ngày lịch sử hiển thị", minval = 1, maxval = 60, group = grp_sg)
 min_fvg_pip   = input.float(0.5, "FVG tối thiểu (pip). 0 = khớp script gốc", minval = 0, step = 0.1, group = grp_sg)
 sweep_max_min = input.int(30, "Quét muộn nhất (phút)", minval = 1, maxval = 59, group = grp_sg)
@@ -36,10 +31,6 @@ depth_max_atr = input.float(0.25, "Độ sâu quét tối đa (ATR)", minval = 0
 col_buy       = input.color(color.teal, "Màu tín hiệu mua", group = grp_sg)
 col_sell      = input.color(color.maroon, "Màu tín hiệu bán", group = grp_sg)
 show_sweep    = input.bool(true, "Đánh dấu điểm quét (tại cực trị của swing, tooltip)", group = grp_sg)
-show_prev_hl  = input.bool(true, "Vẽ đỉnh/đáy giờ trước (từ nến tạo đỉnh/đáy đến hết giờ setup)", group = grp_sg)
-// màu độ sáng trung bình: đọc được trên cả nền sáng và nền tối
-col_prev_hl   = input.color(#E040FB, "Màu đỉnh/đáy giờ trước", group = grp_sg)
-alert_cisd    = input.bool(true, "Alert ngay khi phát hiện CISD (kể cả khi bị bỏ vì quét sâu / không FVG)", group = grp_sg)
 
 grp_hl = "Mức High/Low: Killzone, ngày trước, tuần trước"
 show_kz_hl   = input.bool(true, "Vẽ High/Low killzone (Asia, London, New York)", group = grp_hl)
@@ -63,7 +54,7 @@ hl_hide_swept = input.bool(false, "Ẩn nhãn của đường đã bị quét", 
 grp_tb = "Bảng (góc trên phải): DOL + nhắc setup A+"
 show_status = input.bool(true, "Hiện bảng", group = grp_tb)
 show_dol    = input.bool(true, "Mục DOL: còn hiệu lực / đã quét, phá (PW > PD > phiên)", group = grp_tb)
-show_rules  = input.bool(true, "Mục nhắc setup A+", group = grp_tb)
+show_rules  = input.bool(false, "Mục nhắc setup A+ (CISD + FVG)", group = grp_tb)
 tbl_size_in = input.string("Vừa", "Cỡ chữ", options = ["Nhỏ", "Vừa", "Lớn"], group = grp_tb)
 tbl_size = tbl_size_in == "Nhỏ" ? size.small : tbl_size_in == "Lớn" ? size.large : size.normal
 
@@ -72,7 +63,8 @@ show_debug    = input.bool(false, "Bật lớp debug (biên giờ trước, lý 
 debug_rows    = input.int(20, "Số dòng bảng đối chiếu", minval = 5, maxval = 60, group = grp_dbg)
 
 // =============================================================================
-// PHẦN CŨ: KILLZONE TƯƠNG LAI + DEADLINE (giữ nguyên v6, chỉ sửa ngày alert)
+// MỐC GIỜ 03:00 & 09:00 NY (T2–T6): chỉ vẽ line bắt đầu, alert khi tới mốc.
+// Riêng setup CISD + FVG vẫn chỉ T3/T4/T5 (quy tắc v1.1).
 // =============================================================================
 var array<line>  lines_arr  = array.new<line>()
 var array<label> labels_arr = array.new<label>()
@@ -95,14 +87,11 @@ f_add_label(int t, string txt, color c) =>
     lb = label.new(x = t, y = high, text = txt, xloc = xloc.bar_time, color = color.new(c, 100), textcolor = c, style = label.style_label_down, size = size.small)
     array.push(labels_arr, lb)
 
-f_draw_future_killzone(int start_t, int deadline_t, int end_t, color c, string title_str, string dl_title) =>
+// line giữ trên chart đến hết giờ focus (end_t), sau đó mới xoá
+f_draw_future_killzone(int start_t, int end_t, color c, string title_str) =>
     if end_t > NOW
         f_add_vline(start_t, c, line.style_solid, 1)
         f_add_label(start_t, title_str, c)
-        if enable_deadlines
-            f_add_vline(deadline_t, col_deadline, dl_style, 1)
-            f_add_label(deadline_t, dl_title, col_deadline)
-        f_add_vline(end_t, c, line.style_dashed, 1)
 
 if barstate.islast
     f_clear_objects()
@@ -118,28 +107,22 @@ if barstate.islast
             int m_i   = month(day_anchor, TZ)
             int d_i   = dayofmonth(day_anchor, TZ)
             int dow_i = dayofweek(day_anchor, TZ)
-            bool is_target_day = dow_i == dayofweek.tuesday or dow_i == dayofweek.wednesday or dow_i == dayofweek.thursday
+            bool is_target_day = dow_i >= dayofweek.monday and dow_i <= dayofweek.friday
             if is_target_day
                 if enable_london
-                    f_draw_future_killzone(timestamp(TZ, y_i, m_i, d_i, 3, 0, 0), timestamp(TZ, y_i, m_i, d_i, 3, 30, 0), timestamp(TZ, y_i, m_i, d_i, 4, 0, 0), col_london, "London 03:00", "Deadline 03:30")
+                    f_draw_future_killzone(timestamp(TZ, y_i, m_i, d_i, 3, 0, 0), timestamp(TZ, y_i, m_i, d_i, 4, 0, 0), col_london, "London 03:00")
                 if enable_ny
-                    f_draw_future_killzone(timestamp(TZ, y_i, m_i, d_i, 9, 0, 0), timestamp(TZ, y_i, m_i, d_i, 9, 30, 0), timestamp(TZ, y_i, m_i, d_i, 10, 0, 0), col_ny, "NY AM 09:00", "Deadline 09:30")
+                    f_draw_future_killzone(timestamp(TZ, y_i, m_i, d_i, 9, 0, 0), timestamp(TZ, y_i, m_i, d_i, 10, 0, 0), col_ny, "NY AM 09:00")
 
 // Alert mốc giờ: lọc ngày theo thời gian của nến (v6 dùng timenow, sai trên lịch sử)
 bar_dow = dayofweek(time, TZ)
-is_alert_day = bar_dow == dayofweek.tuesday or bar_dow == dayofweek.wednesday or bar_dow == dayofweek.thursday
-in_lon_start = not na(time(timeframe.period, "0300-0301:345", TZ))
-in_lon_dl    = not na(time(timeframe.period, "0330-0331:345", TZ))
-in_ny_start  = not na(time(timeframe.period, "0900-0901:345", TZ))
-in_ny_dl     = not na(time(timeframe.period, "0930-0931:345", TZ))
+is_alert_day = bar_dow >= dayofweek.monday and bar_dow <= dayofweek.friday
+in_lon_start = not na(time(timeframe.period, "0300-0301:23456", TZ))
+in_ny_start  = not na(time(timeframe.period, "0900-0901:23456", TZ))
 if is_alert_day and enable_london and in_lon_start and not in_lon_start[1]
-    alert("Bắt đầu London Focus (03:00 NY) - T3/T4/T5!", alert.freq_once_per_bar)
-if is_alert_day and enable_deadlines and in_lon_dl and not in_lon_dl[1]
-    alert("CẢNH BÁO: Mốc London Deadline (03:30 NY)!", alert.freq_once_per_bar)
+    alert("Bắt đầu London Focus (03:00 NY)!", alert.freq_once_per_bar)
 if is_alert_day and enable_ny and in_ny_start and not in_ny_start[1]
-    alert("Bắt đầu New York AM Focus (09:00 NY) - T3/T4/T5!", alert.freq_once_per_bar)
-if is_alert_day and enable_deadlines and in_ny_dl and not in_ny_dl[1]
-    alert("CẢNH BÁO: Mốc New York Deadline / Equities Open (09:30 NY)!", alert.freq_once_per_bar)
+    alert("Bắt đầu New York AM Focus (09:00 NY)!", alert.freq_once_per_bar)
 
 // =============================================================================
 // SETUP CISD + FVG (M1)
@@ -226,13 +209,9 @@ f_fvg_sell(int k_hi) =>
 var int   cur_hs   = na          // thời điểm bắt đầu giờ hiện tại (ms)
 var float ch_hi    = na
 var float ch_lo    = na
-var int   ch_hi_bar = na       // nến tạo đỉnh/đáy giờ hiện tại
-var int   ch_lo_bar = na
 var int   ch_bars  = 0
 var float ph       = na          // đỉnh/đáy giờ trước
 var float pl       = na
-var int   ph_bar   = na
-var int   pl_bar   = na
 var bool  prev_ok  = false
 var array<float> h1_rng = array.new<float>()
 var float atr      = na          // trung bình (high-low) 24 nến H1 đã đóng, tối thiểu 12 mẫu
@@ -277,8 +256,6 @@ f_hour_row() =>
     string body = skip_hour != "" ? " | " + skip_hour : " | L: " + res_b + " | S: " + res_s
     head + body
 
-f_sess() => syminfo.ticker + " " + (hour(time, TZ) == 3 ? "London 03:00" : "NY AM 09:00")
-
 f_side_prefix(int sw_min, int cisd_bar, float depth) =>
     string s = "sweep " + f_m(sw_min)
     if not na(cisd_bar)
@@ -316,14 +293,10 @@ if barstate.isconfirmed and enable_sig and is_m1
             prev_ok := ch_bars >= 30 and cur_hs == hs - HOUR_MS
             ph := ch_hi
             pl := ch_lo
-            ph_bar := ch_hi_bar
-            pl_bar := ch_lo_bar
         // 2. mở giờ mới
         cur_hs := hs
         ch_hi := high
         ch_lo := low
-        ch_hi_bar := bar_index
-        ch_lo_bar := bar_index
         ch_bars := 0
         int hr = hour(time, TZ)
         int dow = dayofweek(time, TZ)
@@ -352,20 +325,12 @@ if barstate.isconfirmed and enable_sig and is_m1
         sell_done := false
         res_b := ""
         res_s := ""
-        if show_prev_hl and target_hr and prev_ok and in_window
-            line.new(ph_bar, ph, bar_index + 59, ph, xloc = xloc.bar_index, color = col_prev_hl, style = line.style_dotted, width = 1)
-            line.new(pl_bar, pl, bar_index + 59, pl, xloc = xloc.bar_index, color = col_prev_hl, style = line.style_dotted, width = 1)
-            // nhãn ở cuối đường (hết giờ setup): đỉnh đặt trên đường, đáy đặt dưới đường
-            label.new(bar_index + 59, ph, "Đỉnh giờ trước", xloc = xloc.bar_index, style = label.style_label_lower_right, color = color.new(col_prev_hl, 100), textcolor = col_prev_hl, size = size.small)
-            label.new(bar_index + 59, pl, "Đáy giờ trước", xloc = xloc.bar_index, style = label.style_label_upper_right, color = color.new(col_prev_hl, 100), textcolor = col_prev_hl, size = size.small)
 
     ch_bars += 1
     if high > ch_hi
         ch_hi := high
-        ch_hi_bar := bar_index
     if low < ch_lo
         ch_lo := low
-        ch_lo_bar := bar_index
 
     if in_scope
         bool sweep_now_lo = false
@@ -428,8 +393,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                         if d >= depth_max_atr
                             buy_done := true
                             res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " -> SKIP deep"
-                            if alert_cisd
-                                alert("[BỎ] " + f_sess() + " — CISD BUY phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR ≥ " + f_2(depth_max_atr) + " (quét sâu)", alert.freq_once_per_bar_close)
                         else
                             cisd_b := bar_index
                             cisd_b_org := bar_index - org_b
@@ -445,10 +408,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                                         label.set_xy(sw_lo_lb, lo_bar, lo_px)
                                     box.new(bar_index - fo, top, bar_index + (59 - m), bot, border_color = col_buy, bgcolor = color.new(col_buy, 80))
                                     label.new(bar_index - fo + math.round((59 - m + fo) / 2), (top + bot) / 2, "FVG " + f_1((top - bot) / pip) + "p", style = label.style_none, textcolor = col_buy, size = size.tiny, tooltip = "FVG mua " + f_1((top - bot) / pip) + " pip | " + f_p(bot) + " – " + f_p(top) + " | hoàn thành " + f_m(minute(time[fo], TZ)) + "\nCISD BUY " + f_m(m) + " | mức " + f_p(cisd_b_lvl) + " | đóng " + f_p(close) + "\nquét " + f_2(d) + " ATR | cực trị " + f_p(lo_px))
-                                alert("[SETUP] " + f_sess() + " — CISD BUY + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
-                            else
-                                if alert_cisd
-                                    alert("[CHỜ] " + f_sess() + " — CISD BUY phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | chưa có FVG, chờ nến kế tiếp", alert.freq_once_per_bar_close)
             else
                 // nến ngay sau CISD: FVG với nến giữa = nến CISD
                 float b = high[2]
@@ -463,12 +422,9 @@ if barstate.isconfirmed and enable_sig and is_m1
                             label.set_xy(sw_lo_lb, lo_bar, lo_px)
                         box.new(bar_index, t, bar_index + (59 - m), b, border_color = col_buy, bgcolor = color.new(col_buy, 80))
                         label.new(bar_index + math.round((59 - m) / 2), (t + b) / 2, "FVG " + f_1((t - b) / pip) + "p", style = label.style_none, textcolor = col_buy, size = size.tiny, tooltip = "FVG mua " + f_1((t - b) / pip) + " pip | " + f_p(b) + " – " + f_p(t) + " | hoàn thành " + f_m(m) + "\nCISD BUY " + f_m(minute(time[1], TZ)) + " | mức " + f_p(cisd_b_lvl) + " | đóng " + f_p(close[1]) + "\nquét " + f_2(depth_b) + " ATR | cực trị " + f_p(lo_px))
-                    alert("[SETUP] " + f_sess() + " — CISD BUY + FVG | CISD phút " + str.tostring(minute(time[1], TZ)) + " | quét " + f_2(depth_b) + " ATR | FVG " + f_p(b) + "–" + f_p(t) + " (" + f_1((t - b) / pip) + " pip)", alert.freq_once_per_bar_close)
                 else
                     buy_done := true
                     res_b := "sweep " + f_m(sw_lo_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_b) + " -> SKIP no FVG"
-                    if alert_cisd
-                        alert("[BỎ] " + f_sess() + " — CISD BUY phút " + str.tostring(minute(time[1], TZ)) + " không có FVG", alert.freq_once_per_bar_close)
                     if show_debug and in_window
                         label.new(cisd_b, cisd_b_lvl, "CISD no FVG", style = label.style_label_left, color = color.new(color.gray, 40), textcolor = color.white, size = size.tiny)
                         f_draw_cisd(cisd_b_org, cisd_b, cisd_b_lvl, color.new(color.gray, 40))
@@ -488,8 +444,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                         if d >= depth_max_atr
                             sell_done := true
                             res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(m) + " depth " + f_2(d) + " -> SKIP deep"
-                            if alert_cisd
-                                alert("[BỎ] " + f_sess() + " — CISD SELL phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR ≥ " + f_2(depth_max_atr) + " (quét sâu)", alert.freq_once_per_bar_close)
                         else
                             cisd_s := bar_index
                             cisd_s_org := bar_index - org_s
@@ -505,10 +459,6 @@ if barstate.isconfirmed and enable_sig and is_m1
                                         label.set_xy(sw_hi_lb, hi_bar, hi_px)
                                     box.new(bar_index - fo, top, bar_index + (59 - m), bot, border_color = col_sell, bgcolor = color.new(col_sell, 80))
                                     label.new(bar_index - fo + math.round((59 - m + fo) / 2), (top + bot) / 2, "FVG " + f_1((top - bot) / pip) + "p", style = label.style_none, textcolor = col_sell, size = size.tiny, tooltip = "FVG bán " + f_1((top - bot) / pip) + " pip | " + f_p(bot) + " – " + f_p(top) + " | hoàn thành " + f_m(minute(time[fo], TZ)) + "\nCISD SELL " + f_m(m) + " | mức " + f_p(cisd_s_lvl) + " | đóng " + f_p(close) + "\nquét " + f_2(d) + " ATR | cực trị " + f_p(hi_px))
-                                alert("[SETUP] " + f_sess() + " — CISD SELL + FVG | CISD phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | FVG " + f_p(bot) + "–" + f_p(top) + " (" + f_1((top - bot) / pip) + " pip)", alert.freq_once_per_bar_close)
-                            else
-                                if alert_cisd
-                                    alert("[CHỜ] " + f_sess() + " — CISD SELL phút " + str.tostring(m) + " | quét " + f_2(d) + " ATR | chưa có FVG, chờ nến kế tiếp", alert.freq_once_per_bar_close)
             else
                 float t = low[2]
                 float b = high
@@ -522,12 +472,9 @@ if barstate.isconfirmed and enable_sig and is_m1
                             label.set_xy(sw_hi_lb, hi_bar, hi_px)
                         box.new(bar_index, t, bar_index + (59 - m), b, border_color = col_sell, bgcolor = color.new(col_sell, 80))
                         label.new(bar_index + math.round((59 - m) / 2), (t + b) / 2, "FVG " + f_1((t - b) / pip) + "p", style = label.style_none, textcolor = col_sell, size = size.tiny, tooltip = "FVG bán " + f_1((t - b) / pip) + " pip | " + f_p(b) + " – " + f_p(t) + " | hoàn thành " + f_m(m) + "\nCISD SELL " + f_m(minute(time[1], TZ)) + " | mức " + f_p(cisd_s_lvl) + " | đóng " + f_p(close[1]) + "\nquét " + f_2(depth_s) + " ATR | cực trị " + f_p(hi_px))
-                    alert("[SETUP] " + f_sess() + " — CISD SELL + FVG | CISD phút " + str.tostring(minute(time[1], TZ)) + " | quét " + f_2(depth_s) + " ATR | FVG " + f_p(b) + "–" + f_p(t) + " (" + f_1((t - b) / pip) + " pip)", alert.freq_once_per_bar_close)
                 else
                     sell_done := true
                     res_s := "sweep " + f_m(sw_hi_min) + " CISD " + f_m(minute(time[1], TZ)) + " depth " + f_2(depth_s) + " -> SKIP no FVG"
-                    if alert_cisd
-                        alert("[BỎ] " + f_sess() + " — CISD SELL phút " + str.tostring(minute(time[1], TZ)) + " không có FVG", alert.freq_once_per_bar_close)
                     if show_debug and in_window
                         label.new(cisd_s, cisd_s_lvl, "CISD no FVG", style = label.style_label_left, color = color.new(color.gray, 40), textcolor = color.white, size = size.tiny)
                         f_draw_cisd(cisd_s_org, cisd_s, cisd_s_lvl, color.new(color.gray, 40))
