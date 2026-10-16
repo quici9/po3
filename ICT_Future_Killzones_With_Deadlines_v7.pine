@@ -1,7 +1,8 @@
 //@version=6
 // v7: v6 killzone start lines (03:00/09:00) + CISD+FVG setup marker for the 03:00 and 09:00 NY hours (M1 only).
 // Logic mirrors docs/analysis-2026-09-21/verify_indicator.py (rule v1.1). Keep both in sync.
-indicator("ICT Killzones + CISD/FVG Setup (v7, M1)", overlay = true, max_lines_count = 500, max_labels_count = 500, max_boxes_count = 100, max_bars_back = 500)
+// behind_chart = false: vẽ trên lớp nến, nếu không nến sẽ đè lên chữ trong bảng DOL
+indicator("ICT Killzones + CISD/FVG Setup (v7, M1)", overlay = true, max_lines_count = 500, max_labels_count = 500, max_boxes_count = 100, max_bars_back = 500, behind_chart = false)
 
 TZ = "America/New_York"
 // Mốc "hiện tại" = thời gian nến cuối trên chart: trong Bar Replay chính là vị trí đang replay (timenow là giờ thật, sẽ sai).
