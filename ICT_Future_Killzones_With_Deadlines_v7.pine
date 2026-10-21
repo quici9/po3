@@ -1,5 +1,5 @@
 //@version=6
-// v7: v6 killzone start lines (03:00/09:00) + CISD+FVG setup marker for the 03:00 and 09:00 NY hours (M1 only).
+// v7: 03:00/09:00 NY start alerts (no start lines) + CISD+FVG setup marker for the 03:00 and 09:00 NY hours (M1 only).
 // Logic mirrors docs/analysis-2026-09-21/verify_indicator.py (rule v1.1). Keep both in sync.
 // behind_chart = false: vẽ trên lớp nến, nếu không nến sẽ đè lên chữ trong bảng DOL
 indicator("ICT Killzones + CISD/FVG Setup (v7, M1)", overlay = true, max_lines_count = 500, max_labels_count = 500, max_boxes_count = 100, max_bars_back = 500, behind_chart = false)
@@ -14,12 +14,10 @@ DAY_MS  = 86400000
 // CẤU HÌNH
 // =============================================================================
 grp_ln = "London Focus (03:00 - 04:00 NY)"
-enable_london = input.bool(true, "Bật London Focus", group = grp_ln)
-col_london    = input.color(color.blue, "Màu London", group = grp_ln)
+enable_london = input.bool(true, "Bật alert London Focus (03:00)", group = grp_ln)
 
 grp_ny = "New York AM Focus (09:00 - 10:00 NY)"
-enable_ny     = input.bool(true, "Bật New York AM Focus", group = grp_ny)
-col_ny        = input.color(#E65100, "Màu New York AM", group = grp_ny)
+enable_ny     = input.bool(true, "Bật alert New York AM Focus (09:00)", group = grp_ny)
 
 grp_sg = "Setup CISD + FVG (quy tắc v1.1, chỉ M1, giờ 03:00 & 09:00 NY, T3/T4/T5)"
 // tắt mặc định: người dùng đang theo setup khác, chưa hệ thống hoá (2026-10-16)
@@ -65,57 +63,9 @@ show_debug    = input.bool(false, "Bật lớp debug (biên giờ trước, lý 
 debug_rows    = input.int(20, "Số dòng bảng đối chiếu", minval = 5, maxval = 60, group = grp_dbg)
 
 // =============================================================================
-// MỐC GIỜ 03:00 & 09:00 NY (T2–T6): chỉ vẽ line bắt đầu, alert khi tới mốc.
+// MỐC GIỜ 03:00 & 09:00 NY (T2–T6): chỉ alert khi tới mốc, không vẽ line.
 // Riêng setup CISD + FVG vẫn chỉ T3/T4/T5 (quy tắc v1.1).
 // =============================================================================
-var array<line>  lines_arr  = array.new<line>()
-var array<label> labels_arr = array.new<label>()
-
-f_clear_objects() =>
-    if array.size(lines_arr) > 0
-        for i = 0 to array.size(lines_arr) - 1
-            line.delete(array.get(lines_arr, i))
-        array.clear(lines_arr)
-    if array.size(labels_arr) > 0
-        for i = 0 to array.size(labels_arr) - 1
-            label.delete(array.get(labels_arr, i))
-        array.clear(labels_arr)
-
-f_add_vline(int t, color c, string st, int w) =>
-    l = line.new(x1 = t, y1 = low, x2 = t, y2 = high, xloc = xloc.bar_time, extend = extend.both, color = c, style = st, width = w)
-    array.push(lines_arr, l)
-
-f_add_label(int t, string txt, color c) =>
-    lb = label.new(x = t, y = high, text = txt, xloc = xloc.bar_time, color = color.new(c, 100), textcolor = c, style = label.style_label_down, size = size.small)
-    array.push(labels_arr, lb)
-
-// line giữ trên chart đến hết giờ focus (end_t), sau đó mới xoá
-f_draw_future_killzone(int start_t, int end_t, color c, string title_str) =>
-    if end_t > NOW
-        f_add_vline(start_t, c, line.style_solid, 1)
-        f_add_label(start_t, title_str, c)
-
-if barstate.islast
-    f_clear_objects()
-    int y_now   = year(NOW, TZ)
-    int m_now   = month(NOW, TZ)
-    int d_now   = dayofmonth(NOW, TZ)
-    int dow_now = dayofweek(NOW, TZ)
-    int days_to_friday = 6 - dow_now
-    if days_to_friday >= 0
-        for i = 0 to days_to_friday
-            int day_anchor = timestamp(TZ, y_now, m_now, d_now + i, 0, 0, 0)
-            int y_i   = year(day_anchor, TZ)
-            int m_i   = month(day_anchor, TZ)
-            int d_i   = dayofmonth(day_anchor, TZ)
-            int dow_i = dayofweek(day_anchor, TZ)
-            bool is_target_day = dow_i >= dayofweek.monday and dow_i <= dayofweek.friday
-            if is_target_day
-                if enable_london
-                    f_draw_future_killzone(timestamp(TZ, y_i, m_i, d_i, 3, 0, 0), timestamp(TZ, y_i, m_i, d_i, 4, 0, 0), col_london, "London 03:00")
-                if enable_ny
-                    f_draw_future_killzone(timestamp(TZ, y_i, m_i, d_i, 9, 0, 0), timestamp(TZ, y_i, m_i, d_i, 10, 0, 0), col_ny, "NY AM 09:00")
-
 // Alert mốc giờ: lọc ngày theo thời gian của nến (v6 dùng timenow, sai trên lịch sử)
 bar_dow = dayofweek(time, TZ)
 is_alert_day = bar_dow >= dayofweek.monday and bar_dow <= dayofweek.friday
