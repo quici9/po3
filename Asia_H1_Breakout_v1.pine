@@ -1,0 +1,259 @@
+//@version=6
+// v1: steps 1-2 of the Asia H1 breakout pattern (docs/analysis-2026-10-20/mau-hinh-asia-h1-breakout.md).
+// Step 1: Asia range = high/low of 20:00-00:00 NY (computed, not drawn: another indicator draws it).
+// Step 2: alert on the first H1 candle from 00:00 NY that CLOSES outside the Asia range, only if that candle
+// opens 00:00-05:00. First close-outside at 06:00+ = no alert that day (no later candle is used).
+// The alert also says whether that H1 candle contains an M15 FVG in the breakout direction (all 3 M15 candles
+// inside the hour); it fires either way.
+// Logic mirrors docs/analysis-2026-10-20/verify_breakout_indicator.py. Keep both in sync.
+// Chart H1 (M15 candles via request.security_lower_tf) or M15 (H1 candle rebuilt from the chart bars).
+indicator("Asia H1 Breakout 00:00-05:00 NY + M15 FVG (v1)", overlay = true, max_lines_count = 500, max_labels_count = 500)
+
+TZ = "America/New_York"
+HOUR_MS = 3600000
+DAY_MS  = 86400000
+M15_MS  = 900000
+
+// =============================================================================
+// CẤU HÌNH
+// =============================================================================
+grp_rule = "Quy tắc (giữ mặc định để khớp thống kê)"
+asia_start_h = input.int(20, "Asia bắt đầu (giờ NY), kết thúc 00:00", minval = 18, maxval = 23, group = grp_rule)
+win_end_h    = input.int(6, "Giờ kết thúc: nến breakout phải mở trước giờ này", minval = 1, maxval = 11, group = grp_rule)
+
+grp_draw = "Hiển thị"
+show_vline = input.bool(true, "Vẽ đường dọc 00:00 (bắt đầu) và giờ kết thúc", group = grp_draw)
+col_start  = input.color(color.teal, "Màu đường bắt đầu", group = grp_draw)
+col_end    = input.color(color.gray, "Màu đường kết thúc", group = grp_draw)
+col_up     = input.color(color.green, "Màu breakout lên", group = grp_draw)
+col_dn     = input.color(color.red, "Màu breakout xuống", group = grp_draw)
+
+// =============================================================================
+// KHUNG THỜI GIAN: chỉ H1 hoặc M15
+// =============================================================================
+is_h1  = timeframe.period == "60"
+is_m15 = timeframe.period == "15"
+if not is_h1 and not is_m15
+    runtime.error("Chỉ dùng trên khung H1 hoặc M15.")
+
+// các nến M15 nằm trong nến H1 của chart (chỉ dùng khi chart H1). Pine yêu cầu gọi ở global scope mọi nến.
+[lt_t, lt_h, lt_l] = request.security_lower_tf(syminfo.tickerid, "15", [time, high, low], ignore_invalid_timeframe = true)
+
+// =============================================================================
+// VẼ: chỉ ngày giao dịch hiện tại = ngày của nến cuối chart (Bar Replay: ngày đang replay).
+// Ngày đã qua không hiển thị; sang ngày mới thì hình của ngày cũ bị xóa.
+// =============================================================================
+var array<line>  obj_lines  = array.new<line>()
+var array<label> obj_labels = array.new<label>()
+var int obj_day = na        // 00:00 NY của ngày đang vẽ
+
+f_clear() =>
+    while array.size(obj_lines) > 0
+        line.delete(array.pop(obj_lines))
+    while array.size(obj_labels) > 0
+        label.delete(array.pop(obj_labels))
+
+// từ 18:00 NY nến thuộc ngày giao dịch hôm sau (tối Chủ nhật = thứ Hai)
+lb_t    = last_bar_time + (hour(last_bar_time, TZ) >= 18 ? DAY_MS : 0)
+cur_day = timestamp(TZ, year(lb_t, TZ), month(lb_t, TZ), dayofmonth(lb_t, TZ), 0, 0, 0)
+
+// FVG M15 cùng hướng, cả 3 nến trong giờ: ô 0-1-2 hoặc 1-2-3. Ô thiếu (na) = không có FVG (so sánh với na luôn false).
+// Trả về [có FVG, đáy, đỉnh, ô nến đầu của FVG].
+f_fvg(int side, float h0, float h1, float h2, float h3, float l0, float l1, float l2, float l3) =>
+    bool  ok  = false
+    float bot = na
+    float top = na
+    int   j0  = na
+    if side > 0
+        if l2 > h0
+            ok  := true
+            bot := h0
+            top := l2
+            j0  := 0
+        else if l3 > h1
+            ok  := true
+            bot := h1
+            top := l3
+            j0  := 1
+    else
+        if h2 < l0
+            ok  := true
+            bot := h2
+            top := l0
+            j0  := 0
+        else if h3 < l1
+            ok  := true
+            bot := h3
+            top := l1
+            j0  := 1
+    [ok, bot, top, j0]
+
+// =============================================================================
+// BƯỚC 1: ASIA RANGE (asia_start_h:00 - 00:00 NY), chỉ tính, không vẽ
+// =============================================================================
+var float a_hi    = na
+var float a_lo    = na
+var int   day_00  = na      // 00:00 NY của ngày giao dịch đang theo dõi
+var int   day_end = na      // giờ kết thúc cửa sổ của ngày đó
+var bool  day_draw = false  // ngày đang theo dõi là ngày hiện tại (hoặc sau đó)
+var bool  done    = true    // true = ngày đã xong (đã xét nến close ngoài đầu tiên, đã quá cửa sổ, hoặc không theo dõi)
+
+// nến H1 đang dựng và 4 ô M15 của nó
+var int   c_t  = na
+var float c_hi = na
+var float c_lo = na
+var float c_cl = na
+var bool  c_ev = true       // nến H1 đang dựng đã được xét chưa
+var float mh0 = na
+var float mh1 = na
+var float mh2 = na
+var float mh3 = na
+var float ml0 = na
+var float ml1 = na
+var float ml2 = na
+var float ml3 = na
+
+ny_h    = hour(time, TZ)
+in_asia = ny_h >= asia_start_h
+// khoảng trống >= 12 giờ: phiên Asia mới dù nến trước cũng nằm trong khung giờ Asia (một phiên dài tối đa 6 giờ)
+new_asia = in_asia and (not in_asia[1] or time - time[1] >= 12 * HOUR_MS)
+
+if new_asia
+    int y = year(time, TZ)
+    int m = month(time, TZ)
+    int d = dayofmonth(time, TZ)
+    day_00  := timestamp(TZ, y, m, d + 1, 0, 0, 0)
+    day_end := timestamp(TZ, y, m, d + 1, win_end_h, 0, 0)
+    int dow = dayofweek(day_00, TZ)
+    done := not (dow >= dayofweek.monday and dow <= dayofweek.friday)
+    a_hi := high
+    a_lo := low
+    c_t  := na
+    c_ev := true
+    day_draw := day_00 >= cur_day
+    // sang ngày mới khi chạy realtime/replay: xóa hình của ngày cũ
+    if day_draw and (na(obj_day) or day_00 != obj_day)
+        f_clear()
+        obj_day := day_00
+    if not done and day_draw and show_vline
+        array.push(obj_lines, line.new(day_00, low, day_00, high, xloc = xloc.bar_time, extend = extend.both, color = col_start, style = line.style_solid, width = 1))
+        array.push(obj_lines, line.new(day_end, low, day_end, high, xloc = xloc.bar_time, extend = extend.both, color = col_end, style = line.style_dashed, width = 1))
+else if in_asia and not na(a_hi)
+    a_hi := math.max(a_hi, high)
+    a_lo := math.min(a_lo, low)
+
+// =============================================================================
+// BƯỚC 2: NẾN H1 ĐẦU TIÊN CLOSE NGOÀI ASIA, MỞ 00:00 - (win_end_h - 1):00 (+ báo có/không FVG M15)
+// Giờ NY lệch UTC nguyên giờ nên biên giờ NY = biên giờ UTC.
+// =============================================================================
+// nến H1 trước thiếu nến M15 cuối giờ (chỉ xảy ra trên chart M15): xét bù khi sang giờ mới, alert kèm chữ "muộn"
+bool  s_ev = false
+int   s_t  = na
+float s_hi = na
+float s_lo = na
+float s_cl = na
+bool  s_fu = false
+float s_ub = na
+float s_ut = na
+int   s_uj = na
+bool  s_fd = false
+float s_db = na
+float s_dt = na
+int   s_dj = na
+
+tracking = not done and not na(day_00) and time >= day_00
+bucket   = time - time % HOUR_MS
+if tracking
+    // so sánh với na trong Pine luôn false: phải kiểm na(c_t) riêng
+    if na(c_t) or bucket != c_t
+        if not na(c_t) and not c_ev
+            s_ev := true
+            s_t  := c_t
+            s_hi := c_hi
+            s_lo := c_lo
+            s_cl := c_cl
+            [u_ok, u_b, u_t, u_j] = f_fvg(1, mh0, mh1, mh2, mh3, ml0, ml1, ml2, ml3)
+            [d_ok, d_b, d_t, d_j] = f_fvg(-1, mh0, mh1, mh2, mh3, ml0, ml1, ml2, ml3)
+            s_fu := u_ok
+            s_ub := u_b
+            s_ut := u_t
+            s_uj := u_j
+            s_fd := d_ok
+            s_db := d_b
+            s_dt := d_t
+            s_dj := d_j
+        c_t  := bucket
+        c_hi := high
+        c_lo := low
+        c_cl := close
+        c_ev := false
+        mh0 := na
+        mh1 := na
+        mh2 := na
+        mh3 := na
+        ml0 := na
+        ml1 := na
+        ml2 := na
+        ml3 := na
+    else
+        c_hi := math.max(c_hi, high)
+        c_lo := math.min(c_lo, low)
+        c_cl := close
+    // điền ô M15: chart M15 lấy chính nến chart, chart H1 lấy các nến M15 bên trong
+    int n_lt = is_m15 ? 1 : array.size(lt_t)
+    if n_lt > 0
+        for i = 0 to n_lt - 1
+            int   tt = is_m15 ? time : array.get(lt_t, i)
+            float hh = is_m15 ? high : array.get(lt_h, i)
+            float ll = is_m15 ? low  : array.get(lt_l, i)
+            int   j  = int(math.floor((tt - c_t) / M15_MS))
+            if j == 0
+                mh0 := hh
+                ml0 := ll
+            else if j == 1
+                mh1 := hh
+                ml1 := ll
+            else if j == 2
+                mh2 := hh
+                ml2 := ll
+            else if j == 3
+                mh3 := hh
+                ml3 := ll
+
+// nến chart này đóng đúng lúc hết giờ: nến H1 đã close (realtime: chỉ khi nến chart đã xác nhận)
+cur_ev = tracking and not c_ev and time_close >= c_t + HOUR_MS and barstate.isconfirmed
+if cur_ev
+    c_ev := true
+[cu_ok, cu_b, cu_t, cu_j] = f_fvg(1, mh0, mh1, mh2, mh3, ml0, ml1, ml2, ml3)
+[cd_ok, cd_b, cd_t, cd_j] = f_fvg(-1, mh0, mh1, mh2, mh3, ml0, ml1, ml2, ml3)
+
+for pass = 0 to 1
+    bool has = pass == 0 ? s_ev : cur_ev
+    if has and not done
+        int   ct   = pass == 0 ? s_t  : c_t
+        float chi  = pass == 0 ? s_hi : c_hi
+        float clo  = pass == 0 ? s_lo : c_lo
+        float ccl  = pass == 0 ? s_cl : c_cl
+        int   k    = math.round((ct - day_00) / HOUR_MS)     // giờ mở nến tính từ 00:00 NY
+        int   side = ccl > a_hi ? 1 : ccl < a_lo ? -1 : 0
+        // nến close ngoài đầu tiên quyết định cả ngày
+        if side != 0 or k >= win_end_h - 1
+            done := true
+        if side != 0 and k >= 0 and k < win_end_h
+            bool  f_ok = side > 0 ? (pass == 0 ? s_fu : cu_ok) : (pass == 0 ? s_fd : cd_ok)
+            float fb   = side > 0 ? (pass == 0 ? s_ub : cu_b) : (pass == 0 ? s_db : cd_b)
+            float ft   = side > 0 ? (pass == 0 ? s_ut : cu_t) : (pass == 0 ? s_dt : cd_t)
+            int   fj   = side > 0 ? (pass == 0 ? s_uj : cu_j) : (pass == 0 ? s_dj : cd_j)
+            string hh    = str.tostring(k, "00") + ":00"
+            string dir   = side > 0 ? "LÊN" : "XUỐNG"
+            string lvl   = side > 0 ? "Asia High " + str.tostring(a_hi, format.mintick) : "Asia Low " + str.tostring(a_lo, format.mintick)
+            string fvg_s = f_ok ? "CÓ FVG M15 (3 nến từ " + str.tostring(k, "00") + ":" + str.tostring(fj * 15, "00") + "): " + str.tostring(fb, format.mintick) + " - " + str.tostring(ft, format.mintick) : "KHÔNG có FVG M15"
+            string msg   = syminfo.ticker + ": breakout " + dir + " Asia, nến H1 " + hh + " NY close " + str.tostring(ccl, format.mintick) + (side > 0 ? " > " : " < ") + lvl + ". " + fvg_s + ". Nến H1: High " + str.tostring(chi, format.mintick) + ", Low " + str.tostring(clo, format.mintick) + ". Asia " + str.tostring(a_lo, format.mintick) + " - " + str.tostring(a_hi, format.mintick) + "."
+            if day_draw
+                color  c   = side > 0 ? col_up : col_dn
+                string txt = (side > 0 ? "▲ BO " : "▼ BO ") + hh + (f_ok ? " FVG" : " no FVG") + (pass == 0 ? " (muộn)" : "")
+                array.push(obj_labels, label.new(ct, side > 0 ? chi : clo, txt, xloc = xloc.bar_time, style = side > 0 ? label.style_label_down : label.style_label_up, color = color.new(c, f_ok ? 0 : 50), textcolor = color.white, size = size.small, tooltip = msg))
+            if pass == 1
+                alert(msg, alert.freq_once_per_bar_close)
+            else
+                alert("(muộn) " + msg, alert.freq_once_per_bar)
